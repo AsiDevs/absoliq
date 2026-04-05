@@ -1,7 +1,7 @@
 import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { createPageMetadata, isHome, pageConfig } from "@/utils/page-utils";
+import { createPageMetadata, pageConfig } from "@/utils/page-utils";
 
 export const revalidate = 25920000;
 export const dynamicParams = false;
