@@ -121,6 +121,11 @@
 						}
 					}
 				]
+			},
+			"cta_description": {
+				"__TYPE__": "FieldContent",
+				"value": "battle",
+				"type": "Text"
 			}
 		},
 		"items": [

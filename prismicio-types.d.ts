@@ -813,6 +813,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryButtonsItem>>;
+
+  /**
+   * CTA Description field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.cta_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta_description: prismic.KeyTextField;
 }
 
 /**

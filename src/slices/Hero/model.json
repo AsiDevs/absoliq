@@ -101,6 +101,13 @@
               }
             }
           }
+        },
+        "cta_description": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Description",
+            "placeholder": ""
+          }
         }
       },
       "items": {},
