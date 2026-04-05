@@ -2,7 +2,6 @@ import { createClient } from "@/prismicio";
 import { asText } from "@prismicio/client";
 import { createBlogMetadata } from "@/utils/page-utils";
 import getFullUrl from "@/utils/get-full-url";
-import slugify from "slugify";
 
 export const revalidate = 25920000;
 export const dynamicParams = false;
@@ -69,6 +68,3 @@ const schemaTemplate = (page) => {
     dateModified: page.last_publication_date,
   };
 };
-
-const makeSlug = (heading) =>
-  slugify(asText(heading), { lower: true, strict: true });
