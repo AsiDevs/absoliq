@@ -1,0 +1,34 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "they",
+        "type": "Text"
+      },
+      "menu_id": {
+        "__TYPE__": "FieldContent",
+        "value": "thou",
+        "type": "Text"
+      },
+      "links": {
+        "__TYPE__": "RepeatableContent",
+        "type": "Link",
+        "value": [
+          {
+            "__TYPE__": "LinkContent",
+            "key": "6ee94439-a2a3-447a-b101-cce5734377af",
+            "value": {
+              "__TYPE__": "ExternalLink",
+              "url": "http://twitter.com",
+              "text": "radio"
+            }
+          }
+        ]
+      }
+    },
+    "items": []
+  }
+]

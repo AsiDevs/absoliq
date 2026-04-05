@@ -1,0 +1,220 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "top_padding": {
+        "__TYPE__": "FieldContent",
+        "value": "Half",
+        "type": "Select"
+      },
+      "bottom_padding": {
+        "__TYPE__": "FieldContent",
+        "value": "Half",
+        "type": "Select"
+      },
+      "cta_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Church"
+            }
+          }
+        ]
+      },
+      "cta_description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Reprehenderit commodo eu et mollit voluptate exercitation nisi proident."
+            }
+          }
+        ]
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "icon_alignment",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Right",
+                  "type": "Select"
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Primary"
+                }
+              ],
+              [
+                "link",
+                {
+                  "key": "acf7675b-eb71-4062-b4d4-26f8dabaf382",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://google.com",
+                    "text": "card"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Laboris ex cupidatat cupidatat."
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Est officia deserunt magna elit adipisicing qui nostrud aliquip dolore aute labore ad veniam minim culpa."
+            }
+          }
+        ]
+      },
+      "with_background_color": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "fullWidth",
+    "primary": {
+      "top_padding": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "None"
+      },
+      "bottom_padding": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "None"
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "link",
+                {
+                  "key": "1e7644e1-dc1b-40e4-8a7a-865eb51ebe94",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://slicemachine.dev",
+                    "text": "cap"
+                  }
+                }
+              ],
+              [
+                "icon_alignment",
+                {
+                  "__TYPE__": "FieldContent",
+                  "value": "Right",
+                  "type": "Select"
+                }
+              ],
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Primary"
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "variant",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Secondary"
+                }
+              ],
+              [
+                "link",
+                {
+                  "key": "8dd551b2-709e-4615-8eba-0d85dfefb345",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "https://slicemachine.dev",
+                    "text": "sudden"
+                  }
+                }
+              ],
+              [
+                "icon_alignment",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Select",
+                  "value": "Left"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Esse irure laborum proident. In dolore reprehenderit mollit."
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Irure deserunt culpa incididunt velit consequat do velit. Nulla et tempor sunt voluptate officia officia dolor ullamco nisi ex adipisicing cillum duis."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]
