@@ -7,11 +7,9 @@ const Main = ({ slice }) => {
   const isLeftAligned = slice?.primary?.text_align_left || false;
   return (
     <StyledContainer slice={slice}>
-      <div className="pt-50"></div>
       <StyledSectionTitleHero slice={slice} leftAligned={isLeftAligned} />
       <StyledButtonContainer slice={slice} leftAligned={isLeftAligned} />
       <CTADescription slice={slice} leftAligned={isLeftAligned} />
-      <div className="pb-50"></div>
     </StyledContainer>
   );
 };

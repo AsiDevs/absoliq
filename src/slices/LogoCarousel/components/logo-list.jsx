@@ -1,65 +1,49 @@
+"use client";
+
+import React from "react";
+import "./logo-list.css";
 import { PrismicNextImage } from "@prismicio/next";
-import clsx from "clsx";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const LogoList = ({
-  images = [],
-  reverse = false,
-  spacing = 10,
-  speedFactor = 1,
-}) => {
-  const imageWidth = images?.[0]?.image?.dimensions?.width || 200;
-  const imageHeight = images?.[0]?.image?.dimensions?.height || 100;
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
 
-  const height = imageHeight / 2;
-  const width = imageWidth / 2;
-
-  const getImages = (images) => {
-    const finalImageArray = [];
-    const minimumImageCount = 1920 / width;
-    const factor = Math.ceil(minimumImageCount / images?.length);
-
-    for (let i = 0; i < factor; i++) {
-      finalImageArray.push(...images);
-    }
-    return finalImageArray;
-  };
-
-  const imageList = getImages(images);
-
+export function LogoList({ images }) {
   return (
-    <div
-      className={clsx({
-        "flex z-0 mt-5": true,
-        "animate-scroll": !reverse,
-        "animate-scroll-reverse": reverse,
-      })}
-      style={{
-        animationDuration: `${images?.length * speedFactor}s`,
-        width: (width + spacing) * images?.length,
+    <Swiper
+      spaceBetween={32}
+      slidesPerView={3}
+      loop={true}
+      speed={9000}
+      autoplay={{
+        delay: 0, // KEY: removes step pauses
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
       }}
+      allowTouchMove={false} // optional: makes it feel like a marquee
+      modules={[Autoplay]}
+      breakpoints={{
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 46,
+        },
+        1280: {
+          slidesPerView: 4.5,
+          spaceBetween: 96,
+        },
+      }}
+      className="logo-carousel-swiper"
     >
-      {[...imageList, ...imageList]?.map(({ image }, idx) => {
-        return (
-          <div
-            className="overflow-hidden relative"
-            key={idx}
-            style={{
-              margin: `0 ${spacing / 2}px`,
-              minWidth: width,
-              width,
-              height,
-            }}
-          >
-            <PrismicNextImage
-              field={image}
-              className={"absolute left-0 top-0 h-full w-full object-contain"}
-              fallbackAlt={""}
-            />
-          </div>
-        );
-      })}
-    </div>
+      {images?.map(({ image }, idx) => (
+        <SwiperSlide
+          key={image?.id + idx}
+          className="py-1 md:py-1.5 xl:py-2 px-1.5 md:px-2 xl:px-3"
+        >
+          <PrismicNextImage field={image} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
-};
+}
 
 export default LogoList;

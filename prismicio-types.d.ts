@@ -876,31 +876,22 @@ export interface LogoCarouselSliceDefaultPrimary {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
+   * - **Default Value**: None
    * - **API ID Path**: logo_carousel.default.primary.top_padding
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  top_padding: prismic.SelectField<"Full" | "Half">;
+  top_padding: prismic.SelectField<"None" | "Half" | "Full", "filled">;
 
   /**
    * Bottom Padding field in *LogoCarousel → Default → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
+   * - **Default Value**: None
    * - **API ID Path**: logo_carousel.default.primary.bottom_padding
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  bottom_padding: prismic.SelectField<"Full" | "Half">;
-
-  /**
-   * With Background Color field in *LogoCarousel → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: logo_carousel.default.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
+  bottom_padding: prismic.SelectField<"None" | "Half" | "Full", "filled">;
 
   /**
    * Title field in *LogoCarousel → Default → Primary*
@@ -911,39 +902,6 @@ export interface LogoCarouselSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
-
-  /**
-   * Full Width? field in *LogoCarousel → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: logo_carousel.default.primary.full_width
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  full_width: prismic.BooleanField;
-
-  /**
-   * Fade Effect? field in *LogoCarousel → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: logo_carousel.default.primary.fade_effect
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  fade_effect: prismic.BooleanField;
-
-  /**
-   * Two rows? field in *LogoCarousel → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: logo_carousel.default.primary.two_rows
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  two_rows: prismic.BooleanField;
 
   /**
    * Images field in *LogoCarousel → Default → Primary*

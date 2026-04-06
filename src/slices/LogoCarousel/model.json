@@ -17,7 +17,12 @@
           "config": {
             "label": "Top Padding",
             "placeholder": "",
-            "options": ["Full", "Half"]
+            "options": [
+              "None",
+              "Half",
+              "Full"
+            ],
+            "default_value": "None"
           }
         },
         "bottom_padding": {
@@ -25,16 +30,12 @@
           "config": {
             "label": "Bottom Padding",
             "placeholder": "",
-            "options": ["Full", "Half"]
-          }
-        },
-        "with_background_color": {
-          "type": "Boolean",
-          "config": {
-            "label": "With Background Color",
-            "placeholder_false": "No",
-            "placeholder_true": "Yes",
-            "default_value": false
+            "options": [
+              "None",
+              "Half",
+              "Full"
+            ],
+            "default_value": "None"
           }
         },
         "title": {
@@ -44,33 +45,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,heading2,heading3,heading4"
-          }
-        },
-        "full_width": {
-          "type": "Boolean",
-          "config": {
-            "label": "Full Width?",
-            "placeholder_false": "No",
-            "placeholder_true": "Yes",
-            "default_value": false
-          }
-        },
-        "fade_effect": {
-          "type": "Boolean",
-          "config": {
-            "label": "Fade Effect?",
-            "placeholder_false": "No",
-            "placeholder_true": "Yes",
-            "default_value": false
-          }
-        },
-        "two_rows": {
-          "type": "Boolean",
-          "config": {
-            "label": "Two rows?",
-            "placeholder_false": "No",
-            "placeholder_true": "Yes",
-            "default_value": false
           }
         },
         "images": {
@@ -84,8 +58,8 @@
                 "config": {
                   "label": "Image",
                   "constraint": {
-                    "width": 200,
-                    "height": 100
+                    "width": null,
+                    "height": null
                   },
                   "thumbnails": []
                 }
