@@ -2,14 +2,45 @@
   transition-timing-function: linear !important;
 }
 
-.swiper {
+.logo-carousel-swiper .swiper {
   width: 100%;
   height: 100%;
 }
 
-.swiper-slide img {
+.logo-carousel-swiper .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Container ensures relative positioning */
+.logo-list-container {
+  position: relative;
+  overflow: hidden; /* hide overflowing slides */
+}
+
+/* Mask for smooth fade */
+.fade-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }

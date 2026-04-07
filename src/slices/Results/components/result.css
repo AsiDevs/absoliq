@@ -1,0 +1,85 @@
+.results-swiper.swiper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .results-swiper.swiper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .results-swiper.swiper {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .results-swiper.swiper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+.result-link-container .result-link {
+  overflow: hidden;
+}
+
+.result-link-container .result-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  background: var(--color-secondary-dark);
+  left: 0;
+  bottom: 0;
+  transition: var(--transition);
+}
+
+.result-link-container .result-link .result-transition-timing {
+  transition: var(--transition);
+}
+
+.result-link-container .result-link .title-container,
+.result-link-container .result-link .tag-container,
+.result-link-container .result-link .stat-container {
+  position: relative;
+  z-index: 10;
+}
+
+.result-link-container .result-link .title-container button {
+  position: relative;
+}
+
+.result-link-container .result-link .title-container button .before-hover,
+.result-link-container .result-link .title-container button .after-hover {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.result-link-container .result-link .title-container button .before-hover {
+  left: 50%;
+  transition: var(--transition);
+}
+
+.result-link-container .result-link .title-container button .after-hover {
+  left: -20;
+  transition: var(--transition);
+}
+
+.result-link-container .result-link:hover .title-container button .before-hover {
+  left: 120%;
+}
+
+.result-link-container .result-link:hover .title-container button .after-hover {
+  left: 50%;
+}
+
+.result-link-container .result-link:hover::after {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,87 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"results": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "broad",
+									"type": "Text"
+								}
+							],
+							[
+								"tag_one",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "seed",
+									"type": "Text"
+								}
+							],
+							[
+								"tag_two",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "select",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_one",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rain",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_one_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "burst",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_two",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "species",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_two_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "told",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "80f8d8b9-0ff2-493d-bb37-83b3806635e3",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "touch"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

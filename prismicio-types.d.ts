@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | ResultsSlice
   | LogoCarouselSlice
   | CtaSlice
   | QuestionsSlice
@@ -1480,6 +1481,186 @@ export type QuestionsSlice = prismic.SharedSlice<
   QuestionsSliceVariation
 >;
 
+/**
+ * Item in *Results → Default → Primary → Results*
+ */
+export interface ResultsSliceDefaultPrimaryResultsItem {
+  /**
+   * Link field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Title field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Tag one field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].tag_one
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag_one: prismic.KeyTextField;
+
+  /**
+   * Tag two field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].tag_two
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag_two: prismic.KeyTextField;
+
+  /**
+   * Stat one field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].stat_one
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_one: prismic.KeyTextField;
+
+  /**
+   * Stat one description field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].stat_one_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_one_description: prismic.KeyTextField;
+
+  /**
+   * Stat two field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].stat_two
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_two: prismic.KeyTextField;
+
+  /**
+   * Stat two description field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].stat_two_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_two_description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Results → Default → Primary*
+ */
+export interface ResultsSliceDefaultPrimary {
+  /**
+   * Top Padding field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Results field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  results: prismic.GroupField<Simplify<ResultsSliceDefaultPrimaryResultsItem>>;
+}
+
+/**
+ * Default variation for Results Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ResultsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ResultsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Results*
+ */
+type ResultsSliceVariation = ResultsSliceDefault;
+
+/**
+ * Results Shared Slice
+ *
+ * - **API ID**: `results`
+ * - **Description**: Results
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ResultsSlice = prismic.SharedSlice<
+  "results",
+  ResultsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1543,6 +1724,11 @@ declare module "@prismicio/client" {
       QuestionsSliceVariation2,
       QuestionsSliceVariation3,
       QuestionsSliceVariation4,
+      ResultsSlice,
+      ResultsSliceDefaultPrimaryResultsItem,
+      ResultsSliceDefaultPrimary,
+      ResultsSliceVariation,
+      ResultsSliceDefault,
     };
   }
 }
