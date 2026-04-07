@@ -12,16 +12,30 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "with_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "With divider",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "no_background": {
+          "type": "Boolean",
+          "config": {
+            "label": "No background",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
         "top_padding": {
           "type": "Select",
           "config": {
             "label": "Top Padding",
             "placeholder": "",
-            "options": [
-              "None",
-              "Half",
-              "Full"
-            ],
+            "options": ["None", "Half", "Full"],
             "default_value": "None"
           }
         },
@@ -30,11 +44,7 @@
           "config": {
             "label": "Bottom Padding",
             "placeholder": "",
-            "options": [
-              "None",
-              "Half",
-              "Full"
-            ],
+            "options": ["None", "Half", "Full"],
             "default_value": "None"
           }
         },

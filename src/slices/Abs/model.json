@@ -1,8 +1,8 @@
 {
-  "id": "results",
+  "id": "abs",
   "type": "SharedSlice",
-  "name": "Results",
-  "description": "Results",
+  "name": "Abs",
+  "description": "Abs",
   "variations": [
     {
       "id": "default",
@@ -73,21 +73,17 @@
             "multi": "paragraph,strong,em,hyperlink"
           }
         },
-        "results": {
+        "tiles": {
           "type": "Group",
           "config": {
-            "label": "Results",
+            "label": "Tiles",
             "repeat": true,
             "fields": {
-              "link": {
-                "type": "Link",
+              "label": {
+                "type": "Text",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": true,
-                  "allowText": true,
-                  "repeat": false
+                  "label": "Label",
+                  "placeholder": ""
                 }
               },
               "title": {
@@ -97,45 +93,10 @@
                   "placeholder": ""
                 }
               },
-              "tag_one": {
+              "description": {
                 "type": "Text",
                 "config": {
-                  "label": "Tag one",
-                  "placeholder": ""
-                }
-              },
-              "tag_two": {
-                "type": "Text",
-                "config": {
-                  "label": "Tag two",
-                  "placeholder": ""
-                }
-              },
-              "stat_one": {
-                "type": "Text",
-                "config": {
-                  "label": "Stat one",
-                  "placeholder": ""
-                }
-              },
-              "stat_one_description": {
-                "type": "Text",
-                "config": {
-                  "label": "Stat one description",
-                  "placeholder": ""
-                }
-              },
-              "stat_two": {
-                "type": "Text",
-                "config": {
-                  "label": "Stat two",
-                  "placeholder": ""
-                }
-              },
-              "stat_two_description": {
-                "type": "Text",
-                "config": {
-                  "label": "Stat two description",
+                  "label": "Description",
                   "placeholder": ""
                 }
               }

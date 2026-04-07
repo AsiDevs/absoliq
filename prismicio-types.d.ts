@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | AbsSlice
   | ResultsSlice
   | LogoCarouselSlice
   | CtaSlice
@@ -463,6 +464,190 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = PageDocument | SettingsDocument;
+
+/**
+ * Item in *Abs → Default → Primary → Tiles*
+ */
+export interface AbsSliceDefaultPrimaryTilesItem {
+  /**
+   * Label field in *Abs → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.tiles[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Title field in *Abs → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.tiles[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Abs → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.tiles[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Abs → Default → Primary → Buttons*
+ */
+export interface AbsSliceDefaultPrimaryButtonsItem {
+  /**
+   * Link field in *Abs → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Abs → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
+ * Primary content in *Abs → Default → Primary*
+ */
+export interface AbsSliceDefaultPrimary {
+  /**
+   * With border field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: abs.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: abs.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Tiles field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.tiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tiles: prismic.GroupField<Simplify<AbsSliceDefaultPrimaryTilesItem>>;
+
+  /**
+   * Buttons field in *Abs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abs.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<AbsSliceDefaultPrimaryButtonsItem>>;
+}
+
+/**
+ * Default variation for Abs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AbsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Abs*
+ */
+type AbsSliceVariation = AbsSliceDefault;
+
+/**
+ * Abs Shared Slice
+ *
+ * - **API ID**: `abs`
+ * - **Description**: Abs
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbsSlice = prismic.SharedSlice<"abs", AbsSliceVariation>;
 
 /**
  * Item in *Cta → Default → Primary → Buttons*
@@ -1567,6 +1752,31 @@ export interface ResultsSliceDefaultPrimaryResultsItem {
 }
 
 /**
+ * Item in *Results → Default → Primary → Buttons*
+ */
+export interface ResultsSliceDefaultPrimaryButtonsItem {
+  /**
+   * Link field in *Results → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Results → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
  * Primary content in *Results → Default → Primary*
  */
 export interface ResultsSliceDefaultPrimary {
@@ -1629,6 +1839,16 @@ export interface ResultsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   results: prismic.GroupField<Simplify<ResultsSliceDefaultPrimaryResultsItem>>;
+
+  /**
+   * Buttons field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<Simplify<ResultsSliceDefaultPrimaryButtonsItem>>;
 }
 
 /**
@@ -1691,6 +1911,12 @@ declare module "@prismicio/client" {
       SettingsDocumentDataContactUsItem,
       SettingsDocumentDataRepeatableTypesItem,
       AllDocumentTypes,
+      AbsSlice,
+      AbsSliceDefaultPrimaryTilesItem,
+      AbsSliceDefaultPrimaryButtonsItem,
+      AbsSliceDefaultPrimary,
+      AbsSliceVariation,
+      AbsSliceDefault,
       CtaSlice,
       CtaSliceDefaultPrimaryButtonsItem,
       CtaSliceDefaultPrimary,
@@ -1726,6 +1952,7 @@ declare module "@prismicio/client" {
       QuestionsSliceVariation4,
       ResultsSlice,
       ResultsSliceDefaultPrimaryResultsItem,
+      ResultsSliceDefaultPrimaryButtonsItem,
       ResultsSliceDefaultPrimary,
       ResultsSliceVariation,
       ResultsSliceDefault,

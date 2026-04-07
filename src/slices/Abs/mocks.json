@@ -1,0 +1,51 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"tiles": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fire",
+									"type": "Text"
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "city",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "beside",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"no_background": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	}
+]

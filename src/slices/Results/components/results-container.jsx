@@ -7,6 +7,7 @@ import Image from "next/image";
 import RushLanka from "../../../app/assets/images/rush-lanka.svg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { animateUp } from "@/utils/framer";
 
 import "swiper/css";
 import "./result.css";
@@ -41,15 +42,9 @@ const ResultsContainer = ({ slice }) => {
   );
 };
 
-const initial = { opacity: 0, y: 40 };
-const whileInView = { opacity: 1, y: 0 };
-const transition = {
-  duration: 0.8,
-  ease: [0.215, 0.61, 0.355, 1],
-};
-
 const SingleResult = ({ result, idx }) => {
   if (!result?.link) return null;
+  const { initial, whileInView, transition } = animateUp();
   return (
     <motion.div
       initial={initial}
