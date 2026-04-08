@@ -6,15 +6,11 @@ const CtaDefault = dynamic(() => import("./variant/cta"));
 const Cta = ({ slice }) => {
   return (
     <section
-      data-slice-type={slice_type}
-      data-slice-variation={variation}
-      id={primary?.section_id || primary?.sectionId || null}
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
     >
       {slice.variation === "default" && <CtaDefault slice={slice} />}
       {slice.variation === "fullWidth" && <CtaFullWidth slice={slice} />}
-      {slice.variation === "third" && (
-        <CtaFullWidth slice={slice} third={false} />
-      )}
     </section>
   );
 };

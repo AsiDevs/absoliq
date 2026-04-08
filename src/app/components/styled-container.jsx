@@ -8,6 +8,7 @@ const StyledContainer = ({
   slice = {},
   paddingX = true,
   parentClass = "",
+  darkBg = false,
 }) => {
   const paddingXStyles = "px-[16px] md:px-[40px] xl:px-[80px]";
   const noBg = slice.primary?.no_background;
@@ -26,7 +27,8 @@ const StyledContainer = ({
           "pt-[40px] md:pt-[80px] xl:pt-[120px]": pt === "Full",
           "pb-[40px] md:pb-[80px] xl:pb-[120px]": pb === "Full",
           [className]: true,
-          "section-bg": !noBg,
+          "section-bg": !noBg && !darkBg,
+          "section-dark-bg": !noBg && darkBg,
         })}
       >
         <div

@@ -1,18 +1,13 @@
-"use client";
 import clsx from "clsx";
 import React from "react";
-import { motion } from "motion/react";
+import AnimateIn from "@/app/components/framer/animate-in";
 
 const CTADescription = ({ slice, leftAligned }) => {
   const ctaDescription = slice?.primary?.cta_description || "";
   if (!ctaDescription) return;
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.8,
+    <AnimateIn
+      options={{
         delay: 0.4,
       }}
     >
@@ -25,7 +20,7 @@ const CTADescription = ({ slice, leftAligned }) => {
       >
         {ctaDescription}
       </p>
-    </motion.div>
+    </AnimateIn>
   );
 };
 

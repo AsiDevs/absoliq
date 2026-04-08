@@ -1,50 +1,47 @@
+"use client";
+
+import { useRef } from "react";
+import { useScroll, useTransform, useSpring } from "framer-motion";
+
+import StyledButtonContainer from "@/app/components/styled-button/styled-button-container";
 import StyledContainer from "@/app/components/styled-container";
-import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
-import StyledButton from "@/app/components/styled-button";
+import StyledSectionTitle from "@/app/components/styled-section-title";
+import CTAButtonDescription from "../components/cta-button-description";
+import CTALogoImage from "../components/cta-logo-image";
 
-const CtaFullwidth = ({ slice, third = false }) => {
-  const { title, description, buttons = [] } = slice.primary || {};
+const CTAFullWidth = ({ slice, third = false }) => {
+  const ref = useRef(null);
+
+  // Track scroll relative to THIS section
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // Move from below → into position
+  const rawY = useTransform(scrollYProgress, [0.1, 0.5], [450, 0]);
+
+  // Smooth the motion (important for production feel)
+  const y = useSpring(rawY, {
+    stiffness: 120,
+    damping: 20,
+  });
+
   return (
-    <StyledContainer
-      slice={slice}
-      parentClass={"bg-[#18153B]"}
-      className="!bg-[#18153B]"
-      paddingX={false}
-    >
-      <div className="flex justify-center items-center px-[16px] md:py-[40px]  py-[80px]">
-        <div className=" text-center">
-          <div className="mb-[20px]">
-            <StyledPrismicRichTextSingle
-              field={title}
-              className=" text-title-x-large font-medium text-primary-white! md:text-[32px] lg:text-[48px"
-            />
-          </div>
+    <div ref={ref} className="relative overflow-hidden">
+      <StyledContainer slice={slice} darkBg>
+        <StyledSectionTitle slice={slice} textWhite />
 
-          {third && <span>Hello</span>}
-
-          <div className="mb-[50px] leading-[22px]">
-            <StyledPrismicRichTextSingle
-              field={description}
-              className="text-title-base font-semibold leading-[19.36px] text-primary-white"
-            />
-          </div>
-
-          <div className="flex justify-center gap-4">
-            {buttons?.map((item, index) => (
-              <StyledButton
-                key={index}
-                label={item.label}
-                link={item.link}
-                variant={item.variant || "Primary"}
-                icon={item.icon_name}
-                iconAlignment={item.icon_alignment || "left"}
-              />
-            ))}
-          </div>
+        <div className="pb-4 md:pb-8 xl:pb-11">
+          <StyledButtonContainer slice={slice} />
+          <CTAButtonDescription slice={slice} />
         </div>
-      </div>
-    </StyledContainer>
+      </StyledContainer>
+
+      {/* Animated logo */}
+      <CTALogoImage y={y} />
+    </div>
   );
 };
 
-export default CtaFullwidth;
+export default CTAFullWidth;

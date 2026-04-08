@@ -17,7 +17,11 @@
           "config": {
             "label": "Top Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "bottom_padding": {
@@ -25,16 +29,11 @@
           "config": {
             "label": "Bottom Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
-          }
-        },
-        "with_background_color": {
-          "type": "Boolean",
-          "config": {
-            "label": "With Background Color",
-            "placeholder_false": "No",
-            "placeholder_true": "Yes",
-            "default_value": false
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "title": {
@@ -71,30 +70,27 @@
                   "allowText": true
                 }
               },
-              "icon_name": {
-                "type": "Text",
-                "config": {
-                  "label": "Icon Name",
-                  "placeholder": ""
-                }
-              },
-              "icon_alignment": {
-                "type": "Select",
-                "config": {
-                  "label": "Icon Alignment ",
-                  "placeholder": "",
-                  "options": ["Left", "Right"]
-                }
-              },
               "variant": {
                 "type": "Select",
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": ["Primary", "Secondary"]
+                  "options": [
+                    "Primary",
+                    "Secondary"
+                  ]
                 }
               }
             }
+          }
+        },
+        "cta_button_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA button description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
           }
         }
       },
@@ -113,7 +109,11 @@
           "config": {
             "label": "Top Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "bottom_padding": {
@@ -121,7 +121,11 @@
           "config": {
             "label": "Bottom Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "title": {
@@ -158,30 +162,27 @@
                   "allowText": true
                 }
               },
-              "icon_name": {
-                "type": "Text",
-                "config": {
-                  "label": "Icon Name",
-                  "placeholder": ""
-                }
-              },
-              "icon_alignment": {
-                "type": "Select",
-                "config": {
-                  "label": "Icon Alignment ",
-                  "placeholder": "",
-                  "options": ["Left", "Right"]
-                }
-              },
               "variant": {
                 "type": "Select",
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": ["Primary", "Secondary"]
+                  "options": [
+                    "Primary",
+                    "Secondary"
+                  ]
                 }
               }
             }
+          }
+        },
+        "cta_button_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA button description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,hyperlink,paragraph"
           }
         }
       },

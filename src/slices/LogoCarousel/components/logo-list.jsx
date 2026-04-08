@@ -6,6 +6,9 @@ import { PrismicNextImage } from "@prismicio/next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import AnimateIn from "@/app/components/framer/animate-in";
+import { del } from "motion/react-client";
+import { delay } from "motion";
 
 export function LogoList({ images }) {
   const swiperRef = useRef(null);
@@ -69,7 +72,9 @@ export function LogoList({ images }) {
               key={(image?.id || idx) + idx}
               className="py-1 md:py-1.5 xl:py-2 px-1.5 md:px-2 xl:px-3 grayscale hover:grayscale-0 transition-timing"
             >
-              <PrismicNextImage field={image} />
+              <AnimateIn options={{ delay: idx * 0.1 }}>
+                <PrismicNextImage field={image} />
+              </AnimateIn>
             </SwiperSlide>
           ))}
         </Swiper>

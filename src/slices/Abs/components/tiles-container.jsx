@@ -1,7 +1,5 @@
-"use client";
-import { motion } from "motion/react";
 import React from "react";
-import { animateIn } from "@/utils/framer";
+import AnimateIn from "@/app/components/framer/animate-in";
 
 const TilesContainer = ({ slice }) => {
   const tiles = slice?.primary?.tiles;
@@ -16,15 +14,10 @@ const TilesContainer = ({ slice }) => {
 };
 
 const SingleTile = ({ tile, idx }) => {
-  const { initial, whileInView, transition } = animateIn();
   return (
-    <motion.div
-      initial={initial}
-      whileInView={whileInView}
-      viewport={{ once: true }}
-      transition={{
+    <AnimateIn
+      options={{
         delay: idx * 0.3,
-        ...transition,
       }}
       className="flex xl:flex-col items-start gap-8 xl:gap-7 text-left xl:text-center"
     >
@@ -43,7 +36,7 @@ const SingleTile = ({ tile, idx }) => {
           {tile?.description}
         </p>
       </div>
-    </motion.div>
+    </AnimateIn>
   );
 };
 

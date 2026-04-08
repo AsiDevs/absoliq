@@ -1,17 +1,9 @@
-"use client";
-
 import clsx from "clsx";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 import Image from "next/image";
 import AbsoliqImage from "../../../app/assets/icons/absoliq.svg";
-import { motion } from "motion/react";
-
-const initial = { opacity: 0, y: 40 };
-const whileInView = { opacity: 1, y: 0 };
-const transition = {
-  duration: 0.8,
-  ease: [0.215, 0.61, 0.355, 1],
-};
+import AnimateIn from "@/app/components/framer/animate-in";
+import AnimateUp from "@/app/components/framer/animate-up";
 
 const StyledSectionTitleHero = ({
   slice,
@@ -25,10 +17,7 @@ const StyledSectionTitleHero = ({
   const description = slice?.primary?.description || "";
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+    <AnimateIn
       transition={{
         staggerChildren: 0.15,
         delayChildren: 0.3,
@@ -42,13 +31,7 @@ const StyledSectionTitleHero = ({
     >
       {caption && (
         <div className="w-full ">
-          <motion.div
-            initial={initial}
-            whileInView={whileInView}
-            viewport={{ once: true }}
-            transition={{
-              ...transition,
-            }}
+          <AnimateUp
             className={clsx({
               "flex gap-2 items-center xl:mb-2.5": true,
               "justify-center": !leftAligned,
@@ -69,44 +52,30 @@ const StyledSectionTitleHero = ({
               className="text-title-base-blog font-bold"
               field={caption}
             />
-          </motion.div>
+          </AnimateUp>
         </div>
       )}
       {title && (
         <div className="w-full overflow-hidden">
-          <motion.div
-            initial={initial}
-            whileInView={whileInView}
-            viewport={{ once: true }}
-            transition={{
-              ...transition,
-            }}
-          >
+          <AnimateUp>
             <StyledPrismicRichTextSingle
               className="text-title-3x-large"
               field={title}
             />
-          </motion.div>
+          </AnimateUp>
         </div>
       )}
       {description && (
         <div className="w-full overflow-hidden">
-          <motion.div
-            initial={initial}
-            whileInView={whileInView}
-            viewport={{ once: true }}
-            transition={{
-              ...transition,
-            }}
-          >
+          <AnimateUp>
             <StyledPrismicRichTextSingle
               className="text-body-small"
               field={description}
             />
-          </motion.div>
+          </AnimateUp>
         </div>
       )}
-    </motion.div>
+    </AnimateIn>
   );
 };
 

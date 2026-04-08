@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
-import { motion } from "motion/react";
-import { animateIn } from "@/utils/framer";
+import AnimateIn from "@/app/components/framer/animate-in";
 
 const FAQList = ({ list, isBorder }) => {
   const [currentItem, setCurrentItem] = useState(0);
@@ -27,7 +26,6 @@ const FAQList = ({ list, isBorder }) => {
 export default FAQList;
 
 function Accordion({ title, content, currentItem, setCurrentItem, idx }) {
-  const { initial, whileInView, transition } = animateIn();
   const expanded = currentItem === idx;
   const contentRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -43,13 +41,9 @@ function Accordion({ title, content, currentItem, setCurrentItem, idx }) {
   }, [expanded]);
 
   return (
-    <motion.div
-      initial={initial}
-      whileInView={whileInView}
-      viewport={{ once: true }}
-      transition={{
-        delay: idx * 0.15,
-        ...transition,
+    <AnimateIn
+      options={{
+        delay: idx * 0.1,
       }}
       role="presentation"
       className={
@@ -89,6 +83,6 @@ function Accordion({ title, content, currentItem, setCurrentItem, idx }) {
           />
         </div>
       </div>
-    </motion.div>
+    </AnimateIn>
   );
 }

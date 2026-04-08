@@ -664,26 +664,6 @@ export interface CtaSliceDefaultPrimaryButtonsItem {
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Icon Name field in *Cta → Default → Primary → Buttons*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cta.default.primary.buttons[].icon_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  icon_name: prismic.KeyTextField;
-
-  /**
-   * Icon Alignment  field in *Cta → Default → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cta.default.primary.buttons[].icon_alignment
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_alignment: prismic.SelectField<"Left" | "Right">;
-
-  /**
    * Variant field in *Cta → Default → Primary → Buttons*
    *
    * - **Field Type**: Select
@@ -707,26 +687,6 @@ export interface CtaSliceFullWidthPrimaryButtonsItem {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Icon Name field in *Cta → Full Width → Primary → Buttons*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cta.fullWidth.primary.buttons[].icon_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  icon_name: prismic.KeyTextField;
-
-  /**
-   * Icon Alignment  field in *Cta → Full Width → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cta.fullWidth.primary.buttons[].icon_alignment
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_alignment: prismic.SelectField<"Left" | "Right">;
 
   /**
    * Variant field in *Cta → Full Width → Primary → Buttons*
@@ -764,17 +724,6 @@ export interface CtaSliceDefaultPrimary {
   bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
 
   /**
-   * With Background Color field in *Cta → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: cta.default.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
-
-  /**
    * Title field in *Cta → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -803,6 +752,16 @@ export interface CtaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CtaSliceDefaultPrimaryButtonsItem>>;
+
+  /**
+   * CTA button description field in *Cta → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.default.primary.cta_button_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_button_description: prismic.RichTextField;
 }
 
 /**
@@ -871,6 +830,16 @@ export interface CtaSliceFullWidthPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   buttons: prismic.GroupField<Simplify<CtaSliceFullWidthPrimaryButtonsItem>>;
+
+  /**
+   * CTA button description field in *Cta → Full Width → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.fullWidth.primary.cta_button_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_button_description: prismic.RichTextField;
 }
 
 /**

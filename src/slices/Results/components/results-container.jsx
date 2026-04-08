@@ -1,13 +1,10 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
 import { PrismicNextLink } from "@prismicio/next";
-import Image from "next/image";
-import RushLanka from "../../../app/assets/images/rush-lanka.svg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { animateUp } from "@/utils/framer";
+import AnimateUp from "@/app/components/framer/animate-up";
 
 import "swiper/css";
 import "./result.css";
@@ -25,7 +22,7 @@ const ResultsContainer = ({ slice }) => {
           768: {
             slidesPerView: 1.75,
           },
-          1280: {
+          1200: {
             slidesPerView: 3,
           },
         }}
@@ -45,15 +42,10 @@ const ResultsContainer = ({ slice }) => {
 
 const SingleResult = ({ result, idx }) => {
   if (!result?.link) return null;
-  const { initial, whileInView, transition } = animateUp();
   return (
-    <motion.div
-      initial={initial}
-      whileInView={whileInView}
-      viewport={{ once: true }}
-      transition={{
+    <AnimateUp
+      options={{
         delay: idx * 0.3,
-        ...transition,
       }}
       className="result-link-container"
     >
@@ -92,14 +84,14 @@ const SingleResult = ({ result, idx }) => {
         </div>
         <PrismicImage
           field={result?.logo}
-          className="absolute z-[8] max-w-[35%] md:max-w-[38.5%]  right-0 bottom-0 result-transition-timing group-hover:opacity-0"
+          className="absolute z-[8] w-full h-auto max-w-[35%] md:max-w-[38.5%]  right-0 bottom-0 result-transition-timing group-hover:opacity-0"
         />
         <PrismicImage
           field={result?.logo_inverse}
-          className="absolute z-[8] max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing opacity-0 group-hover:opacity-100"
+          className="absolute z-[8] w-full max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing opacity-0 group-hover:opacity-100"
         />
       </PrismicNextLink>
-    </motion.div>
+    </AnimateUp>
   );
 };
 
