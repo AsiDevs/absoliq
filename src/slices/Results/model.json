@@ -35,7 +35,11 @@
           "config": {
             "label": "Top Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "bottom_padding": {
@@ -43,7 +47,11 @@
           "config": {
             "label": "Bottom Padding",
             "placeholder": "",
-            "options": ["Full", "Half", "None"]
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
           }
         },
         "caption": {
@@ -138,6 +146,22 @@
                   "label": "Stat two description",
                   "placeholder": ""
                 }
+              },
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "logo_inverse": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo inverse",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }
@@ -163,7 +187,11 @@
                 "config": {
                   "label": "Variant",
                   "placeholder": "",
-                  "options": ["Primary", "Secondary", "Link"]
+                  "options": [
+                    "Primary",
+                    "Secondary",
+                    "Link"
+                  ]
                 }
               }
             }

@@ -11,6 +11,7 @@ import { animateUp } from "@/utils/framer";
 
 import "swiper/css";
 import "./result.css";
+import { PrismicImage } from "@prismicio/react";
 
 const ResultsContainer = ({ slice }) => {
   const results = slice?.primary?.results;
@@ -89,12 +90,13 @@ const SingleResult = ({ result, idx }) => {
             stat_description={result?.stat_two_description}
           />
         </div>
-        <Image
-          src={RushLanka.src}
-          alt="logo"
-          width={158}
-          height={239}
-          className="absolute z-[8] max-w-[35%] md:max-w-[38.5%]  right-0 bottom-0"
+        <PrismicImage
+          field={result?.logo}
+          className="absolute z-[8] max-w-[35%] md:max-w-[38.5%]  right-0 bottom-0 result-transition-timing group-hover:opacity-0"
+        />
+        <PrismicImage
+          field={result?.logo_inverse}
+          className="absolute z-[8] max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing opacity-0 group-hover:opacity-100"
         />
       </PrismicNextLink>
     </motion.div>

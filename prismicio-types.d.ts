@@ -1416,6 +1416,26 @@ export interface ResultsSliceDefaultPrimaryResultsItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   stat_two_description: prismic.KeyTextField;
+
+  /**
+   * Logo field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Logo inverse field in *Results → Default → Primary → Results*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.results[].logo_inverse
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo_inverse: prismic.ImageField<never>;
 }
 
 /**
