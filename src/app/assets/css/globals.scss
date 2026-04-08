@@ -22,6 +22,10 @@ body {
   font-family: var(--font-instrument-serif);
 }
 
+.transition-timing {
+  transition: var(--transition);
+}
+
 // TITLE
 .text-title-3x-large {
   @extend .title-font;
