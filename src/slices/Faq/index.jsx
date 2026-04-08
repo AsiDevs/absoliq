@@ -1,9 +1,6 @@
 import StyledContainer from "@/app/components/styled-container";
-import Variation2 from "./variants/variation-2";
-import Variation3 from "./variants/variation-3";
-import Variation4 from "./variants/variation-4";
 import * as prismic from "@prismicio/client";
-import Variation1 from "./variants/variation-1";
+import Main from "./variants/main";
 
 /**
  * @typedef {import("@prismicio/client").Content.QuestionsSlice} QuestionsSlice
@@ -36,10 +33,7 @@ const Questions = ({ slice }) => {
         }}
       />
       <StyledContainer slice={slice}>
-        {slice.variation === "default" && <Variation1 slice={slice} />}
-        {slice.variation === "variation2" && <Variation2 slice={slice} />}
-        {slice.variation === "variation3" && <Variation3 slice={slice} />}
-        {slice.variation === "variation4" && <Variation4 slice={slice} />}
+        {slice.variation === "default" && <Main slice={slice} />}
       </StyledContainer>
     </section>
   );

@@ -530,7 +530,7 @@ export interface AbsSliceDefaultPrimaryButtonsItem {
  */
 export interface AbsSliceDefaultPrimary {
   /**
-   * With border field in *Abs → Default → Primary*
+   * With divider field in *Abs → Default → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -1058,6 +1058,28 @@ export interface LogoCarouselSliceDefaultPrimaryImagesItem {
  */
 export interface LogoCarouselSliceDefaultPrimary {
   /**
+   * With divider field in *LogoCarousel → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: logo_carousel.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *LogoCarousel → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: logo_carousel.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
    * Top Padding field in *LogoCarousel → Default → Primary*
    *
    * - **Field Type**: Select
@@ -1133,11 +1155,36 @@ export type LogoCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Questions → Default → Primary → FAQs*
+ * Item in *Faq → Default → Primary → Buttons*
+ */
+export interface QuestionsSliceDefaultPrimaryButtonsItem {
+  /**
+   * Link field in *Faq → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Faq → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
+ * Item in *Faq → Default → Primary → FAQs*
  */
 export interface QuestionsSliceDefaultPrimaryFaqsItem {
   /**
-   * Question field in *Questions → Default → Primary → FAQs*
+   * Question field in *Faq → Default → Primary → FAQs*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1147,7 +1194,7 @@ export interface QuestionsSliceDefaultPrimaryFaqsItem {
   question: prismic.RichTextField;
 
   /**
-   * Answer field in *Questions → Default → Primary → FAQs*
+   * Answer field in *Faq → Default → Primary → FAQs*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1158,131 +1205,33 @@ export interface QuestionsSliceDefaultPrimaryFaqsItem {
 }
 
 /**
- * Item in *Questions → Variation 2 → Primary → Buttons*
- */
-export interface QuestionsSliceVariation2PrimaryButtonsItem {
-  /**
-   * Link field in *Questions → Variation 2 → Primary → Buttons*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.buttons[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Icon Name field in *Questions → Variation 2 → Primary → Buttons*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.buttons[].icon_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  icon_name: prismic.KeyTextField;
-
-  /**
-   * Icon Alignment field in *Questions → Variation 2 → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.buttons[].icon_alignment
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon_alignment: prismic.SelectField<"Left" | "Right">;
-
-  /**
-   * Variant field in *Questions → Variation 2 → Primary → Buttons*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.buttons[].variant
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
-}
-
-/**
- * Item in *Questions → Variation 2 → Primary → FAQs*
- */
-export interface QuestionsSliceVariation2PrimaryFaqsItem {
-  /**
-   * Question field in *Questions → Variation 2 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.faqs[].question
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  question: prismic.RichTextField;
-
-  /**
-   * Answer field in *Questions → Variation 2 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.faqs[].answer
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  answer: prismic.RichTextField;
-}
-
-/**
- * Item in *Questions → Variation 3 → Primary → FAQs*
- */
-export interface QuestionsSliceVariation3PrimaryFaqsItem {
-  /**
-   * Question field in *Questions → Variation 3 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.faqs[].question
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  question: prismic.RichTextField;
-
-  /**
-   * Answer field in *Questions → Variation 3 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.faqs[].answer
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  answer: prismic.RichTextField;
-}
-
-/**
- * Item in *Questions → Variation 4 → Primary → FAQs*
- */
-export interface QuestionsSliceVariation4PrimaryFaqsItem {
-  /**
-   * Question field in *Questions → Variation 4 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.faqs[].question
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  question: prismic.RichTextField;
-
-  /**
-   * Answer field in *Questions → Variation 4 → Primary → FAQs*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.faqs[].answer
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  answer: prismic.RichTextField;
-}
-
-/**
- * Primary content in *Questions → Default → Primary*
+ * Primary content in *Faq → Default → Primary*
  */
 export interface QuestionsSliceDefaultPrimary {
   /**
-   * Top Padding field in *Questions → Default → Primary*
+   * With divider field in *Faq → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: questions.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *Faq → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: questions.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Faq → Default → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -1292,7 +1241,7 @@ export interface QuestionsSliceDefaultPrimary {
   top_padding: prismic.SelectField<"Full" | "Half" | "None">;
 
   /**
-   * Bottom Padding field in *Questions → Default → Primary*
+   * Bottom Padding field in *Faq → Default → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -1302,28 +1251,7 @@ export interface QuestionsSliceDefaultPrimary {
   bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
 
   /**
-   * With Background Color field in *Questions → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: questions.default.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
-
-  /**
-   * Subtitle field in *Questions → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.default.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitle: prismic.RichTextField;
-
-  /**
-   * Title field in *Questions → Default → Primary*
+   * Title field in *Faq → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1333,7 +1261,7 @@ export interface QuestionsSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Questions → Default → Primary*
+   * Description field in *Faq → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1343,7 +1271,29 @@ export interface QuestionsSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * FAQs field in *Questions → Default → Primary*
+   * Description image field in *Faq → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.description_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  description_image: prismic.ImageField<never>;
+
+  /**
+   * Buttons field in *Faq → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<
+    Simplify<QuestionsSliceDefaultPrimaryButtonsItem>
+  >;
+
+  /**
+   * FAQs field in *Faq → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -1354,7 +1304,7 @@ export interface QuestionsSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Questions Slice
+ * Default variation for Faq Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1367,295 +1317,12 @@ export type QuestionsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Questions → Variation 2 → Primary*
+ * Slice variation for *Faq*
  */
-export interface QuestionsSliceVariation2Primary {
-  /**
-   * Top Padding field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * Bottom Padding field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.bottom_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * With Background Color field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: questions.variation2.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
-
-  /**
-   * Subtitle field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitle: prismic.RichTextField;
-
-  /**
-   * Title field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Buttons field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.buttons[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  buttons: prismic.GroupField<
-    Simplify<QuestionsSliceVariation2PrimaryButtonsItem>
-  >;
-
-  /**
-   * FAQs field in *Questions → Variation 2 → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation2.primary.faqs[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  faqs: prismic.GroupField<Simplify<QuestionsSliceVariation2PrimaryFaqsItem>>;
-}
+type QuestionsSliceVariation = QuestionsSliceDefault;
 
 /**
- * Variation 2 variation for Questions Slice
- *
- * - **API ID**: `variation2`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type QuestionsSliceVariation2 = prismic.SharedSliceVariation<
-  "variation2",
-  Simplify<QuestionsSliceVariation2Primary>,
-  never
->;
-
-/**
- * Primary content in *Questions → Variation 3 → Primary*
- */
-export interface QuestionsSliceVariation3Primary {
-  /**
-   * Top Padding field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * Bottom Padding field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.bottom_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * With Background Color field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: questions.variation3.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
-
-  /**
-   * Subtitle field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitle: prismic.RichTextField;
-
-  /**
-   * Title field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * FAQs field in *Questions → Variation 3 → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation3.primary.faqs[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  faqs: prismic.GroupField<Simplify<QuestionsSliceVariation3PrimaryFaqsItem>>;
-}
-
-/**
- * Variation 3 variation for Questions Slice
- *
- * - **API ID**: `variation3`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type QuestionsSliceVariation3 = prismic.SharedSliceVariation<
-  "variation3",
-  Simplify<QuestionsSliceVariation3Primary>,
-  never
->;
-
-/**
- * Primary content in *Questions → Variation 4 → Primary*
- */
-export interface QuestionsSliceVariation4Primary {
-  /**
-   * Top Padding field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.top_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * Bottom Padding field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.bottom_padding
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * With Background Color field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: questions.variation4.primary.with_background_color
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  with_background_color: prismic.BooleanField;
-
-  /**
-   * Subtitle field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitle: prismic.RichTextField;
-
-  /**
-   * Title field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * FAQs field in *Questions → Variation 4 → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: questions.variation4.primary.faqs[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  faqs: prismic.GroupField<Simplify<QuestionsSliceVariation4PrimaryFaqsItem>>;
-}
-
-/**
- * Variation 4 variation for Questions Slice
- *
- * - **API ID**: `variation4`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type QuestionsSliceVariation4 = prismic.SharedSliceVariation<
-  "variation4",
-  Simplify<QuestionsSliceVariation4Primary>,
-  never
->;
-
-/**
- * Slice variation for *Questions*
- */
-type QuestionsSliceVariation =
-  | QuestionsSliceDefault
-  | QuestionsSliceVariation2
-  | QuestionsSliceVariation3
-  | QuestionsSliceVariation4;
-
-/**
- * Questions Shared Slice
+ * Faq Shared Slice
  *
  * - **API ID**: `questions`
  * - **Description**: Questions
@@ -1780,6 +1447,28 @@ export interface ResultsSliceDefaultPrimaryButtonsItem {
  * Primary content in *Results → Default → Primary*
  */
 export interface ResultsSliceDefaultPrimary {
+  /**
+   * With divider field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: results.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: results.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
   /**
    * Top Padding field in *Results → Default → Primary*
    *
@@ -1936,20 +1625,11 @@ declare module "@prismicio/client" {
       LogoCarouselSliceVariation,
       LogoCarouselSliceDefault,
       QuestionsSlice,
+      QuestionsSliceDefaultPrimaryButtonsItem,
       QuestionsSliceDefaultPrimaryFaqsItem,
       QuestionsSliceDefaultPrimary,
-      QuestionsSliceVariation2PrimaryButtonsItem,
-      QuestionsSliceVariation2PrimaryFaqsItem,
-      QuestionsSliceVariation2Primary,
-      QuestionsSliceVariation3PrimaryFaqsItem,
-      QuestionsSliceVariation3Primary,
-      QuestionsSliceVariation4PrimaryFaqsItem,
-      QuestionsSliceVariation4Primary,
       QuestionsSliceVariation,
       QuestionsSliceDefault,
-      QuestionsSliceVariation2,
-      QuestionsSliceVariation3,
-      QuestionsSliceVariation4,
       ResultsSlice,
       ResultsSliceDefaultPrimaryResultsItem,
       ResultsSliceDefaultPrimaryButtonsItem,

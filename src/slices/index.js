@@ -7,6 +7,6 @@ export const components = {
   cta: dynamic(() => import("./Cta")),
   hero: dynamic(() => import("./Hero")),
   logo_carousel: dynamic(() => import("./LogoCarousel")),
-  questions: dynamic(() => import("./Questions")),
+  questions: dynamic(() => import("./Faq")),
   results: dynamic(() => import("./Results")),
 };
