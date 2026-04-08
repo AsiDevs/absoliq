@@ -65,7 +65,7 @@ const SingleResult = ({ result, idx }) => {
             <h3 className="text-[24px] text-text-heading group-hover:text-text-light result-transition-timing">
               {result?.title}
             </h3>
-            <button className="w-7 h-7 overflow-hidden block relative rounded-sm bg-border-primary">
+            <button className="w-7 h-7 overflow-hidden block relative rounded-sm bg-border-primary group-hover:bg-text-placeholder">
               <span className="before-hover">
                 <MdKeyboardArrowRight size={16} color="#0D0D0D" />
               </span>
@@ -104,7 +104,7 @@ const SingleResult = ({ result, idx }) => {
 const Tag = ({ tag }) => {
   if (!tag) return null;
   return (
-    <div className="flex items-center justify-center bg-border-primary py-1 px-2 rounded-[90px] text-[13.5px] text-text-heading group-hover:text-text-light result-transition-timing">
+    <div className="flex items-center justify-center bg-border-primary group-hover:bg-text-placeholder py-1 pt-1.25 px-2 rounded-[90px] text-[13.5px] leading-5 text-text-heading group-hover:text-text-light result-transition-timing">
       {tag}
     </div>
   );
