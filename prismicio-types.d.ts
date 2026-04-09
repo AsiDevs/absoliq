@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | HowWeWorkSlice
   | AbsSlice
   | ResultsSlice
   | LogoCarouselSlice
@@ -1008,6 +1009,192 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *HowWeWork → Default → Primary → Points*
+ */
+export interface HowWeWorkSliceDefaultPrimaryPointsItem {
+  /**
+   * Point field in *HowWeWork → Default → Primary → Points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.points[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Item in *HowWeWork → Default → Primary → Tiles*
+ */
+export interface HowWeWorkSliceDefaultPrimaryTilesItem {
+  /**
+   * Title field in *HowWeWork → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.tiles[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *HowWeWork → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.tiles[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *HowWeWork → Default → Primary*
+ */
+export interface HowWeWorkSliceDefaultPrimary {
+  /**
+   * With divider field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: how_we_work.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.wwf_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  wwf_description: prismic.RichTextField;
+
+  /**
+   * Points prefix field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.points_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_prefix: prismic.RichTextField;
+
+  /**
+   * Points field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.points[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points: prismic.GroupField<Simplify<HowWeWorkSliceDefaultPrimaryPointsItem>>;
+
+  /**
+   * Points suffix field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.points_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_suffix: prismic.RichTextField;
+
+  /**
+   * Tiles title field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.tiles_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  tiles_title: prismic.RichTextField;
+
+  /**
+   * Tiles field in *HowWeWork → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.default.primary.tiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tiles: prismic.GroupField<Simplify<HowWeWorkSliceDefaultPrimaryTilesItem>>;
+}
+
+/**
+ * Default variation for HowWeWork Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowWeWorkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HowWeWorkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HowWeWork*
+ */
+type HowWeWorkSliceVariation = HowWeWorkSliceDefault;
+
+/**
+ * HowWeWork Shared Slice
+ *
+ * - **API ID**: `how_we_work`
+ * - **Description**: HowWeWork
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowWeWorkSlice = prismic.SharedSlice<
+  "how_we_work",
+  HowWeWorkSliceVariation
+>;
+
+/**
  * Item in *LogoCarousel → Default → Primary → Images*
  */
 export interface LogoCarouselSliceDefaultPrimaryImagesItem {
@@ -1608,6 +1795,12 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HowWeWorkSlice,
+      HowWeWorkSliceDefaultPrimaryPointsItem,
+      HowWeWorkSliceDefaultPrimaryTilesItem,
+      HowWeWorkSliceDefaultPrimary,
+      HowWeWorkSliceVariation,
+      HowWeWorkSliceDefault,
       LogoCarouselSlice,
       LogoCarouselSliceDefaultPrimaryImagesItem,
       LogoCarouselSliceDefaultPrimary,

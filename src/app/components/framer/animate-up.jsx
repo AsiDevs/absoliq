@@ -9,25 +9,25 @@ const AnimateUp = ({
   role,
   onClick,
   delay = 0,
-  distance = 40, // default upward movement
+  distance = 40,
 }) => {
   const shouldReduceMotion = useReducedMotion();
 
   const variants = {
     hidden: {
       opacity: 0,
-      y: shouldReduceMotion ? 0 : distance, // respect reduced motion
+      y: shouldReduceMotion ? 0 : distance,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring", // smooth, natural movement
+        type: "spring",
         stiffness: 100,
         damping: 18,
         mass: 0.8,
         delay,
-        ...options, // allow overrides
+        ...options,
       },
     },
   };
@@ -39,7 +39,7 @@ const AnimateUp = ({
       whileInView="visible"
       viewport={{
         once: true,
-        margin: "-10% 0px", // triggers slightly before fully visible
+        margin: "-10% 0px",
       }}
       className={className}
       role={role}

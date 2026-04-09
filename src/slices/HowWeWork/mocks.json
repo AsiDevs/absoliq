@@ -1,0 +1,86 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"points_prefix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute aute do labore ad irure officia dolore exercitation in. Ea ullamco velit laborum non quis nostrud labore nulla nostrud quis."
+						}
+					}
+				]
+			},
+			"points": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"point",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "oil",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"points_suffix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim nisi aute ad cupidatat aute fugiat aliqua officia nisi eu dolore minim. Sint culpa pariatur nisi aute ipsum magna cillum consequat velit aliquip adipisicing nulla tempor laboris aliqua."
+						}
+					}
+				]
+			},
+			"tiles_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Train"
+						}
+					}
+				]
+			},
+			"tiles": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "behind",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "slave",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

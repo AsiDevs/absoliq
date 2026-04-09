@@ -9,6 +9,7 @@ const StyledContainer = ({
   paddingX = true,
   parentClass = "",
   darkBg = false,
+  maxWLarge,
 }) => {
   const paddingXStyles = "px-[16px] md:px-[40px] xl:px-[80px]";
   const noBg = slice.primary?.no_background;
@@ -34,7 +35,8 @@ const StyledContainer = ({
         <div
           className={clsx({
             "mx-auto w-full max-w-[1280px] relative z-[10]": true,
-            [parentClass]: true,
+            "max-w-[1280x]": !maxWLarge,
+            "max-w-[1360px]": maxWLarge,
           })}
         >
           {children}

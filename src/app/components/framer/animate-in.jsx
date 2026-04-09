@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 
 const AnimateIn = ({
   className,
@@ -10,8 +10,6 @@ const AnimateIn = ({
   onClick,
   delay = 0,
 }) => {
-  const shouldReduceMotion = useReducedMotion();
-
   const variants = {
     hidden: {
       opacity: 0,

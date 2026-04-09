@@ -18,9 +18,9 @@ const StyledSectionTitle = ({
   return (
     <div
       className={clsx({
-        "flex flex-col gap-y-2 add-gap max-w-[688px] mx-auto": true,
+        "flex flex-col gap-y-2 add-gap max-w-[688px]": true,
         wrapperClassName: true,
-        "text-center items-center": !leftAligned,
+        "text-center items-center mx-auto": !leftAligned,
         "text-left items-start": leftAligned,
         "text-text-light": textWhite,
         "text-text-heading": !textWhite,

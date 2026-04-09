@@ -42,6 +42,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "how_we_work": {
+              "type": "SharedSlice"
+            },
             "abs": {
               "type": "SharedSlice"
             },
