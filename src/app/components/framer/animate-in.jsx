@@ -17,7 +17,7 @@ const AnimateIn = ({
     visible: {
       opacity: 1,
       transition: {
-        type: "tween", // smooth fade
+        type: "tween",
         duration: 0.8,
         ease: [0.215, 0.61, 0.355, 1],
         delay,

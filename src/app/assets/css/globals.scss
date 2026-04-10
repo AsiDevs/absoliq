@@ -3,6 +3,7 @@
 
 :root {
   --transition: all 0.2s linear;
+  --transition-medium: all 0.4s linear;
 }
 
 html {
@@ -24,6 +25,14 @@ body {
 
 .transition-timing {
   transition: var(--transition);
+}
+
+.transition-medium {
+  transition: var(--transition-medium);
+}
+
+.transition-bouncy {
+  transition: all 0.45s cubic-bezier(0.35, 1.5, 0.6, 1);
 }
 
 // TITLE

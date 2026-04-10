@@ -1,7 +1,5 @@
 import AnimateIn from "@/app/components/framer/animate-in";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
-import clsx from "clsx";
-import Image from "next/image";
 import React from "react";
 import StyledSinglePoint from "@/app/components/stlyed-single-point";
 

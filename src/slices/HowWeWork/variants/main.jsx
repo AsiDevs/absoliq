@@ -3,11 +3,12 @@ import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtex
 import StyledSectionTitle from "@/app/components/styled-section-title";
 import Points from "../components/points";
 import AnimateIn from "@/app/components/framer/animate-in";
+import Tiles from "../components/tiles";
 
 const Main = ({ slice }) => {
   return (
-    <StyledContainer slice={slice} maxWLarge className="xl:px-0!">
-      <div className="px-4 md:px-6 py-6 md:py-8 xl:p-20 rounded-[18px] bg-primary-white">
+    <StyledContainer slice={slice} maxWLarge className="2xl:px-0!">
+      <div className="px-4 md:px-6 py-6 md:py-8 xl:p-10 2xl:p-20 rounded-[18px] bg-primary-white">
         <div className="xl:flex flex-row justify-between gap-x-5">
           <AnimateIn className="xl:max-w-[630px]">
             <StyledSectionTitle slice={slice} leftAligned />
@@ -20,6 +21,7 @@ const Main = ({ slice }) => {
             <Points slice={slice} />
           </AnimateIn>
         </div>
+        <Tiles slice={slice} />
       </div>
     </StyledContainer>
   );
