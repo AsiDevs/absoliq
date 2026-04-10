@@ -230,79 +230,6 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
- * Item in *Settings → Contact Us*
- */
-export interface SettingsDocumentDataContactUsItem {
-  /**
-   * Label field in *Settings → Contact Us*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.contact_us[].label
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  label: prismic.RichTextField;
-
-  /**
-   * Icon Name field in *Settings → Contact Us*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.contact_us[].icon_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  icon_name: prismic.KeyTextField;
-}
-
-/**
- * Item in *Settings → Repeatable Types*
- */
-export interface SettingsDocumentDataRepeatableTypesItem {
-  /**
-   * Type field in *Settings → Repeatable Types*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: The exact name of the page type
-   * - **API ID Path**: settings.repeatable_types[].type
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  type: prismic.KeyTextField;
-
-  /**
-   * Items per page field in *Settings → Repeatable Types*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.repeatable_types[].items_per_page
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  items_per_page: prismic.NumberField;
-
-  /**
-   * Listing Page field in *Settings → Repeatable Types*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.repeatable_types[].listing_page
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  listing_page: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "page";
-        fields: [
-          {
-            id: "parent";
-            customtypes: [{ id: "page"; fields: ["parent", "title"] }];
-          },
-          "title",
-        ];
-      },
-    ]
-  >;
-}
-
-/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -413,39 +340,26 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_description: prismic.KeyTextField; /**
-   * Contact Us Title field in *Settings*
+   * Contact form submission email field in *Settings*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.contact_us_title
+   * - **API ID Path**: settings.contact_form_submission_email
    * - **Tab**: Contact Details
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  contact_us_title: prismic.RichTextField;
+  contact_form_submission_email: prismic.KeyTextField;
 
   /**
-   * Contact Us field in *Settings*
+   * Email field in *Settings*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.contact_us[]
+   * - **API ID Path**: settings.email
    * - **Tab**: Contact Details
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  contact_us: prismic.GroupField<
-    Simplify<SettingsDocumentDataContactUsItem>
-  >; /**
-   * Repeatable Types field in *Settings*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.repeatable_types[]
-   * - **Tab**: Repeatable Types
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  repeatable_types: prismic.GroupField<
-    Simplify<SettingsDocumentDataRepeatableTypesItem>
-  >;
+  email: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -1773,8 +1687,6 @@ declare module "@prismicio/client" {
       PageDocumentDataStructuredDataItem,
       SettingsDocument,
       SettingsDocumentData,
-      SettingsDocumentDataContactUsItem,
-      SettingsDocumentDataRepeatableTypesItem,
       AllDocumentTypes,
       AbsSlice,
       AbsSliceDefaultPrimaryTilesItem,

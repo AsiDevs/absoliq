@@ -91,88 +91,22 @@
       }
     },
     "Contact Details": {
-      "contact_us_title": {
-        "type": "StructuredText",
+      "contact_form_submission_email": {
+        "type": "Text",
         "config": {
-          "label": "Contact Us Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "preformatted,heading2,heading3,heading4,heading5,heading6,strong"
+          "label": "Contact form submission email",
+          "placeholder": ""
         }
       },
-      "contact_us": {
-        "type": "Group",
+      "email": {
+        "type": "Link",
         "config": {
-          "label": "Contact Us",
-          "repeat": true,
-          "fields": {
-            "label": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Label",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,preformatted,strong,hyperlink,image,embed,list-item,o-list-item"
-              }
-            },
-            "icon_name": {
-              "type": "Text",
-              "config": {
-                "label": "Icon Name",
-                "placeholder": ""
-              }
-            }
-          }
-        }
-      }
-    },
-    "Repeatable Types": {
-      "repeatable_types": {
-        "type": "Group",
-        "config": {
-          "label": "Repeatable Types",
-          "repeat": true,
-          "fields": {
-            "type": {
-              "type": "Text",
-              "config": {
-                "label": "Type",
-                "placeholder": "The exact name of the page type"
-              }
-            },
-            "items_per_page": {
-              "type": "Number",
-              "config": {
-                "label": "Items per page",
-                "placeholder": ""
-              }
-            },
-            "listing_page": {
-              "type": "Link",
-              "config": {
-                "label": "Listing Page",
-                "select": "document",
-                "repeat": false,
-                "customtypes": [
-                  {
-                    "id": "page",
-                    "fields": [
-                      {
-                        "id": "parent",
-                        "customtypes": [
-                          {
-                            "id": "page",
-                            "fields": ["parent", "title"]
-                          }
-                        ]
-                      },
-                      "title"
-                    ]
-                  }
-                ]
-              }
-            }
-          }
+          "label": "Email",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
         }
       }
     }
