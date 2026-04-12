@@ -1,8 +1,8 @@
 {
-  "id": "logo_carousel",
+  "id": "expertise",
   "type": "SharedSlice",
-  "name": "LogoCarousel",
-  "description": "LogoCarousel",
+  "name": "Expertise",
+  "description": "Expertise",
   "variations": [
     {
       "id": "default",
@@ -36,11 +36,10 @@
             "label": "Top Padding",
             "placeholder": "",
             "options": [
-              "None",
+              "Full",
               "Half",
-              "Full"
-            ],
-            "default_value": "None"
+              "None"
+            ]
           }
         },
         "bottom_padding": {
@@ -49,11 +48,19 @@
             "label": "Bottom Padding",
             "placeholder": "",
             "options": [
-              "None",
+              "Full",
               "Half",
-              "Full"
-            ],
-            "default_value": "None"
+              "None"
+            ]
+          }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Caption",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,paragraph"
           }
         },
         "title": {
@@ -62,24 +69,44 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4"
+            "multi": "heading1,heading2,heading3,em,strong"
           }
         },
-        "images": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "tiles": {
           "type": "Group",
           "config": {
-            "label": "Images",
+            "label": "Tiles",
             "repeat": true,
             "fields": {
-              "image": {
-                "type": "Image",
+              "title": {
+                "type": "Text",
                 "config": {
-                  "label": "Image",
-                  "constraint": {
-                    "width": null,
-                    "height": null
-                  },
-                  "thumbnails": []
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
                 }
               }
             }

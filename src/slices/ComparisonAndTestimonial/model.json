@@ -1,0 +1,201 @@
+{
+  "id": "comparison_and_testimonial",
+  "type": "SharedSlice",
+  "name": "ComparisonAndTestimonial",
+  "description": "ComparisonAndTestimonial",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "with_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "With divider",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "no_background": {
+          "type": "Boolean",
+          "config": {
+            "label": "No background",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "top_padding": {
+          "type": "Select",
+          "config": {
+            "label": "Top Padding",
+            "placeholder": "",
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
+          }
+        },
+        "bottom_padding": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Padding",
+            "placeholder": "",
+            "options": [
+              "Full",
+              "Half",
+              "None"
+            ]
+          }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Caption",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,paragraph"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,em,strong"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "negatives_title": {
+          "type": "Text",
+          "config": {
+            "label": "Negatives Title",
+            "placeholder": ""
+          }
+        },
+        "negatives": {
+          "type": "Group",
+          "config": {
+            "label": "Negatives",
+            "repeat": true,
+            "fields": {
+              "point": {
+                "type": "Text",
+                "config": {
+                  "label": "Point",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "positives_title": {
+          "type": "Text",
+          "config": {
+            "label": "Positives Title",
+            "placeholder": ""
+          }
+        },
+        "positives": {
+          "type": "Group",
+          "config": {
+            "label": "Positives",
+            "repeat": true,
+            "fields": {
+              "point": {
+                "type": "Text",
+                "config": {
+                  "label": "Point",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "testimonial_caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimony Caption",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,paragraph"
+          }
+        },
+        "testimonial_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimony Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,em,strong"
+          }
+        },
+        "testimonial_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimony Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "testimonies": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonies",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "position": {
+                "type": "Text",
+                "config": {
+                  "label": "Position",
+                  "placeholder": ""
+                }
+              },
+              "testimony": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Testimony",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

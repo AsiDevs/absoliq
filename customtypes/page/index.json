@@ -42,6 +42,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "expertise": {
+              "type": "SharedSlice"
+            },
+            "comparison_and_testimonial": {
+              "type": "SharedSlice"
+            },
             "how_we_work": {
               "type": "SharedSlice"
             },

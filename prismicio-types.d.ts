@@ -70,6 +70,8 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | ExpertiseSlice
+  | ComparisonAndTestimonialSlice
   | HowWeWorkSlice
   | AbsSlice
   | ResultsSlice
@@ -565,6 +567,275 @@ type AbsSliceVariation = AbsSliceDefault;
 export type AbsSlice = prismic.SharedSlice<"abs", AbsSliceVariation>;
 
 /**
+ * Item in *ComparisonAndTestimonial → Default → Primary → Negatives*
+ */
+export interface ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem {
+  /**
+   * Point field in *ComparisonAndTestimonial → Default → Primary → Negatives*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.negatives[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Item in *ComparisonAndTestimonial → Default → Primary → Positives*
+ */
+export interface ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem {
+  /**
+   * Point field in *ComparisonAndTestimonial → Default → Primary → Positives*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.positives[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Item in *ComparisonAndTestimonial → Default → Primary → Testimonies*
+ */
+export interface ComparisonAndTestimonialSliceDefaultPrimaryTestimoniesItem {
+  /**
+   * Image field in *ComparisonAndTestimonial → Default → Primary → Testimonies*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonies[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *ComparisonAndTestimonial → Default → Primary → Testimonies*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonies[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Position field in *ComparisonAndTestimonial → Default → Primary → Testimonies*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonies[].position
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  position: prismic.KeyTextField;
+
+  /**
+   * Testimony field in *ComparisonAndTestimonial → Default → Primary → Testimonies*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonies[].testimony
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  testimony: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ComparisonAndTestimonial → Default → Primary*
+ */
+export interface ComparisonAndTestimonialSliceDefaultPrimary {
+  /**
+   * With divider field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: comparison_and_testimonial.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: comparison_and_testimonial.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Negatives Title field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.negatives_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  negatives_title: prismic.KeyTextField;
+
+  /**
+   * Negatives field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.negatives[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  negatives: prismic.GroupField<
+    Simplify<ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem>
+  >;
+
+  /**
+   * Positives Title field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.positives_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  positives_title: prismic.KeyTextField;
+
+  /**
+   * Positives field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.positives[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  positives: prismic.GroupField<
+    Simplify<ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem>
+  >;
+
+  /**
+   * Testimony Caption field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonial_caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  testimonial_caption: prismic.RichTextField;
+
+  /**
+   * Testimony Title field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonial_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  testimonial_title: prismic.RichTextField;
+
+  /**
+   * Testimony Description field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonial_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  testimonial_description: prismic.RichTextField;
+
+  /**
+   * Testimonies field in *ComparisonAndTestimonial → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: comparison_and_testimonial.default.primary.testimonies[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  testimonies: prismic.GroupField<
+    Simplify<ComparisonAndTestimonialSliceDefaultPrimaryTestimoniesItem>
+  >;
+}
+
+/**
+ * Default variation for ComparisonAndTestimonial Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ComparisonAndTestimonialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ComparisonAndTestimonialSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ComparisonAndTestimonial*
+ */
+type ComparisonAndTestimonialSliceVariation =
+  ComparisonAndTestimonialSliceDefault;
+
+/**
+ * ComparisonAndTestimonial Shared Slice
+ *
+ * - **API ID**: `comparison_and_testimonial`
+ * - **Description**: ComparisonAndTestimonial
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ComparisonAndTestimonialSlice = prismic.SharedSlice<
+  "comparison_and_testimonial",
+  ComparisonAndTestimonialSliceVariation
+>;
+
+/**
  * Item in *Cta → Default → Primary → Buttons*
  */
 export interface CtaSliceDefaultPrimaryButtonsItem {
@@ -783,6 +1054,158 @@ type CtaSliceVariation = CtaSliceDefault | CtaSliceFullWidth;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CtaSlice = prismic.SharedSlice<"cta", CtaSliceVariation>;
+
+/**
+ * Item in *Expertise → Default → Primary → Tiles*
+ */
+export interface ExpertiseSliceDefaultPrimaryTilesItem {
+  /**
+   * Title field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Expertise → Default → Primary*
+ */
+export interface ExpertiseSliceDefaultPrimary {
+  /**
+   * With divider field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: expertise.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: expertise.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Tiles field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tiles: prismic.GroupField<Simplify<ExpertiseSliceDefaultPrimaryTilesItem>>;
+}
+
+/**
+ * Default variation for Expertise Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ExpertiseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExpertiseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Expertise*
+ */
+type ExpertiseSliceVariation = ExpertiseSliceDefault;
+
+/**
+ * Expertise Shared Slice
+ *
+ * - **API ID**: `expertise`
+ * - **Description**: Expertise
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ExpertiseSlice = prismic.SharedSlice<
+  "expertise",
+  ExpertiseSliceVariation
+>;
 
 /**
  * Item in *Hero → Default → Primary → Buttons*
@@ -1694,6 +2117,13 @@ declare module "@prismicio/client" {
       AbsSliceDefaultPrimary,
       AbsSliceVariation,
       AbsSliceDefault,
+      ComparisonAndTestimonialSlice,
+      ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem,
+      ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem,
+      ComparisonAndTestimonialSliceDefaultPrimaryTestimoniesItem,
+      ComparisonAndTestimonialSliceDefaultPrimary,
+      ComparisonAndTestimonialSliceVariation,
+      ComparisonAndTestimonialSliceDefault,
       CtaSlice,
       CtaSliceDefaultPrimaryButtonsItem,
       CtaSliceDefaultPrimary,
@@ -1702,6 +2132,11 @@ declare module "@prismicio/client" {
       CtaSliceVariation,
       CtaSliceDefault,
       CtaSliceFullWidth,
+      ExpertiseSlice,
+      ExpertiseSliceDefaultPrimaryTilesItem,
+      ExpertiseSliceDefaultPrimary,
+      ExpertiseSliceVariation,
+      ExpertiseSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryButtonsItem,
       HeroSliceDefaultPrimary,

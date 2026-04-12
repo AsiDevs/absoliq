@@ -6,8 +6,6 @@ import AnimateIn from "./framer/animate-in";
 
 const StyledSectionTitle = ({
   slice,
-  wrapperClassName,
-  childClassName,
   leftAligned = false,
   textWhite = false,
 }) => {
@@ -19,7 +17,6 @@ const StyledSectionTitle = ({
     <div
       className={clsx({
         "flex flex-col gap-y-2 add-gap max-w-[688px]": true,
-        wrapperClassName: true,
         "text-center items-center mx-auto": !leftAligned,
         "text-left items-start": leftAligned,
         "text-text-light": textWhite,
@@ -32,7 +29,6 @@ const StyledSectionTitle = ({
             "flex gap-2 items-center xl:mb-2.5": true,
             "justify-center": !leftAligned,
             "justify-start": leftAligned,
-            childClassName: true,
           })}
           options={{ delay: 0 }}
         >

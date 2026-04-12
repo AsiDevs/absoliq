@@ -33,7 +33,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
@@ -52,6 +51,8 @@
 										"background": "transparent"
 									},
 									"alt": "easily",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -63,7 +64,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
@@ -82,6 +82,8 @@
 										"background": "transparent"
 									},
 									"alt": "mail",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -93,7 +95,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
@@ -112,6 +113,8 @@
 										"background": "transparent"
 									},
 									"alt": "upper",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -123,7 +126,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
@@ -142,6 +144,8 @@
 										"background": "transparent"
 									},
 									"alt": "such",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -153,7 +157,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
@@ -172,6 +175,8 @@
 										"background": "transparent"
 									},
 									"alt": "substance",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -183,7 +188,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
@@ -202,6 +206,8 @@
 										"background": "transparent"
 									},
 									"alt": "free",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -213,7 +219,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
@@ -232,6 +237,8 @@
 										"background": "transparent"
 									},
 									"alt": "raw",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -243,7 +250,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
@@ -262,6 +268,8 @@
 										"background": "transparent"
 									},
 									"alt": "queen",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]

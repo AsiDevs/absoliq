@@ -9,6 +9,7 @@ const AnimateIn = ({
   role,
   onClick,
   delay = 0,
+  style = "",
 }) => {
   const variants = {
     hidden: {
@@ -28,6 +29,7 @@ const AnimateIn = ({
 
   return (
     <motion.div
+      style={style}
       variants={variants}
       initial="hidden"
       whileInView="visible"
