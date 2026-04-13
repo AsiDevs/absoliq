@@ -2,7 +2,7 @@ import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { IoArrowForwardSharp } from "react-icons/io5";
 
-const StyledButton = ({ variant = "primary", link = {} }) => {
+const StyledButton = ({ variant = "primary", link = {}, className }) => {
   if (variant === "link") return <Link link={link} />;
   if (variant === "secondary") return <Secondary link={link} />;
   return <Primary link={link} />;
