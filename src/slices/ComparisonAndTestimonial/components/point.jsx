@@ -8,7 +8,9 @@ const Point = ({ point, idx, variant }) => {
   return (
     <AnimateIn
       delay={idx * 0.1}
-      className={"flex bg-[#F3F3F3] rounded-md p-3.5 gap-x-4 items-center"}
+      className={
+        "flex bg-[#F3F3F3] rounded-md p-3.5 gap-x-4 items-center lg:min-h-20"
+      }
     >
       <div
         className={clsx({

@@ -1,6 +1,6 @@
 import StyledSectionTitle from "@/app/components/styled-section-title";
-import { title } from "motion/react-client";
 import React from "react";
+import TestimonyCarousel from "./testimony-carousel";
 
 const Testimonials = ({ slice }) => {
   const testimonial_caption = slice?.primary?.testimonial_caption;
@@ -20,6 +20,7 @@ const Testimonials = ({ slice }) => {
       <div className="max-w-150 mx-auto">
         <StyledSectionTitle slice={title_slice} />
       </div>
+      <TestimonyCarousel slice={slice} />
     </div>
   );
 };

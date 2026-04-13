@@ -40,7 +40,7 @@
 }
 
 .result-link-container .result-link .result-transition-timing {
-  transition: var(--transition);
+  transition: var(--transition-medium);
 }
 
 .result-link-container .result-link .title-container,
@@ -71,7 +71,11 @@
   transition: var(--transition);
 }
 
-.result-link-container .result-link:hover .title-container button .before-hover {
+.result-link-container
+  .result-link:hover
+  .title-container
+  button
+  .before-hover {
   left: 120%;
 }
 

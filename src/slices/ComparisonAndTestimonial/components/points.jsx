@@ -3,7 +3,7 @@ import Point from "./point";
 
 const Points = ({ slice }) => {
   return (
-    <div className="flex flex-col gap-y-10 md:grid grid-cols-12 md:gap-x-6 xl:gap-x-20">
+    <div className="flex flex-col gap-y-10 lg:grid grid-cols-12 lg:gap-x-6 xl:gap-x-20">
       <PointsContainer
         title={slice?.primary?.negatives_title}
         points={slice?.primary?.negatives}

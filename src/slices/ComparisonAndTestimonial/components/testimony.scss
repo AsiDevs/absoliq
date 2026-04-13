@@ -1,0 +1,99 @@
+.pfp-slider {
+  margin-bottom: 32px;
+  min-height: 48px;
+  @media (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+  .swiper-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    .swiper-slide {
+      position: relative;
+      &::after {
+        content: url("../../../app/assets/images/thumb-border.svg");
+        transition: var(--transition);
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        transform: translateX(-50%);
+        width: 52px;
+        height: 52px;
+      }
+      &.swiper-slide-thumb-active {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.testimony-carousel {
+  .swiper-wrapper {
+    .swiper-slide {
+      position: relative;
+      padding: 8px;
+      @media (min-width: 768px) {
+      }
+      &.swiper-slide-active {
+        position: relative;
+
+        background:
+    /* top-left */
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            top left,
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            top left,
+          /* top-right */
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            top right,
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            top right,
+          /* bottom-left */
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            bottom left,
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            bottom left,
+          /* bottom-right */
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            bottom right,
+          linear-gradient(var(--color-primary-dark), var(--color-primary-dark))
+            bottom right;
+
+        background-repeat: no-repeat;
+
+        background-size:
+          20px 1px,
+          1px 20px,
+          /* TL */ 20px 1px,
+          1px 20px,
+          /* TR */ 20px 1px,
+          1px 20px,
+          /* BL */ 20px 1px,
+          1px 20px; /* BR */
+      }
+    }
+  }
+}
+
+.arrow {
+  height: 45px;
+  width: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+  filter: grayscale(0.8);
+  opacity: 0.6;
+  &:hover {
+    filter: grayscale(1);
+    opacity: 1;
+  }
+}
