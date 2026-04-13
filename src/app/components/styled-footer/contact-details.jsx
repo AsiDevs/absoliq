@@ -1,6 +1,4 @@
 import React from "react";
-import { IoLogoWhatsapp, IoMdMail } from "react-icons/io";
-import { FaPhoneVolume, FaLocationDot } from "react-icons/fa6";
 import { PrismicNextLink } from "@prismicio/next";
 
 const ContactDetails = ({ settings }) => {
