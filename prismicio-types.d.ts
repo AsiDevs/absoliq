@@ -1060,6 +1060,36 @@ export type CtaSlice = prismic.SharedSlice<"cta", CtaSliceVariation>;
  */
 export interface ExpertiseSliceDefaultPrimaryTilesItem {
   /**
+   * Icon field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Hover icon field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].hover_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hover_icon: prismic.ImageField<never>;
+
+  /**
+   * Link field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
    * Title field in *Expertise → Default → Primary → Tiles*
    *
    * - **Field Type**: Text
@@ -1072,12 +1102,22 @@ export interface ExpertiseSliceDefaultPrimaryTilesItem {
   /**
    * Description field in *Expertise → Default → Primary → Tiles*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: expertise.default.primary.tiles[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  description: prismic.KeyTextField;
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *Expertise → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.tiles[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1155,16 +1195,6 @@ export interface ExpertiseSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
-
-  /**
-   * Image field in *Expertise → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: expertise.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
 
   /**
    * Tiles field in *Expertise → Default → Primary*

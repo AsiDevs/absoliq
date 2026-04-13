@@ -11,7 +11,7 @@ export default async function RootLayout({ children }) {
     <>
       <StyledHeader settings={settings} />
       {children}
-      <StyledFooter />
+      <StyledFooter settings={settings} />
     </>
   );
 }

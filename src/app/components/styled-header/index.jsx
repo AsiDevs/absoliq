@@ -4,8 +4,8 @@ import { PrismicNextImage } from "@prismicio/next";
 
 const StyledHeader = ({ settings }) => {
   return (
-    <div className="section-bg py-10 md:py-11.25 xl:py-11.5">
-      <nav className="flex justify-between items-center fixed w-full left-[50%] -translate-x-[50%] rounded-xl z-100 top-3 md:top-4 bg-primary-white max-w-[1130px] mx-auto px-4 py-1 shadow-2xl">
+    <header className="section-bg py-10 md:py-11.25 xl:py-11.5">
+      <nav className="flex justify-between items-center fixed w-[91.5%] md:w-[90%] xl:w-full left-[50%] -translate-x-[50%] rounded-xl z-100 top-3 md:top-4 bg-primary-white max-w-[1130px] xl:mx-auto px-4 py-1 nav-shadow">
         <Link href={"/"}>
           <PrismicNextImage
             className="block w-full max-w-28"
@@ -21,7 +21,7 @@ const StyledHeader = ({ settings }) => {
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 

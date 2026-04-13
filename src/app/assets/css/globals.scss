@@ -273,3 +273,9 @@ body {
   flex-direction: column;
   row-gap: 9px;
 }
+
+.nav-shadow {
+  box-shadow:
+    0px 107px 64px 0px rgba(0, 0, 0, 0.02),
+    0px 47px 46px 0px rgba(0, 0, 0, 0.03);
+}
