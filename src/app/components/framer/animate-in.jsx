@@ -10,6 +10,7 @@ const AnimateIn = ({
   onClick,
   delay = 0,
   style = "",
+  onMouseEnter,
 }) => {
   const variants = {
     hidden: {
@@ -40,6 +41,7 @@ const AnimateIn = ({
       className={className}
       role={role}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
     >
       {children}
     </motion.div>

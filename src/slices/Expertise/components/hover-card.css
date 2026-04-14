@@ -1,0 +1,23 @@
+.single-card:hover .btn-secondary::after {
+  transform: scale(1.05);
+}
+
+.single-card:hover .btn-secondary .icon {
+  transform: scale(1.05);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-primary-white);
+}
+
+.single-card:hover .btn-secondary .icon::after {
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+}
+
+.single-card:hover .btn-secondary .icon svg {
+  transform: rotate(-45deg) scale(1.05);
+}
+
+.card-container > div {
+  min-height: 0;
+}

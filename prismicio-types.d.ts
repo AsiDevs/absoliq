@@ -1197,6 +1197,16 @@ export interface ExpertiseSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
+   * Image field in *Expertise → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: expertise.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Tiles field in *Expertise → Default → Primary*
    *
    * - **Field Type**: Group

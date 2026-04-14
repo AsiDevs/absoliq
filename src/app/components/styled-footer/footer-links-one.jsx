@@ -3,7 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 
 const FooterLinksOne = () => {
   return (
-    <div className="md:max-w-55 min-w-55">
+    <div className="min-w-40 md:min-w-55 md:max-w-55">
       <h5 className="text-body-small mb-[5.1px] underline underline-offset-2">
         Customer Service
       </h5>

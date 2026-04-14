@@ -1,0 +1,29 @@
+.single-card {
+  &:hover {
+    .btn-secondary {
+      &::after {
+        transform: scale(1.05);
+      }
+      .icon {
+        transform: scale(1.05);
+        background-color: var(--color-secondary-dark);
+        color: var(--color-primary-white);
+        &::after {
+          z-index: 5;
+          height: 100%;
+          width: 100%;
+        }
+        svg {
+          transform: rotate(-45deg) scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.card-container {
+  //   contain: layout size;
+  & > div {
+    min-height: 0;
+  }
+}
