@@ -573,12 +573,12 @@ export interface ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem {
   /**
    * Point field in *ComparisonAndTestimonial → Default → Primary → Negatives*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: comparison_and_testimonial.default.primary.negatives[].point
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  point: prismic.KeyTextField;
+  point: prismic.RichTextField;
 }
 
 /**
@@ -588,12 +588,12 @@ export interface ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem {
   /**
    * Point field in *ComparisonAndTestimonial → Default → Primary → Positives*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: comparison_and_testimonial.default.primary.positives[].point
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  point: prismic.KeyTextField;
+  point: prismic.RichTextField;
 }
 
 /**

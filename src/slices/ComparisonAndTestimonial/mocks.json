@@ -12,9 +12,15 @@
 							[
 								"point",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "sugar",
-									"type": "Text"
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit ea sit non velit laborum eu eiusmod sint esse eu."
+											}
+										}
+									]
 								}
 							]
 						]
@@ -102,7 +108,22 @@
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
-						"value": []
+						"value": [
+							[
+								"point",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Occaecat labore incididunt dolore ut irure. Pariatur sunt sunt sunt mollit ad pariatur veniam duis do magna ex voluptate magna."
+											}
+										}
+									]
+								}
+							]
+						]
 					}
 				]
 			}

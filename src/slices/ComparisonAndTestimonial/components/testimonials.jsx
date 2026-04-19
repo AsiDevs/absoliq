@@ -6,6 +6,7 @@ const Testimonials = ({ slice }) => {
   const testimonial_caption = slice?.primary?.testimonial_caption;
   const testimonial_title = slice?.primary?.testimonial_title;
   const testimonial_description = slice?.primary?.testimonial_description;
+  const testimonies = slice?.primary?.testimonies;
 
   const title_slice = {
     primary: {
@@ -15,6 +16,7 @@ const Testimonials = ({ slice }) => {
     },
   };
 
+  if (!testimonies || testimonies?.length < 1) return null;
   return (
     <div className="pt-[60px] md:pt-[80px] xl:pt-[120px]">
       <div className="max-w-150 mx-auto">

@@ -95,10 +95,12 @@
             "repeat": true,
             "fields": {
               "point": {
-                "type": "Text",
+                "type": "StructuredText",
                 "config": {
                   "label": "Point",
-                  "placeholder": ""
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
                 }
               }
             }
@@ -118,10 +120,12 @@
             "repeat": true,
             "fields": {
               "point": {
-                "type": "Text",
+                "type": "StructuredText",
                 "config": {
                   "label": "Point",
-                  "placeholder": ""
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
                 }
               }
             }

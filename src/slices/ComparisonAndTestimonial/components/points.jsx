@@ -22,7 +22,7 @@ export default Points;
 const PointsContainer = ({ title, points, variant = "positive" }) => {
   return (
     <div className="col-span-12 md:col-span-6">
-      <h3 className="text-title-medium text-text-secondary font-medium text-center mb-6 md:mb-8">
+      <h3 className="text-title-medium text-text-secondary font-medium text-center mb-6 md:mb-8 lg:max-w-110 xl:max-w-none mx-auto">
         {title}
       </h3>
       <div className="flex flex-col gap-y-3">

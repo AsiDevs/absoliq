@@ -9,9 +9,10 @@ const StyledSectionTitle = ({
   leftAligned = false,
   textWhite = false,
 }) => {
-  const caption = slice?.primary?.caption || "";
-  const title = slice?.primary?.title || "";
-  const description = slice?.primary?.description || "";
+  const caption =
+    slice?.primary?.caption?.length > 0 ? slice?.primary?.caption : null;
+  const title = slice?.primary?.title || null;
+  const description = slice?.primary?.description || null;
 
   return (
     <div
@@ -23,7 +24,7 @@ const StyledSectionTitle = ({
         "text-text-heading": !textWhite,
       })}
     >
-      {caption && (
+      {(caption || caption?.length > 0) && (
         <AnimateIn
           className={clsx({
             "flex gap-2 items-center xl:mb-2.5": true,

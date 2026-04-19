@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import AnimateIn from "@/app/components/framer/animate-in";
+import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 
 const Point = ({ point, idx, variant }) => {
   if (!point) return null;
@@ -22,7 +23,7 @@ const Point = ({ point, idx, variant }) => {
         {variant === "negative" && <FaMinus />}
         {variant === "positive" && <FaPlus />}
       </div>
-      <p className="text-body-base">{point}</p>
+      <StyledPrismicRichTextSingle className="text-body-base" field={point} />
     </AnimateIn>
   );
 };
