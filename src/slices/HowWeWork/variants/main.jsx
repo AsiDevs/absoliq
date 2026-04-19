@@ -17,7 +17,12 @@ const Main = ({ slice }) => {
             field={slice?.primary?.wwf_description}
             className="text-body-medium mb-8 md:mb-12"
           />
-          <Points slice={slice} />
+          <Points
+            points={slice?.primary?.points}
+            prefix={slice?.primary?.points_prefix}
+            suffix={slice?.primary?.points_suffix}
+            slice={slice}
+          />
         </AnimateIn>
       </div>
       <Tiles slice={slice} />

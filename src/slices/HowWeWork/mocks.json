@@ -82,5 +82,104 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variantTwo",
+		"primary": {
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"top_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Full",
+				"type": "Select"
+			},
+			"bottom_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Half",
+				"type": "Select"
+			},
+			"caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Irure esse sit eu."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Birth"
+						}
+					}
+				]
+			},
+			"wwf_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt ullamco quis proident. Fugiat veniam minim labore."
+						}
+					}
+				]
+			},
+			"points_prefix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam ut aliquip nisi laboris. Consectetur dolore aliquip aliqua ea non."
+						}
+					}
+				]
+			},
+			"points": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"point",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "high",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"points_summary": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit reprehenderit est exercitation aute reprehenderit pariatur magna irure reprehenderit qui incididunt aute consequat fugiat aliqua. Fugiat quis esse qui adipisicing nisi ad consequat. Incididunt cillum voluptate veniam ea sunt laborum eiusmod sunt excepteur enim ut voluptate."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -3,27 +3,54 @@ import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtex
 import React from "react";
 import StyledSinglePoint from "@/app/components/stlyed-single-point";
 
-const Points = ({ slice }) => {
-  const points = slice?.primary?.points;
+const Points = ({
+  slice,
+  variant = "primary",
+  points = [],
+  prefix,
+  suffix,
+  summary,
+}) => {
   return (
     <div>
-      <AnimateIn className={"mb-5"}>
-        <StyledPrismicRichTextSingle
-          field={slice?.primary?.points_prefix}
-          className="text-title-base-blog text-text-secondary"
-        />
-      </AnimateIn>
-      <div className="point-container mb-8 md:mb-12">
-        {points?.map(({ point }, idx) => {
-          return <StyledSinglePoint key={point} point={point} idx={idx} />;
-        })}
+      {prefix && (
+        <AnimateIn className={"mb-5"}>
+          <StyledPrismicRichTextSingle
+            field={prefix}
+            className="text-title-base-blog text-text-secondary"
+          />
+        </AnimateIn>
+      )}
+      <div className="mb-8 md:mb-12">
+        <div className="point-container">
+          {points?.map(({ point }, idx) => {
+            return (
+              <StyledSinglePoint
+                key={point}
+                point={point}
+                idx={idx}
+                variant={variant}
+              />
+            );
+          })}
+        </div>
+        {summary && (
+          <AnimateIn delay={points?.length * 0.1} className={"mt-5"}>
+            <StyledPrismicRichTextSingle
+              field={summary}
+              className="text-title-base-blog text-text-secondary"
+            />
+          </AnimateIn>
+        )}
       </div>
-      <AnimateIn delay={points?.length * 0.1}>
-        <StyledPrismicRichTextSingle
-          field={slice?.primary?.points_suffix}
-          className="text-title-base text-text-secondary"
-        />
-      </AnimateIn>
+      {suffix && (
+        <AnimateIn delay={points?.length * 0.1}>
+          <StyledPrismicRichTextSingle
+            field={suffix}
+            className="text-title-base text-text-secondary"
+          />
+        </AnimateIn>
+      )}
     </div>
   );
 };

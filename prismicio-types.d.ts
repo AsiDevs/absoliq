@@ -1426,6 +1426,36 @@ export interface HowWeWorkSliceDefaultPrimaryTilesItem {
 }
 
 /**
+ * Item in *HowWeWork → Variant Two → Primary → Points*
+ */
+export interface HowWeWorkSliceVariantTwoPrimaryPointsItem {
+  /**
+   * Point field in *HowWeWork → Variant Two → Primary → Points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
+ * Item in *HowWeWork → Variant Two → Primary → Points*
+ */
+export interface HowWeWorkSliceVariantTwoPrimaryPointsTwoItem {
+  /**
+   * Point field in *HowWeWork → Variant Two → Primary → Points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_two[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *HowWeWork → Default → Primary*
  */
 export interface HowWeWorkSliceDefaultPrimary {
@@ -1555,9 +1585,152 @@ export type HowWeWorkSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HowWeWork → Variant Two → Primary*
+ */
+export interface HowWeWorkSliceVariantTwoPrimary {
+  /**
+   * With divider field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: how_we_work.variantTwo.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.wwf_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  wwf_description: prismic.RichTextField;
+
+  /**
+   * Points prefix field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_prefix: prismic.RichTextField;
+
+  /**
+   * Points field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points: prismic.GroupField<
+    Simplify<HowWeWorkSliceVariantTwoPrimaryPointsItem>
+  >;
+
+  /**
+   * Points prefix field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_two_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_two_prefix: prismic.RichTextField;
+
+  /**
+   * Points field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_two[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points_two: prismic.GroupField<
+    Simplify<HowWeWorkSliceVariantTwoPrimaryPointsTwoItem>
+  >;
+
+  /**
+   * Points summary field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_summary
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_summary: prismic.RichTextField;
+
+  /**
+   * Points suffix field in *HowWeWork → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantTwo.primary.points_two_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_two_suffix: prismic.RichTextField;
+}
+
+/**
+ * Variant Two variation for HowWeWork Slice
+ *
+ * - **API ID**: `variantTwo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowWeWorkSliceVariantTwo = prismic.SharedSliceVariation<
+  "variantTwo",
+  Simplify<HowWeWorkSliceVariantTwoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *HowWeWork*
  */
-type HowWeWorkSliceVariation = HowWeWorkSliceDefault;
+type HowWeWorkSliceVariation = HowWeWorkSliceDefault | HowWeWorkSliceVariantTwo;
 
 /**
  * HowWeWork Shared Slice
@@ -2186,8 +2359,12 @@ declare module "@prismicio/client" {
       HowWeWorkSliceDefaultPrimaryPointsItem,
       HowWeWorkSliceDefaultPrimaryTilesItem,
       HowWeWorkSliceDefaultPrimary,
+      HowWeWorkSliceVariantTwoPrimaryPointsItem,
+      HowWeWorkSliceVariantTwoPrimaryPointsTwoItem,
+      HowWeWorkSliceVariantTwoPrimary,
       HowWeWorkSliceVariation,
       HowWeWorkSliceDefault,
+      HowWeWorkSliceVariantTwo,
       LogoCarouselSlice,
       LogoCarouselSliceDefaultPrimaryImagesItem,
       LogoCarouselSliceDefaultPrimary,

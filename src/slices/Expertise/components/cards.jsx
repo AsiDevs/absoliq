@@ -129,14 +129,11 @@ const SingleCardContent = ({ card }) => {
           className="text-[16px] leading-6.5"
         />
         {card?.link && (
-          <PrismicNextLink
-            className="btn btn-secondary px-0!"
-            field={card?.link}
-          >
+          <button className="btn btn-secondary px-0!" field={card?.link}>
             <span className="icon">
               <IoArrowForwardSharp />
             </span>
-          </PrismicNextLink>
+          </button>
         )}
       </div>
       <CardImage image={card?.image} />

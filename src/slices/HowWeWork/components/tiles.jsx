@@ -91,19 +91,25 @@ const Row = ({ items, minH = "220px", onHover }) => {
   return (
     <div className="flex flex-col lg:flex-row gap-1 transition-bouncy h-full hover:h-[125%]">
       {items?.map((item, index) => (
-        <Tile tile={item} key={index} isSingleItem={items?.length === 1} />
+        <Tile
+          tile={item}
+          key={index}
+          isSingleItem={items?.length === 1}
+          idx={index}
+        />
       ))}
     </div>
   );
 };
 
-const Tile = ({ tile, isSingleItem }) => {
+const Tile = ({ tile, isSingleItem, idx }) => {
   return (
-    <div
+    <AnimateIn
       className={clsx({
         "rounded-md p-6 bg-[#F3F1EE] w-full transition-bouncy bouncy flex flex-col justify-between group": true,
         "hover:w-[125%]": !isSingleItem,
       })}
+      delay={0.1 * idx}
     >
       <h3 className="text-title-base mb-20 lg:mb-0 font-medium lg:max-w-[320px]">
         {tile?.title}
@@ -111,6 +117,6 @@ const Tile = ({ tile, isSingleItem }) => {
       <p className="text-body-medium transition-bouncy lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible pointer-events-none lg:max-w-[350px]">
         {tile?.description}
       </p>
-    </div>
+    </AnimateIn>
   );
 };
