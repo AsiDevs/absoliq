@@ -36,10 +36,10 @@
             ]
           }
         },
-        "white_backgorund": {
+        "white_background": {
           "type": "Boolean",
           "config": {
-            "label": "White backgorund",
+            "label": "White background",
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": false

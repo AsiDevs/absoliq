@@ -98,9 +98,9 @@
 					}
 				]
 			},
-			"white_backgorund": {
+			"white_background": {
 				"__TYPE__": "BooleanContent",
-				"value": true
+				"value": false
 			}
 		},
 		"items": []
