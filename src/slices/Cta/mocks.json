@@ -69,9 +69,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "paragraph",
+						"type": "heading2",
 						"content": {
-							"text": "Laboris ex cupidatat cupidatat."
+							"text": "Satellites"
 						}
 					}
 				]
@@ -82,7 +82,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Est officia deserunt magna elit adipisicing qui nostrud aliquip dolore aute labore ad veniam minim culpa."
+							"text": "Aliqua consequat sunt quis exercitation nostrud id id aute do sint adipisicing ipsum. Est excepteur consectetur aute cillum nisi laborum cupidatat fugiat incididunt elit magna ad culpa esse quis."
 						}
 					}
 				]
@@ -97,6 +97,10 @@
 						}
 					}
 				]
+			},
+			"white_backgorund": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

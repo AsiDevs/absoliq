@@ -910,6 +910,17 @@ export interface CtaSliceDefaultPrimary {
   bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
 
   /**
+   * White backgorund field in *Cta → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cta.default.primary.white_backgorund
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  white_backgorund: prismic.BooleanField;
+
+  /**
    * Title field in *Cta → Default → Primary*
    *
    * - **Field Type**: Rich Text

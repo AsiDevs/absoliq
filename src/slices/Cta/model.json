@@ -36,13 +36,22 @@
             ]
           }
         },
+        "white_backgorund": {
+          "type": "Boolean",
+          "config": {
+            "label": "White backgorund",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4"
+            "multi": "heading2,heading3,heading4,em"
           }
         },
         "description": {
@@ -51,7 +60,7 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4,strong,em,hyperlink"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
         "buttons": {
