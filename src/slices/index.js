@@ -11,6 +11,7 @@ export const components = {
   expertise: dynamic(() => import("./Expertise")),
   hero: dynamic(() => import("./Hero")),
   how_we_work: dynamic(() => import("./HowWeWork")),
+  image_with_text: dynamic(() => import("./ImageWithText")),
   logo_carousel: dynamic(() => import("./LogoCarousel")),
   questions: dynamic(() => import("./Faq")),
   results: dynamic(() => import("./Results")),
