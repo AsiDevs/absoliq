@@ -1468,6 +1468,21 @@ export interface HowWeWorkSliceVariantTwoPrimaryPointsTwoItem {
 }
 
 /**
+ * Item in *HowWeWork → Variant Three → Primary → Points*
+ */
+export interface HowWeWorkSliceVariantThreePrimaryPointsTwoItem {
+  /**
+   * Point field in *HowWeWork → Variant Three → Primary → Points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.points_two[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *HowWeWork → Default → Primary*
  */
 export interface HowWeWorkSliceDefaultPrimary {
@@ -1740,9 +1755,123 @@ export type HowWeWorkSliceVariantTwo = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HowWeWork → Variant Three → Primary*
+ */
+export interface HowWeWorkSliceVariantThreePrimary {
+  /**
+   * With divider field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: how_we_work.variantThree.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.wwf_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  wwf_description: prismic.RichTextField;
+
+  /**
+   * Points prefix field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.points_two_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_two_prefix: prismic.RichTextField;
+
+  /**
+   * Points field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.points_two[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points_two: prismic.GroupField<
+    Simplify<HowWeWorkSliceVariantThreePrimaryPointsTwoItem>
+  >;
+
+  /**
+   * Points suffix field in *HowWeWork → Variant Three → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantThree.primary.points_two_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points_two_suffix: prismic.RichTextField;
+}
+
+/**
+ * Variant Three variation for HowWeWork Slice
+ *
+ * - **API ID**: `variantThree`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HowWeWorkSliceVariantThree = prismic.SharedSliceVariation<
+  "variantThree",
+  Simplify<HowWeWorkSliceVariantThreePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *HowWeWork*
  */
-type HowWeWorkSliceVariation = HowWeWorkSliceDefault | HowWeWorkSliceVariantTwo;
+type HowWeWorkSliceVariation =
+  | HowWeWorkSliceDefault
+  | HowWeWorkSliceVariantTwo
+  | HowWeWorkSliceVariantThree;
 
 /**
  * HowWeWork Shared Slice
@@ -2480,9 +2609,12 @@ declare module "@prismicio/client" {
       HowWeWorkSliceVariantTwoPrimaryPointsItem,
       HowWeWorkSliceVariantTwoPrimaryPointsTwoItem,
       HowWeWorkSliceVariantTwoPrimary,
+      HowWeWorkSliceVariantThreePrimaryPointsTwoItem,
+      HowWeWorkSliceVariantThreePrimary,
       HowWeWorkSliceVariation,
       HowWeWorkSliceDefault,
       HowWeWorkSliceVariantTwo,
+      HowWeWorkSliceVariantThree,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceVariation,

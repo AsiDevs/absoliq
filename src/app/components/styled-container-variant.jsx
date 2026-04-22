@@ -35,7 +35,13 @@ const StyledContainerVariant = ({
             "mx-auto w-full max-w-[1280px] relative z-[10] max-w-[1360px]": true,
           })}
         >
-          <div className="px-4 md:px-6 py-6 md:py-8 xl:p-10 2xl:p-20 rounded-[18px] bg-primary-white">
+          <div
+            className={clsx({
+              "px-4 md:px-6 py-6 md:py-8 xl:p-10 2xl:p-20 rounded-[18px]": true,
+              "bg-primary-white": !slice?.primary?.remove_background,
+              "bg-transparent": slice?.primary?.remove_background,
+            })}
+          >
             {children}
           </div>
         </div>

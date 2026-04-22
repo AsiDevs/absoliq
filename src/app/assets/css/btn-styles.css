@@ -1,0 +1,174 @@
+/* Button */
+.btn {
+  @apply inline-flex items-center justify-center text-center transition-all ease-linear cursor-pointer text-[18px] leading-6.5 font-medium relative;
+}
+
+.btn span {
+  position: relative;
+  z-index: 10;
+}
+
+.btn-primary {
+  color: var(--color-text-light);
+  padding: 8px;
+  padding-left: 16px;
+  column-gap: 8px;
+  border-radius: 8px;
+  background: var(--color-primary-dark);
+  outline: 1px solid var(--color-primary-dark);
+}
+
+.btn-primary::after {
+  content: "";
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: var(--transition);
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-dark);
+  outline: 1px solid var(--color-primary-dark);
+}
+
+.btn-primary .icon {
+  transition: var(--transition);
+  padding: 9px;
+  border-radius: 4.8px;
+  background: var(--color-primary-white);
+  color: var(--color-secondary-dark);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.btn-primary .icon::after {
+  content: "";
+  transition: var(--transition);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  background-color: var(--color-secondary-dark);
+}
+
+.btn-primary .icon svg {
+  transition: var(--transition);
+  position: relative;
+  z-index: 10;
+}
+
+.btn-primary:hover::after {
+  transform: scale(1.05);
+}
+
+.btn-primary:hover .icon {
+  transform: scale(1.05);
+  color: var(--color-primary-white);
+}
+
+.btn-primary:hover .icon::after {
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-primary:hover .icon svg {
+  transform: rotate(-45deg) scale(1.05);
+}
+
+.btn-secondary {
+  color: var(--color-text-heading);
+  column-gap: 8px;
+  padding: 8px;
+  background: var(--color-primary-white);
+  padding-left: 16px;
+  border-radius: 8px;
+}
+
+.btn-secondary::after {
+  content: "";
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: var(--transition);
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary-white);
+}
+
+.btn-secondary .icon {
+  transition: var(--transition);
+  padding: 9px;
+  border-radius: 4.8px;
+  background: var(--color-primary-dark);
+  color: var(--color-primary-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary .icon::after {
+  content: "";
+  transition: var(--transition);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  background-color: var(--color-secondary-dark);
+}
+
+.btn-secondary .icon svg {
+  transition: var(--transition);
+  position: relative;
+  z-index: 10;
+}
+
+.btn-secondary:hover::after {
+  transform: scale(1.05);
+}
+
+.btn-secondary:hover .icon {
+  transform: scale(1.05);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-primary-white);
+}
+
+.btn-secondary:hover .icon::after {
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-secondary:hover .icon svg {
+  transform: rotate(-45deg) scale(1.05);
+}
+
+.btn-link {
+  color: var(--color-text-heading);
+  width: fit-content;
+  position: relative;
+}
+
+.btn-link::after {
+  transition: var(--transition);
+  content: "";
+  position: absolute;
+  background: var(--color-text-heading);
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 20%;
+}
+
+.btn-link:hover::after {
+  width: 100%;
+}

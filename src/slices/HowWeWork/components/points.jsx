@@ -10,9 +10,11 @@ const Points = ({
   prefix,
   suffix,
   summary,
+  className = "",
 }) => {
+  if (!points || points?.length < 1) return null;
   return (
-    <div>
+    <div className={className}>
       {prefix && (
         <AnimateIn className={"mb-5"}>
           <StyledPrismicRichTextSingle
@@ -21,7 +23,7 @@ const Points = ({
           />
         </AnimateIn>
       )}
-      <div className="mb-8 md:mb-12">
+      <div>
         <div className="point-container">
           {points?.map(({ point }, idx) => {
             return (
@@ -44,7 +46,7 @@ const Points = ({
         )}
       </div>
       {suffix && (
-        <AnimateIn delay={points?.length * 0.1}>
+        <AnimateIn delay={points?.length * 0.1} className={"mt-8 md:mt-12"}>
           <StyledPrismicRichTextSingle
             field={suffix}
             className="text-title-base text-text-secondary"

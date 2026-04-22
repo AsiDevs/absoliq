@@ -181,5 +181,104 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variantThree",
+		"primary": {
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"top_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Half",
+				"type": "Select"
+			},
+			"bottom_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Half",
+				"type": "Select"
+			},
+			"caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Est ea quis deserunt enim commodo in aute consectetur anim anim exercitation est Lorem fugiat."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Shaking"
+						}
+					}
+				]
+			},
+			"wwf_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do duis laborum amet esse commodo. Est aliquip qui consectetur aliquip eu reprehenderit ad tempor deserunt incididunt elit."
+						}
+					}
+				]
+			},
+			"points_two_prefix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation amet laboris elit do non."
+						}
+					}
+				]
+			},
+			"points_two": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"point",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "slabs",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"points_two_suffix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa ad dolore id non culpa pariatur veniam."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

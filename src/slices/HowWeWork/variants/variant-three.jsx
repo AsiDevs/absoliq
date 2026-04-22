@@ -1,20 +1,20 @@
-import StyledContainerVariant from "@/app/components/styled-container-variant";
+import StyledContainer from "@/app/components/styled-container";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 import StyledSectionTitle from "@/app/components/styled-section-title";
 import Points from "../components/points";
 import AnimateIn from "@/app/components/framer/animate-in";
 import clsx from "clsx";
 
-const VariantTwo = ({ slice }) => {
+const VariantThree = ({ slice }) => {
   return (
-    <StyledContainerVariant slice={slice} maxWLarge className="2xl:px-0!">
+    <StyledContainer slice={slice} maxWLarge className="2xl:px-0!">
       <div className="xl:flex flex-row justify-between gap-x-5">
         <AnimateIn className="xl:max-w-[630px]">
           <StyledSectionTitle slice={slice} leftAligned />
         </AnimateIn>
         <div
           className={clsx({
-            "xl:max-w-[550px] xl:pt-30": true,
+            "xl:max-w-[550px]": true,
           })}
         >
           <AnimateIn className={"flex flex-col gap-y-8 md:gap-y-12"}>
@@ -23,26 +23,19 @@ const VariantTwo = ({ slice }) => {
               className="text-body-medium text-[#000000B2]"
             />
             <Points
-              points={slice?.primary?.points}
+              points={slice?.primary?.points_two}
               prefix={slice?.primary?.points_prefix}
               slice={slice}
-              variant="secondary"
-              className="mb-8 md:mb-12"
             />
-          </AnimateIn>
-          <AnimateIn>
-            <Points
-              points={slice?.primary?.points_two}
-              prefix={slice?.primary?.points_two_prefix}
-              suffix={slice?.primary?.points_two_suffix}
-              summary={slice?.primary?.points_summary}
-              slice={slice}
+            <StyledPrismicRichTextSingle
+              field={slice?.primary?.points_two_suffix}
+              className="text-body-medium text-text-secondary"
             />
           </AnimateIn>
         </div>
       </div>
-    </StyledContainerVariant>
+    </StyledContainer>
   );
 };
 
-export default VariantTwo;
+export default VariantThree;
