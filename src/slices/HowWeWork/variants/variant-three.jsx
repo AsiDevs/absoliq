@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 const VariantThree = ({ slice }) => {
   return (
-    <StyledContainer slice={slice} maxWLarge className="2xl:px-0!">
+    <StyledContainer slice={slice}>
       <div className="xl:flex flex-row justify-between gap-x-5">
         <AnimateIn className="xl:max-w-[630px]">
           <StyledSectionTitle slice={slice} leftAligned />

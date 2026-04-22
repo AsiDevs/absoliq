@@ -1975,9 +1975,100 @@ export type ImageWithTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImageWithText → Variant Two → Primary*
+ */
+export interface ImageWithTextSliceVariantTwoPrimary {
+  /**
+   * With divider field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_with_text.variantTwo.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.body_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body_description: prismic.RichTextField;
+
+  /**
+   * Image field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Variant Two variation for ImageWithText Slice
+ *
+ * - **API ID**: `variantTwo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageWithTextSliceVariantTwo = prismic.SharedSliceVariation<
+  "variantTwo",
+  Simplify<ImageWithTextSliceVariantTwoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ImageWithText*
  */
-type ImageWithTextSliceVariation = ImageWithTextSliceDefault;
+type ImageWithTextSliceVariation =
+  | ImageWithTextSliceDefault
+  | ImageWithTextSliceVariantTwo;
 
 /**
  * ImageWithText Shared Slice
@@ -2617,8 +2708,10 @@ declare module "@prismicio/client" {
       HowWeWorkSliceVariantThree,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
+      ImageWithTextSliceVariantTwoPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
+      ImageWithTextSliceVariantTwo,
       LogoCarouselSlice,
       LogoCarouselSliceDefaultPrimaryImagesItem,
       LogoCarouselSliceDefaultPrimary,
