@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | FormsSlice
   | ImageWithTextSlice
   | ExpertiseSlice
   | ComparisonAndTestimonialSlice
@@ -1260,6 +1261,120 @@ export type ExpertiseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Forms → Default → Primary*
+ */
+export interface FormsSliceDefaultPrimary {
+  /**
+   * With divider field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: forms.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * No background field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: forms.default.primary.no_background
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  no_background: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Title field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Disclaimer text field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.disclaimer_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  disclaimer_text: prismic.RichTextField;
+
+  /**
+   * Image field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Forms Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FormsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Forms*
+ */
+type FormsSliceVariation = FormsSliceDefault;
+
+/**
+ * Forms Shared Slice
+ *
+ * - **API ID**: `forms`
+ * - **Description**: Forms
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FormsSlice = prismic.SharedSlice<"forms", FormsSliceVariation>;
+
+/**
  * Item in *Hero → Default → Primary → Buttons*
  */
 export interface HeroSliceDefaultPrimaryButtonsItem {
@@ -1886,6 +2001,21 @@ export type HowWeWorkSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ImageWithText → Variant Two → Primary → Points*
+ */
+export interface ImageWithTextSliceVariantTwoPrimaryPointsItem {
+  /**
+   * Point field in *ImageWithText → Variant Two → Primary → Points*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.points[].point
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  point: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *ImageWithText → Default → Primary*
  */
 export interface ImageWithTextSliceDefaultPrimary {
@@ -2028,6 +2158,18 @@ export interface ImageWithTextSliceVariantTwoPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
+
+  /**
+   * Points field in *ImageWithText → Variant Two → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.variantTwo.primary.points[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  points: prismic.GroupField<
+    Simplify<ImageWithTextSliceVariantTwoPrimaryPointsItem>
+  >;
 
   /**
    * Description field in *ImageWithText → Variant Two → Primary*
@@ -2688,6 +2830,10 @@ declare module "@prismicio/client" {
       ExpertiseSliceDefaultPrimary,
       ExpertiseSliceVariation,
       ExpertiseSliceDefault,
+      FormsSlice,
+      FormsSliceDefaultPrimary,
+      FormsSliceVariation,
+      FormsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryButtonsItem,
       HeroSliceDefaultPrimary,
@@ -2708,6 +2854,7 @@ declare module "@prismicio/client" {
       HowWeWorkSliceVariantThree,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
+      ImageWithTextSliceVariantTwoPrimaryPointsItem,
       ImageWithTextSliceVariantTwoPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,

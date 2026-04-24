@@ -9,6 +9,7 @@ export const components = {
   ),
   cta: dynamic(() => import("./Cta")),
   expertise: dynamic(() => import("./Expertise")),
+  forms: dynamic(() => import("./Forms")),
   hero: dynamic(() => import("./Hero")),
   how_we_work: dynamic(() => import("./HowWeWork")),
   image_with_text: dynamic(() => import("./ImageWithText")),

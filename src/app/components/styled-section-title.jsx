@@ -8,6 +8,7 @@ const StyledSectionTitle = ({
   slice,
   leftAligned = false,
   textWhite = false,
+  className,
 }) => {
   const caption =
     slice?.primary?.caption?.length > 0 ? slice?.primary?.caption : null;
@@ -22,6 +23,7 @@ const StyledSectionTitle = ({
         "text-left items-start": leftAligned,
         "text-text-light": textWhite,
         "text-text-heading": !textWhite,
+        [className]: true,
       })}
     >
       {(caption || caption?.length > 0) && (
