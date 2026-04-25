@@ -47,6 +47,22 @@
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"type": {
+				"__TYPE__": "FieldContent",
+				"value": "Newsletter",
+				"type": "Select"
+			},
+			"end_note": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint ullamco ut adipisicing proident ipsum voluptate tempor. Nulla exercitation pariatur adipisicing voluptate sint minim tempor aliqua consectetur adipisicing id."
+						}
+					}
+				]
 			}
 		},
 		"items": []

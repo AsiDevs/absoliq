@@ -8,7 +8,7 @@ import { contactFormValidationSchema } from "../utils/validationSchema";
 import StyledButton from "@/app/components/styled-button";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 
-const ContactForm = ({ slice }) => {
+const Newsletter = ({ slice }) => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -27,12 +27,6 @@ const ContactForm = ({ slice }) => {
           initialValues={{
             name: "",
             email: "",
-            business: "",
-            website: "",
-            adSpend: "",
-            message: "",
-            date: "",
-            time: "",
           }}
           validationSchema={contactFormValidationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -60,63 +54,18 @@ const ContactForm = ({ slice }) => {
           {({ handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-y-4.5">
-                <div className="md:grid md:grid-cols-2 gap-4.5">
-                  <StyledFormikInput
-                    label={"Name"}
-                    name={"name"}
-                    placeholder={"Your name"}
-                    isRequired
-                  />
-                  <StyledFormikInput
-                    label={"Email address"}
-                    name={"email"}
-                    placeholder={"johndoe@gmail.com"}
-                    isRequired
-                  />
-                </div>
-                <div className="md:grid md:grid-cols-2 gap-4.5">
-                  <StyledFormikInput
-                    label={"Business"}
-                    name={"business"}
-                    placeholder={"Your business"}
-                    isRequired
-                  />
-                  <StyledFormikInput
-                    label={"Website"}
-                    isRequired
-                    name={"website"}
-                    placeholder={"www.example.com"}
-                  />
-                </div>
                 <StyledFormikInput
-                  label={"Monthly ad spend"}
+                  label={"Name"}
+                  name={"name"}
+                  placeholder={"Your name"}
                   isRequired
-                  name={"adSpend"}
-                  placeholder={"How much your monthly ad budget?"}
                 />
                 <StyledFormikInput
-                  label={"What do you want to discuss?"}
+                  label={"Email address"}
+                  name={"email"}
+                  placeholder={"johndoe@gmail.com"}
                   isRequired
-                  name={"message"}
-                  placeholder={"Anything you’d like to discuss?"}
-                  type="textarea"
                 />
-                <div className="md:grid md:grid-cols-2 gap-4.5">
-                  <StyledFormikInput
-                    label={"Preferred meeting date"}
-                    name={"date"}
-                    placeholder={"XX:XX:XXXX"}
-                    isRequired
-                    type="date"
-                  />
-                  <StyledFormikInput
-                    label={"Time"}
-                    isRequired
-                    name={"time"}
-                    placeholder={"XX:XX"}
-                    type="time"
-                  />
-                </div>
               </div>
               <StyledPrismicRichTextSingle
                 className="text-text-light text-[12px] mt-7 mb-12 disclaimer"
@@ -125,7 +74,7 @@ const ContactForm = ({ slice }) => {
               <StyledButton
                 variant="primary"
                 type={"submit"}
-                label={"Nudge an Expert"}
+                label={"Subscribe"}
               />
               <StyledPrismicRichTextSingle
                 className="text-body-small text-text-light mt-4"
@@ -139,4 +88,4 @@ const ContactForm = ({ slice }) => {
   );
 };
 
-export default ContactForm;
+export default Newsletter;

@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
+import { CalendarDays, Clock3 } from "lucide-react";
 
 const StyledInput = ({
   type = "text",
+  placeholder = "",
   label,
   value,
   onChange,
@@ -10,7 +12,8 @@ const StyledInput = ({
   error = false,
   errorMessage = "",
   icon = false,
-  rows = "7",
+  rows = "4",
+  isRequired,
 }) => {
   const servicesData = [
     { label: "PPC" },
@@ -21,16 +24,23 @@ const StyledInput = ({
 
   const sharedInputClasses = `w-full text-text-light rounded-[6px] bg-[#212121] px-[18px] text-[#211F24] text-[14px]
     transition-all outline-none appearance-none ease-in-out delay-600 duration-500 
-    ${error ? "border-error-active focus:border-error-active" : ""}`;
+    ${error ? "border-error-active focus:border-error-active" : "focus:border-0 focus:outline-none"}`;
 
   const labelContent = (
     <label
       htmlFor={label}
-      className="block text-body-small leading-none text-text-light"
+      className="block text-[12px] leading-none text-text-light"
     >
-      {label}
+      {label} {isRequired && <span className="text-primary-dark">*</span>}
     </label>
   );
+
+  const pickerIcon =
+    type === "date" ? (
+      <CalendarDays size={16} />
+    ) : type === "time" ? (
+      <Clock3 size={16} />
+    ) : null;
 
   return type === "textarea" ? (
     <div>
@@ -41,6 +51,7 @@ const StyledInput = ({
           id={label}
           rows={rows}
           value={value}
+          placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur} // Handle blur event for textarea
           className={`${sharedInputClasses} py-[14px] leading-5`}
@@ -57,12 +68,13 @@ const StyledInput = ({
       {labelContent}
       <input
         type={type}
+        placeholder={placeholder}
         name={label}
         id={label}
         value={value}
         onChange={(e) => onChange(e)}
         onBlur={onBlur} // Handle blur event for input
-        className={`${sharedInputClasses} h-[48px] bg-[#FFF] pe-[44px] py-[8px] placeholder:text-[#727A8B] placeholder:text-[18px] text-[#727A8B] md:h-[68px] md:pe-[52px]`}
+        className={`${sharedInputClasses} h-[46.5px] bg-[#FFF] pe-[44px] py-[8px] placeholder:text-[#727A8B] placeholder:text-[18px] text-[#727A8B] md:pe-[52px]`}
       />
       {/* <Search
         className={
@@ -81,7 +93,7 @@ const StyledInput = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
-          className={`${sharedInputClasses} h-[53px] py-2 pr-10`}
+          className={`${sharedInputClasses} h-[46.5px] py-2 pr-10`}
         >
           <option value="" disabled hidden></option>
           {servicesData.map((item, idx) => (
@@ -101,6 +113,31 @@ const StyledInput = ({
         </div>
       )}
     </div>
+  ) : type === "date" || type === "time" ? (
+    <div className="flex flex-col">
+      {labelContent}
+      <div className="relative">
+        <input
+          type={type}
+          name={label}
+          id={label}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onBlur={onBlur}
+          className={`${sharedInputClasses} h-[46.5px] py-2`}
+          style={{ colorScheme: "dark" }}
+        />
+        {/* <div className="pointer-events-none absolute right-[18px] top-1/2 -translate-y-1/2 text-text-light">
+          {pickerIcon}
+        </div> */}
+      </div>
+      {error && errorMessage && (
+        <div className="mt-1 text-[12px] leading-[15px] text-[#F97066]">
+          {errorMessage}
+        </div>
+      )}
+    </div>
   ) : (
     <div className="flex flex-col">
       {labelContent}
@@ -108,10 +145,11 @@ const StyledInput = ({
         type={type}
         name={label}
         id={label}
+        placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onBlur={onBlur}
-        className={`${sharedInputClasses} h-[53px] py-2`}
+        className={`${sharedInputClasses} h-[46.5px] py-2`}
       />
       {icon && (
         <div className="absolute right-[18px] top-[18px]">

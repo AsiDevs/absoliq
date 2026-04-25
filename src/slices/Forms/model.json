@@ -54,6 +54,18 @@
             ]
           }
         },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "Contact Form",
+              "Newsletter"
+            ],
+            "default_value": "Contact Form"
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
@@ -87,6 +99,15 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "end_note": {
+          "type": "StructuredText",
+          "config": {
+            "label": "End note",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
           }
         }
       },

@@ -1,10 +1,15 @@
 import StyledInput from "./styled-input";
 import { useFormikContext } from "formik";
 
-const StyledFormikInput = ({ name = "", type = "text", label = "" }) => {
+const StyledFormikInput = ({
+  name = "",
+  type = "text",
+  label = "",
+  placeholder,
+  isRequired = false,
+}) => {
   const { values, errors, touched, setFieldValue, handleBlur } =
     useFormikContext();
-  console.log("Name: ", name);
 
   const hasError = touched[name] && errors[name];
 
@@ -12,12 +17,14 @@ const StyledFormikInput = ({ name = "", type = "text", label = "" }) => {
     <div className={"mb-3"}>
       <StyledInput
         type={type}
+        placeholder={placeholder}
         label={label}
         error={hasError}
         errorMessage={errors?.[name]}
         onChange={(value) => setFieldValue([name], value)}
         onBlur={() => handleBlur(name)}
         value={values?.[name] || ""}
+        isRequired={isRequired}
       />
     </div>
   );

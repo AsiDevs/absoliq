@@ -1307,6 +1307,17 @@ export interface FormsSliceDefaultPrimary {
   bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
 
   /**
+   * Type field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Contact Form
+   * - **API ID Path**: forms.default.primary.type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  type: prismic.SelectField<"Contact Form" | "Newsletter", "filled">;
+
+  /**
    * Title field in *Forms → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1345,6 +1356,16 @@ export interface FormsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * End note field in *Forms → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: forms.default.primary.end_note
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  end_note: prismic.RichTextField;
 }
 
 /**
