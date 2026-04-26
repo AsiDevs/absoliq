@@ -3,7 +3,6 @@ import AnimateIn from "@/app/components/framer/animate-in";
 import clsx from "clsx";
 
 const CTAButtonDescription = ({ slice, textWhite = true }) => {
-  console.log("TW: ", textWhite);
   const description = slice?.primary?.cta_button_description;
   if (!description) return null;
   return (

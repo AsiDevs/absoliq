@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | GrowingTilesSlice
   | FormsSlice
   | ImageWithTextSlice
   | ExpertiseSlice
@@ -1394,6 +1395,137 @@ type FormsSliceVariation = FormsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FormsSlice = prismic.SharedSlice<"forms", FormsSliceVariation>;
+
+/**
+ * Item in *GrowingTiles → Default → Primary → Tiles*
+ */
+export interface GrowingTilesSliceDefaultPrimaryTilesItem {
+  /**
+   * Title field in *GrowingTiles → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.tiles[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Points (Shift + Enter) field in *GrowingTiles → Default → Primary → Tiles*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: (Shift + Enter for new point break)
+   * - **API ID Path**: growing_tiles.default.primary.tiles[].points
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  points: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *GrowingTiles → Default → Primary*
+ */
+export interface GrowingTilesSliceDefaultPrimary {
+  /**
+   * With divider field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: growing_tiles.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Tiles field in *GrowingTiles → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growing_tiles.default.primary.tiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tiles: prismic.GroupField<Simplify<GrowingTilesSliceDefaultPrimaryTilesItem>>;
+}
+
+/**
+ * Default variation for GrowingTiles Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GrowingTilesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GrowingTilesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GrowingTiles*
+ */
+type GrowingTilesSliceVariation = GrowingTilesSliceDefault;
+
+/**
+ * GrowingTiles Shared Slice
+ *
+ * - **API ID**: `growing_tiles`
+ * - **Description**: GrowingTiles
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type GrowingTilesSlice = prismic.SharedSlice<
+  "growing_tiles",
+  GrowingTilesSliceVariation
+>;
 
 /**
  * Item in *Hero → Default → Primary → Buttons*
@@ -2855,6 +2987,11 @@ declare module "@prismicio/client" {
       FormsSliceDefaultPrimary,
       FormsSliceVariation,
       FormsSliceDefault,
+      GrowingTilesSlice,
+      GrowingTilesSliceDefaultPrimaryTilesItem,
+      GrowingTilesSliceDefaultPrimary,
+      GrowingTilesSliceVariation,
+      GrowingTilesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryButtonsItem,
       HeroSliceDefaultPrimary,

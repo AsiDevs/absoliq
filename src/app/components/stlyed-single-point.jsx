@@ -4,12 +4,15 @@ import Image from "next/image";
 import clsx from "clsx";
 import Point from "@/app/assets/icons/point.svg";
 
-const StyledSinglePoint = ({ variant = "primary", point, idx }) => {
+const StyledSinglePoint = ({ variant = "primary", point, idx, className }) => {
   if (!point) return null;
   return (
     <AnimateIn
       delay={idx * 0.1}
-      className={"flex items-start justify-start gap-x-3"}
+      className={clsx({
+        "flex items-start justify-start gap-x-3": true,
+        [className]: true,
+      })}
     >
       <div
         className={clsx({

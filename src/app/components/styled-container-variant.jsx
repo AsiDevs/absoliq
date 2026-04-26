@@ -32,7 +32,7 @@ const StyledContainerVariant = ({
       >
         <div
           className={clsx({
-            "mx-auto w-full max-w-[1280px] relative z-[10] max-w-[1360px]": true,
+            "mx-auto w-full max-w-[1280px] relative z-[10] max-w-[1360px] relative z-[10]": true,
           })}
         >
           <div

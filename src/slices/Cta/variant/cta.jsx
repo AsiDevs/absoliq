@@ -14,8 +14,6 @@ const CTA = ({ slice }) => {
   const ref = useRef(null);
 
   const white_bg = slice?.primary?.white_backgorund;
-  console.log("SLICE: ", slice);
-  console.log("WHITE BG: ", white_bg);
 
   // Track scroll relative to THIS section
   const { scrollYProgress } = useScroll({
