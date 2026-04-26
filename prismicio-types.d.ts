@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | CarouselsSlice
   | GrowingTilesSlice
   | FormsSlice
   | ImageWithTextSlice
@@ -568,6 +569,215 @@ type AbsSliceVariation = AbsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type AbsSlice = prismic.SharedSlice<"abs", AbsSliceVariation>;
+
+/**
+ * Item in *Carousels → Cards → Primary → Buttons*
+ */
+export interface CarouselsSliceDefaultPrimaryButtonsItem {
+  /**
+   * Link field in *Carousels → Cards → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Carousels → Cards → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
+ * Item in *Carousels → Cards → Primary → Cards*
+ */
+export interface CarouselsSliceDefaultPrimaryCardsItem {
+  /**
+   * Icon field in *Carousels → Cards → Primary → Cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cards[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Caption field in *Carousels → Cards → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cards[].caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Carousels → Cards → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Carousels → Cards → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cards[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Carousels → Cards → Primary*
+ */
+export interface CarouselsSliceDefaultPrimary {
+  /**
+   * With divider field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: carousels.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Navigation Icons field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: carousels.default.primary.navigation_icons
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  navigation_icons: prismic.BooleanField;
+
+  /**
+   * Caption field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Buttons field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<
+    Simplify<CarouselsSliceDefaultPrimaryButtonsItem>
+  >;
+
+  /**
+   * CTA Text field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_text: prismic.RichTextField;
+
+  /**
+   * Cards field in *Carousels → Cards → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  cards: prismic.GroupField<Simplify<CarouselsSliceDefaultPrimaryCardsItem>>;
+}
+
+/**
+ * Cards variation for Carousels Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CarouselsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Carousels*
+ */
+type CarouselsSliceVariation = CarouselsSliceDefault;
+
+/**
+ * Carousels Shared Slice
+ *
+ * - **API ID**: `carousels`
+ * - **Description**: Carousels
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselsSlice = prismic.SharedSlice<
+  "carousels",
+  CarouselsSliceVariation
+>;
 
 /**
  * Item in *ComparisonAndTestimonial → Default → Primary → Negatives*
@@ -2963,6 +3173,12 @@ declare module "@prismicio/client" {
       AbsSliceDefaultPrimary,
       AbsSliceVariation,
       AbsSliceDefault,
+      CarouselsSlice,
+      CarouselsSliceDefaultPrimaryButtonsItem,
+      CarouselsSliceDefaultPrimaryCardsItem,
+      CarouselsSliceDefaultPrimary,
+      CarouselsSliceVariation,
+      CarouselsSliceDefault,
       ComparisonAndTestimonialSlice,
       ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem,
       ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem,

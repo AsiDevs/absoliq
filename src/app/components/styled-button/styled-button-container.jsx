@@ -3,6 +3,9 @@ import clsx from "clsx";
 import AnimateIn from "../framer/animate-in";
 
 const StyledButtonContainer = ({ slice, leftAligned = false }) => {
+  const buttons = slice?.primary?.buttons;
+  if (!buttons || buttons?.length < 1) return null;
+
   return (
     <div
       className={clsx({
@@ -11,7 +14,7 @@ const StyledButtonContainer = ({ slice, leftAligned = false }) => {
         "items-start md:justify-start": leftAligned,
       })}
     >
-      {slice.primary.buttons.map(({ link, variant }, idx) => (
+      {buttons?.map(({ link, variant }, idx) => (
         <AnimateIn
           key={link?.key}
           options={{

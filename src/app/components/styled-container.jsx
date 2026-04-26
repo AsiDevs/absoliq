@@ -37,6 +37,7 @@ const StyledContainer = ({
             "mx-auto w-full max-w-[1280px] relative z-[10]": true,
             "max-w-[1280x]": !maxWLarge,
             "max-w-[1360px]": maxWLarge,
+            [parentClass]: true,
           })}
         >
           {children}

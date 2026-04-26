@@ -100,7 +100,7 @@ const Tile = ({ tile, isSingleItem, idx }) => {
         "tile rounded-md p-6 bg-[#FFF] w-full transition-bouncy bouncy flex flex-col justify-between group relative": true,
         "hover:w-[125%]": !isSingleItem,
       })}
-      delay={0.1 * idx}
+      delay={0.15 * idx}
     >
       <h3 className="text-title-base mb-8 lg:mb-0 font-medium">
         {tile?.title}

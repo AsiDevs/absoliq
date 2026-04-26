@@ -1,0 +1,25 @@
+.carousels-swiper.swiper {
+  overflow: visible;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .carousels-swiper.swiper {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousels-swiper.swiper {
+    padding: 0 80px;
+  }
+}
+
+.carousels-swiper .swiper-slide {
+  height: auto;
+}
+
+.carousels-arrow-left.swiper-button-disabled,
+.carousels-arrow-right.swiper-button-disabled {
+  background: var(--color-secondary-light);
+}
