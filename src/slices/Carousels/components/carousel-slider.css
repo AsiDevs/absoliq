@@ -3,6 +3,11 @@
   padding: 0 16px;
 }
 
+.carousels-swiper.swiper .swiper-wrapper {
+  overflow: visible;
+  padding: 0 16px;
+}
+
 @media (min-width: 768px) {
   .carousels-swiper.swiper {
     padding: 0 40px;
@@ -22,4 +27,9 @@
 .carousels-arrow-left.swiper-button-disabled,
 .carousels-arrow-right.swiper-button-disabled {
   background: var(--color-secondary-light);
+}
+
+.carousels-arrow-left.swiper-button-lock,
+.carousels-arrow-right.swiper-button-lock {
+  display: none;
 }

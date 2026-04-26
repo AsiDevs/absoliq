@@ -12,8 +12,20 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./carousel-slider.css";
 
-const CarouselSlider = ({ cards = [], showNavigation = false }) => {
+const getNavigationClassNames = (navigationId = "") => {
+  const safeId = String(navigationId).replace(/[^a-zA-Z0-9_-]/g, "");
+
+  return {
+    prevClassName: `carousels-arrow-left-${safeId}`,
+    nextClassName: `carousels-arrow-right-${safeId}`,
+  };
+};
+
+const CarouselSlider = ({ cards = [], navigationId }) => {
   if (!cards.length) return null;
+
+  const { prevClassName, nextClassName } =
+    getNavigationClassNames(navigationId);
 
   return (
     <div className="relative">
@@ -21,21 +33,10 @@ const CarouselSlider = ({ cards = [], showNavigation = false }) => {
         modules={[Navigation, A11y]}
         spaceBetween={16}
         slidesPerView="auto"
-        navigation={
-          showNavigation
-            ? {
-                prevEl: ".carousels-arrow-left",
-                nextEl: ".carousels-arrow-right",
-              }
-            : false
-        }
-        breakpoints={{
-          768: {
-            spaceBetween: 20,
-          },
-          1280: {
-            spaceBetween: 24,
-          },
+        watchOverflow={true}
+        navigation={{
+          prevEl: `.${prevClassName}`,
+          nextEl: `.${nextClassName}`,
         }}
         className="carousels-swiper"
       >
@@ -52,23 +53,25 @@ const CarouselSlider = ({ cards = [], showNavigation = false }) => {
   );
 };
 
-export const CarouselNavigation = ({ className = "" }) => {
+export const CarouselNavigation = ({ className = "", navigationId }) => {
   const buttonClassName =
     "flex h-[42px] w-[42px] items-center justify-center rounded-[3px] transition-colors duration-200 bg-primary-dark cursor-pointer";
+  const { prevClassName, nextClassName } =
+    getNavigationClassNames(navigationId);
 
   return (
     <div className={`flex items-center justify-start gap-3 ${className}`}>
       <button
         type="button"
         aria-label="Previous slide"
-        className={`carousels-arrow-left ${buttonClassName}`}
+        className={`${prevClassName} ${buttonClassName}`}
       >
         <Image src={Left.src} alt="Left arrow" width={16} height={16} />
       </button>
       <button
         type="button"
         aria-label="Next slide"
-        className={`carousels-arrow-right ${buttonClassName}`}
+        className={`${nextClassName} ${buttonClassName}`}
       >
         <Image src={Right.src} alt="Right arrow" width={16} height={16} />
       </button>

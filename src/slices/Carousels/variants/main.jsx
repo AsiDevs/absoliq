@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import StyledContainer from "@/app/components/styled-container";
 import StyledSectionTitle from "@/app/components/styled-section-title";
 import StyledButtonContainer from "@/app/components/styled-button/styled-button-container";
@@ -10,7 +10,8 @@ import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtex
 const Main = ({ slice }) => {
   const buttons = slice?.primary?.buttons;
   const cards = slice?.primary?.cards || [];
-  const showNavigation = Boolean(slice?.primary?.navigation_icons);
+  const generatedId = useId().replaceAll(":", "");
+  const navigationId = slice?.id || generatedId;
 
   if (cards.length < 1) return null;
 
@@ -24,7 +25,9 @@ const Main = ({ slice }) => {
       <div className="px-4 md:px-10 xl:px-20 add-gap max-w-[1440px] mx-auto">
         <div className="flex flex-col gap-y-8 xl:flex-row justify-between">
           <StyledSectionTitle slice={slice} leftAligned className="mb-0!" />
-          {buttons?.length < 1 && showNavigation && <CarouselNavigation />}
+          {buttons?.length < 1 && (
+            <CarouselNavigation navigationId={navigationId} />
+          )}
         </div>
 
         {buttons?.length > 0 && (
@@ -36,12 +39,12 @@ const Main = ({ slice }) => {
                 className="text-body-small"
               />
             </div>
-            {showNavigation && <CarouselNavigation />}
+            <CarouselNavigation navigationId={navigationId} />
           </div>
         )}
       </div>
       <div className="overflow-hidden">
-        <CarouselSlider cards={cards} showNavigation={showNavigation} />
+        <CarouselSlider cards={cards} navigationId={navigationId} />
       </div>
     </StyledContainer>
   );

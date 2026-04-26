@@ -8,7 +8,7 @@ const CarouselCard = ({ card, index }) => {
   return (
     <AnimateIn
       delay={0.15 * index}
-      className="carousel-card relative h-full w-[280px] max-w-[280px] overflow-hidden rounded-md bg-[#fff] md:w-[320px] md:max-w-[320px] xl:w-[418px] xl:max-w-[418px]"
+      className="carousel-card relative h-full w-[280px] max-w-[280px] overflow-hidden rounded-md bg-[#fff] md:w-[320px] md:max-w-[320px] xl:w-[415px] xl:max-w-[415px]"
     >
       <div className="relative z-[2] flex flex-col p-6 gap-y-[150px] md:gap-y-[140px] h-full justify-between">
         <div>
