@@ -10,7 +10,7 @@ const StyledFooter = ({ settings }) => {
       <div className="max-w-7xl mx-auto">
         {/* Info */}
         <div className="flex flex-col 2xl:flex-row justify-between xl:items-start gap-y-10 xl:gap-x-47 add-gap">
-          <div className={"text-left min-w-87.5 xl:max-w-87.5"}>
+          <div className={"text-left md:min-w-87.5 xl:max-w-87.5"}>
             <PrismicNextImage
               field={settings?.data?.footer_logo}
               fallbackAlt=""

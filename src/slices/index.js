@@ -18,4 +18,5 @@ export const components = {
   logo_carousel: dynamic(() => import("./LogoCarousel")),
   questions: dynamic(() => import("./Faq")),
   results: dynamic(() => import("./Results")),
+  team: dynamic(() => import("./Team")),
 };

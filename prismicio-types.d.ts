@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type PageDocumentDataSlicesSlice =
+  | TeamSlice
   | CarouselsSlice
   | GrowingTilesSlice
   | FormsSlice
@@ -3139,6 +3140,154 @@ export type ResultsSlice = prismic.SharedSlice<
   ResultsSliceVariation
 >;
 
+/**
+ * Item in *Team → Default → Primary → Team*
+ */
+export interface TeamSliceDefaultPrimaryTeamItem {
+  /**
+   * Image field in *Team → Default → Primary → Team*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Team → Default → Primary → Team*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Position field in *Team → Default → Primary → Team*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team[].position
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  position: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Team → Default → Primary*
+ */
+export interface TeamSliceDefaultPrimary {
+  /**
+   * With divider field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: team.default.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Team field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  team: prismic.GroupField<Simplify<TeamSliceDefaultPrimaryTeamItem>>;
+
+  /**
+   * Motto field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.motto
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  motto: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Team Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Team*
+ */
+type TeamSliceVariation = TeamSliceDefault;
+
+/**
+ * Team Shared Slice
+ *
+ * - **API ID**: `team`
+ * - **Description**: Team
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TeamSlice = prismic.SharedSlice<"team", TeamSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -3250,6 +3399,11 @@ declare module "@prismicio/client" {
       ResultsSliceDefaultPrimary,
       ResultsSliceVariation,
       ResultsSliceDefault,
+      TeamSlice,
+      TeamSliceDefaultPrimaryTeamItem,
+      TeamSliceDefaultPrimary,
+      TeamSliceVariation,
+      TeamSliceDefault,
     };
   }
 }
