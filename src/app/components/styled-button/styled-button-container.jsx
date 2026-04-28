@@ -9,9 +9,9 @@ const StyledButtonContainer = ({ slice, leftAligned = false }) => {
   return (
     <div
       className={clsx({
-        "flex flex-col md:flex-row gap-y-10 md:gap-y-0 md:gap-x-6": true,
-        "items-center md:justify-center": !leftAligned,
-        "items-start md:justify-start": leftAligned,
+        "flex flex-col md:flex-row gap-y-10 md:gap-y-0 md:gap-x-6 items-center": true,
+        "md:justify-center": !leftAligned,
+        "md:justify-start": leftAligned,
       })}
     >
       {buttons?.map(({ link, variant }, idx) => (
