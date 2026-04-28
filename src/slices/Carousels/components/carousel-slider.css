@@ -19,6 +19,10 @@
   height: auto;
 }
 
+.testimonials-swiper.swiper {
+  overflow: visible;
+}
+
 [class*="carousels-arrow-left-"].swiper-button-disabled,
 [class*="carousels-arrow-right-"].swiper-button-disabled {
   background: var(--color-secondary-light);

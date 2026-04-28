@@ -642,6 +642,71 @@ export interface CarouselsSliceDefaultPrimaryCardsItem {
 }
 
 /**
+ * Item in *Carousels → Testimonials → Primary → Cards*
+ */
+export interface CarouselsSliceTestimonialsPrimaryCardsItem {
+  /**
+   * Logo field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Testimony field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Stat one field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].stat_one
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_one: prismic.KeyTextField;
+
+  /**
+   * Stat one description field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].stat_one_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_one_description: prismic.KeyTextField;
+
+  /**
+   * Stat two field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].stat_two
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_two: prismic.KeyTextField;
+
+  /**
+   * Stat two description field in *Carousels → Testimonials → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[].stat_two_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  stat_two_description: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Carousels → Cards → Primary*
  */
 export interface CarouselsSliceDefaultPrimary {
@@ -675,17 +740,6 @@ export interface CarouselsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
-
-  /**
-   * Navigation Icons field in *Carousels → Cards → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: carousels.default.primary.navigation_icons
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  navigation_icons: prismic.BooleanField;
 
   /**
    * Caption field in *Carousels → Cards → Primary*
@@ -764,9 +818,102 @@ export type CarouselsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Carousels → Testimonials → Primary*
+ */
+export interface CarouselsSliceTestimonialsPrimary {
+  /**
+   * With divider field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: carousels.testimonials.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Cards field in *Carousels → Testimonials → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousels.testimonials.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  cards: prismic.GroupField<
+    Simplify<CarouselsSliceTestimonialsPrimaryCardsItem>
+  >;
+}
+
+/**
+ * Testimonials variation for Carousels Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselsSliceTestimonials = prismic.SharedSliceVariation<
+  "testimonials",
+  Simplify<CarouselsSliceTestimonialsPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Carousels*
  */
-type CarouselsSliceVariation = CarouselsSliceDefault;
+type CarouselsSliceVariation =
+  | CarouselsSliceDefault
+  | CarouselsSliceTestimonials;
 
 /**
  * Carousels Shared Slice
@@ -3326,8 +3473,11 @@ declare module "@prismicio/client" {
       CarouselsSliceDefaultPrimaryButtonsItem,
       CarouselsSliceDefaultPrimaryCardsItem,
       CarouselsSliceDefaultPrimary,
+      CarouselsSliceTestimonialsPrimaryCardsItem,
+      CarouselsSliceTestimonialsPrimary,
       CarouselsSliceVariation,
       CarouselsSliceDefault,
+      CarouselsSliceTestimonials,
       ComparisonAndTestimonialSlice,
       ComparisonAndTestimonialSliceDefaultPrimaryNegativesItem,
       ComparisonAndTestimonialSliceDefaultPrimaryPositivesItem,

@@ -19,11 +19,10 @@ const Main = ({ slice }) => {
     <StyledContainer
       slice={slice}
       paddingX={false}
-      maxWidthClass="max-w-[1600px]"
-      parentClass="max-w-[1500px]!"
+      parentClass="max-w-[1600px]!"
     >
       <div className="px-4 md:px-10 xl:px-20 add-gap max-w-[1440px] mx-auto">
-        <div className="flex flex-col gap-y-8 xl:flex-row justify-between">
+        <div className="flex flex-col gap-y-8 xl:flex-row justify-between xl:items-end">
           <StyledSectionTitle slice={slice} leftAligned className="mb-0!" />
           {buttons?.length < 1 && (
             <CarouselNavigation navigationId={navigationId} />

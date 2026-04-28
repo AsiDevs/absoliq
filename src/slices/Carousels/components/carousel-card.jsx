@@ -1,6 +1,7 @@
 import AnimateIn from "@/app/components/framer/animate-in";
 import { PrismicNextImage } from "@prismicio/next";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
+import clsx from "clsx";
 
 const CarouselCard = ({ card, index }) => {
   const displayIndex = index + 1;
@@ -29,7 +30,7 @@ const CarouselCard = ({ card, index }) => {
 
           <StyledPrismicRichTextSingle
             field={card?.title}
-            className="text-title-medium"
+            className="text-title-medium max-w-[340px]"
           />
         </div>
 
@@ -43,7 +44,11 @@ const CarouselCard = ({ card, index }) => {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-8px] bottom-[-50px] z-[1] text-[200px] leading-none font-medium text-[#eceae6]"
+        className={clsx({
+          "pointer-events-none absolute bottom-[-80px] z-[1] text-[340px] leading-none font-medium text-[#eceae6] opacity-65": true,
+          "right-[-64px]": index === 0,
+          "right-[-20px]": index !== 0,
+        })}
       >
         {displayIndex}
       </div>
