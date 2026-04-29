@@ -6,7 +6,10 @@ import FooterLinksTwo from "./footer-links-two";
 
 const StyledFooter = ({ settings }) => {
   return (
-    <footer className="bg-[#F3F1EE] pb-8 pt-15 md:pt-20 px-4 md:px-10 xl:px-20">
+    <footer
+      id="contact-us"
+      className="bg-[#F3F1EE] pb-8 pt-15 md:pt-20 px-4 md:px-10 xl:px-20"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Info */}
         <div className="flex flex-col 2xl:flex-row justify-between xl:items-start gap-y-10 xl:gap-x-47 add-gap">

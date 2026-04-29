@@ -1,6 +1,12 @@
 import clsx from "clsx";
 import Divider from "./divider";
 
+const DEFAULT_SECTION_IDS = {
+  team: "about-us",
+  expertise: "solutions",
+  forms: "book-your-roast",
+};
+
 const StyledContainer = ({
   as: Comp = "div",
   className = "",
@@ -13,12 +19,17 @@ const StyledContainer = ({
 }) => {
   const paddingXStyles = "px-[16px] md:px-[40px] xl:px-[80px]";
   const noBg = slice.primary?.no_background;
+  const sectionId =
+    slice.primary?.section_id ||
+    slice.primary?.sectionId ||
+    DEFAULT_SECTION_IDS[slice?.slice_type];
 
   const pt = slice.primary?.top_padding || "None";
   const pb = slice.primary?.bottom_padding || "None";
   return (
     <>
       <Comp
+        id={sectionId || undefined}
         className={clsx({
           [paddingXStyles]: paddingX,
           "pt-0": pt === "None",
