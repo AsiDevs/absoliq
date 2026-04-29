@@ -52,14 +52,14 @@ const StyledHeaderNav = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-3 text-body-small-s text-text-base transition-timing"
+              className="rounded-lg px-4 py-3 text-body-small text-[#1A1A1A] transition-timing"
             >
               {link.label}
             </Link>
           ))}
         </div>
         <Link
-          href="/#contact-us"
+          href="/contact-us"
           className="btn btn-secondary flex items-center justify-between! rounded-xl"
         >
           <span>Talk to an Expert</span>
@@ -135,7 +135,7 @@ const StyledHeaderNav = () => {
 
           <div className="mt-3 rounded-2xl bg-primary-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
             <Link
-              href="/#contact-us"
+              href="/contact-us"
               className="btn btn-secondary flex items-center justify-between! w-full! rounded-xl"
               onClick={() => setIsOpen(false)}
             >
