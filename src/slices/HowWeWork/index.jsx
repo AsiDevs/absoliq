@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 const Main = dynamic(() => import("./variants/main"));
 const VariantTwo = dynamic(() => import("./variants/variant-two"));
 const VariantThree = dynamic(() => import("./variants/variant-three"));
+const VariantFour = dynamic(() => import("./variants/variant-four"));
+const VariantFive = dynamic(() => import("./variants/variant-five"));
 
 const HowWeWork = ({ slice }) => {
   return (
@@ -13,6 +15,8 @@ const HowWeWork = ({ slice }) => {
       {slice?.variation === "default" && <Main slice={slice} />}
       {slice?.variation === "variantTwo" && <VariantTwo slice={slice} />}
       {slice?.variation === "variantThree" && <VariantThree slice={slice} />}
+      {slice?.variation === "variantFour" && <VariantFour slice={slice} />}
+      {slice?.variation === "variantFive" && <VariantFive slice={slice} />}
     </section>
   );
 };

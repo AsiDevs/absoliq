@@ -280,5 +280,173 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variantFour",
+		"primary": {
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"top_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "None",
+				"type": "Select"
+			},
+			"bottom_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "None",
+				"type": "Select"
+			},
+			"caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laborum ipsum do ullamco quis elit id incididunt nisi est cupidatat. Eiusmod anim enim aliquip non cupidatat nisi tempor proident est sint anim."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Today"
+						}
+					}
+				]
+			},
+			"wwf_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non proident excepteur sint nisi exercitation minim ullamco. Pariatur enim ullamco quis non eiusmod."
+						}
+					}
+				]
+			},
+			"points_two": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"point",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nisi pariatur irure tempor do amet nostrud ex dolor exercitation ea duis do adipisicing dolore elit."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variantFive",
+		"primary": {
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"top_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "None",
+				"type": "Select"
+			},
+			"bottom_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Half",
+				"type": "Select"
+			},
+			"caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia qui ipsum elit dolor cillum dolor et consequat enim fugiat dolor deserunt ea pariatur."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Herself"
+						}
+					}
+				]
+			},
+			"tiles_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Capital"
+						}
+					}
+				]
+			},
+			"tiles": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "ahead",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "claws",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

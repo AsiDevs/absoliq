@@ -10,7 +10,7 @@ const Point = ({ point, idx, variant }) => {
     <AnimateIn
       delay={idx * 0.1}
       className={
-        "flex bg-[#F3F3F3] rounded-md p-3.5 gap-x-4 items-center lg:min-h-20"
+        "flex bg-[#F3F3F3] rounded-md p-3.5 gap-x-4 items-center lg:min-h-20 lg:h-24"
       }
     >
       <div
@@ -23,7 +23,10 @@ const Point = ({ point, idx, variant }) => {
         {variant === "negative" && <FaMinus />}
         {variant === "positive" && <FaPlus />}
       </div>
-      <StyledPrismicRichTextSingle className="text-body-base" field={point} />
+      <StyledPrismicRichTextSingle
+        className="text-body-base line-clamp-3"
+        field={point}
+      />
     </AnimateIn>
   );
 };

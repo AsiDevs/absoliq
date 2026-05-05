@@ -75,10 +75,6 @@ const Cards = ({ slice }) => {
         >
           <CardContentRender card={activeCard}>
             <CardContent card={activeCard} />
-            <CardImage
-              image={slice?.primary?.image}
-              tiltAngle={-1 + activeIndex * 1}
-            />
           </CardContentRender>
         </div>
       </div>
@@ -99,10 +95,7 @@ const CardContentRender = ({ card, children }) => {
   if (!card?.link)
     return <div className="flex flex-col justify-between">{children}</div>;
   return (
-    <PrismicNextLink
-      className="flex flex-col justify-between"
-      field={card?.link}
-    >
+    <PrismicNextLink className="" field={card?.link}>
       {children}
     </PrismicNextLink>
   );
@@ -143,19 +136,24 @@ const SingleCardContent = ({ card }) => {
 
 const CardContent = ({ card }) => {
   return (
-    <div className="pt-6 lg:pt-10 px-4 lg:px-15">
-      <h3 className="text-title-base text-text-heading mb-4">{card?.title}</h3>
-      <StyledPrismicRichTextSingle
-        field={card?.description}
-        className="text-[16px] leading-6.5"
-      />
-      {card?.link && (
-        <span className="btn btn-secondary px-0!">
-          <span className="icon">
-            <IoArrowForwardSharp />
+    <div className="flex flex-col justify-between h-full">
+      <div className="pt-6 lg:pt-10 px-4 lg:px-15">
+        <h3 className="text-title-base text-text-heading mb-4">
+          {card?.title}
+        </h3>
+        <StyledPrismicRichTextSingle
+          field={card?.description}
+          className="text-[16px] leading-6.5 line-clamp-4"
+        />
+        {card?.link && (
+          <span className="btn btn-secondary px-0!">
+            <span className="icon">
+              <IoArrowForwardSharp />
+            </span>
           </span>
-        </span>
-      )}
+        )}
+      </div>
+      <CardImage image={card?.image} />
     </div>
   );
 };
@@ -164,7 +162,7 @@ const HoverCard = ({ card, isFirst, isLast, isActive }) => {
   return (
     <AnimateIn
       className={clsx({
-        "flex flex-col border-r border-l items-center pt-8 pb-4.5 px-7 border-[#A7A7A7] bg-primary-white cursor-pointer transition-timing h-full": true,
+        "flex flex-col border-r border-l items-center pt-8 pb-4.5 px-7 border-[#A7A7A7] bg-primary-white cursor-pointer transition-bouncy h-full": true,
         "border-t rounded-tl-2xl": isFirst,
         "border-b rounded-bl-2xl": isLast,
         "border-b border-t": !isFirst && !isLast,
