@@ -67,6 +67,13 @@ export const createBlogsBatchState = (batch) => ({
   totalBlogs: batch.totalBlogs,
 });
 
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 export const requestBlogsBatch = async (
   batchPage,
   categoryId = ALL_BLOG_CATEGORY,

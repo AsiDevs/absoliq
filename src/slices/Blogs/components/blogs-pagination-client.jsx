@@ -12,6 +12,7 @@ import {
   getVisibleBlogs,
   loadRequiredBlogsBatch,
   requestBlogsBatch,
+  scrollToTop,
   shouldSkipCategoryChange,
   shouldSkipPageChange,
 } from "../utils/blogs-pagination";
@@ -88,6 +89,7 @@ const BlogsPaginationClient = ({ initialBatch, categories }) => {
       startTransition(() => {
         setCurrentPage(page);
       });
+      scrollToTop();
     });
   };
 
