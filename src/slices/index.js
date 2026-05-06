@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 export const components = {
   abs: dynamic(() => import("./Abs")),
+  blogs: dynamic(() => import("./Blogs")),
   carousels: dynamic(() => import("./Carousels")),
   comparison_and_testimonial: dynamic(
     () => import("./ComparisonAndTestimonial"),

@@ -69,7 +69,290 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+type AuthorDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Author documents
+ */
+interface AuthorDocumentData {
+  /**
+   * Name field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Image field in *Author*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Author*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<AuthorDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: author.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: author.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Author*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Author document from Prismic
+ *
+ * - **API ID**: `author`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AuthorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
+
+/**
+ * Item in *Blog → Body*
+ */
+export interface BlogDocumentDataBodyItem {
+  /**
+   * Heading field in *Blog → Body*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.body[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Content field in *Blog → Body*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.body[].content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+type BlogDocumentDataSlicesSlice = CtaSlice | BlogsSlice;
+
+/**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * Category field in *Blog*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  category: ContentRelationshipFieldWithData<
+    [{ id: "blog_category"; fields: ["category"] }]
+  >;
+
+  /**
+   * Author field in *Blog*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  author: ContentRelationshipFieldWithData<
+    [{ id: "author"; fields: ["name", "image"] }]
+  >;
+
+  /**
+   * Post date field in *Blog*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.post_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  post_date: prismic.DateField;
+
+  /**
+   * Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Excerpt field in *Blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  excerpt: prismic.RichTextField;
+
+  /**
+   * Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<"thumbnail" | "thumbnail2x">;
+
+  /**
+   * Body field in *Blog*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.body[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  body: prismic.GroupField<Simplify<BlogDocumentDataBodyItem>>;
+
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+/**
+ * Content for Blog Category documents
+ */
+interface BlogCategoryDocumentData {
+  /**
+   * Category field in *Blog Category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+}
+
+/**
+ * Blog Category document from Prismic
+ *
+ * - **API ID**: `blog_category`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogCategoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogCategoryDocumentData>,
+    "blog_category",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
+  | BlogsSlice
   | TeamSlice
   | CarouselsSlice
   | GrowingTilesSlice
@@ -385,7 +668,12 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | AuthorDocument
+  | BlogDocument
+  | BlogCategoryDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Item in *Abs → Default → Primary → Tiles*
@@ -570,6 +858,156 @@ type AbsSliceVariation = AbsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type AbsSlice = prismic.SharedSlice<"abs", AbsSliceVariation>;
+
+/**
+ * Primary content in *Blogs → Default → Primary*
+ */
+export interface BlogsSliceDefaultPrimary {
+  /**
+   * Top Padding field in *Blogs → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Blogs → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Blogs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.default.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Blogs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Blogs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Blogs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Blogs → Variant Two → Primary*
+ */
+export interface BlogsSliceVariantTwoPrimary {
+  /**
+   * Top Padding field in *Blogs → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.variantTwo.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Blogs → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.variantTwo.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Blogs → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.variantTwo.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Blogs → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.variantTwo.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Blogs → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.variantTwo.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Variant Two variation for Blogs Slice
+ *
+ * - **API ID**: `variantTwo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogsSliceVariantTwo = prismic.SharedSliceVariation<
+  "variantTwo",
+  Simplify<BlogsSliceVariantTwoPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Blogs*
+ */
+type BlogsSliceVariation = BlogsSliceDefault | BlogsSliceVariantTwo;
+
+/**
+ * Blogs Shared Slice
+ *
+ * - **API ID**: `blogs`
+ * - **Description**: Blogs
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogsSlice = prismic.SharedSlice<"blogs", BlogsSliceVariation>;
 
 /**
  * Item in *Carousels → Cards → Primary → Buttons*
@@ -2149,6 +2587,31 @@ export interface HowWeWorkSliceVariantFivePrimaryTilesItem {
 }
 
 /**
+ * Item in *HowWeWork → Variant Five → Primary → Buttons*
+ */
+export interface HowWeWorkSliceVariantFivePrimaryButtonsItem {
+  /**
+   * Link field in *HowWeWork → Variant Five → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantFive.primary.buttons[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *HowWeWork → Variant Five → Primary → Buttons*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantFive.primary.buttons[].variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
  * Primary content in *HowWeWork → Default → Primary*
  */
 export interface HowWeWorkSliceDefaultPrimary {
@@ -2697,6 +3160,18 @@ export interface HowWeWorkSliceVariantFivePrimary {
    */
   tiles: prismic.GroupField<
     Simplify<HowWeWorkSliceVariantFivePrimaryTilesItem>
+  >;
+
+  /**
+   * Buttons field in *HowWeWork → Variant Five → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: how_we_work.variantFive.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  buttons: prismic.GroupField<
+    Simplify<HowWeWorkSliceVariantFivePrimaryButtonsItem>
   >;
 }
 
@@ -3680,6 +4155,15 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AuthorDocument,
+      AuthorDocumentData,
+      AuthorDocumentDataSlicesSlice,
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataBodyItem,
+      BlogDocumentDataSlicesSlice,
+      BlogCategoryDocument,
+      BlogCategoryDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -3693,6 +4177,12 @@ declare module "@prismicio/client" {
       AbsSliceDefaultPrimary,
       AbsSliceVariation,
       AbsSliceDefault,
+      BlogsSlice,
+      BlogsSliceDefaultPrimary,
+      BlogsSliceVariantTwoPrimary,
+      BlogsSliceVariation,
+      BlogsSliceDefault,
+      BlogsSliceVariantTwo,
       CarouselsSlice,
       CarouselsSliceDefaultPrimaryButtonsItem,
       CarouselsSliceDefaultPrimaryCardsItem,
@@ -3748,6 +4238,7 @@ declare module "@prismicio/client" {
       HowWeWorkSliceVariantFourPrimaryPointsTwoItem,
       HowWeWorkSliceVariantFourPrimary,
       HowWeWorkSliceVariantFivePrimaryTilesItem,
+      HowWeWorkSliceVariantFivePrimaryButtonsItem,
       HowWeWorkSliceVariantFivePrimary,
       HowWeWorkSliceVariation,
       HowWeWorkSliceDefault,

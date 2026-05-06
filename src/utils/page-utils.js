@@ -65,9 +65,7 @@ export const createMetaTitle = (page = {}, settings = {}, params = {}) => {
   const { isPaginatedPage, currentPage } = pageConfig(params);
 
   const mainTitle =
-    page?.data?.meta_title ||
-    settings?.data?.meta_title ||
-    asText(page.data.title);
+    page?.data?.meta_title || settings?.data?.meta_title || page.data.title;
 
   if (isPaginatedPage) {
     return mainTitle + ` | Page ${currentPage}`;
