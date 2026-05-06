@@ -14,6 +14,7 @@ const BLOG_QUERY_FIELDS = [
 ];
 
 const BLOG_CATEGORY_FETCH_LINKS = ["blog_category.category"];
+const BLOG_ORDERINGS = [{ field: "my.blog.post_date", direction: "desc" }];
 
 export const getBatchForPage = (page) =>
   Math.ceil((page * BLOGS_PER_PAGE) / BLOG_FETCH_BATCH_SIZE);
@@ -88,7 +89,7 @@ export const getBlogsBatch = async (
     fetch: BLOG_QUERY_FIELDS,
     fetchLinks: BLOG_CATEGORY_FETCH_LINKS,
     filters,
-    orderings: [{ field: "my.blog.post_date", direction: "desc" }],
+    orderings: BLOG_ORDERINGS,
   });
 
   return {
@@ -98,4 +99,57 @@ export const getBlogsBatch = async (
     selectedCategory: categoryId,
     blogs: response.results.map(serializeBlog),
   };
+};
+
+const getRelatedBlogsQuery = async ({ filters, pageSize }) => {
+  const client = createClient();
+
+  const response = await client.getByType("blog", {
+    page: 1,
+    pageSize,
+    fetch: BLOG_QUERY_FIELDS,
+    fetchLinks: BLOG_CATEGORY_FETCH_LINKS,
+    filters,
+    orderings: BLOG_ORDERINGS,
+  });
+
+  return response.results.map(serializeBlog);
+};
+
+export const getRelatedBlogs = async ({
+  currentUid,
+  currentDocumentId,
+  categoryId,
+  limit = 3,
+}) => {
+  const excludeCurrentFilters = [
+    currentUid ? filter.not("my.blog.uid", currentUid) : null,
+    currentDocumentId ? filter.not("document.id", currentDocumentId) : null,
+  ].filter(Boolean);
+
+  const sameCategoryBlogs = categoryId
+    ? await getRelatedBlogsQuery({
+        pageSize: limit,
+        filters: [...excludeCurrentFilters, filter.at("my.blog.category", categoryId)],
+      })
+    : [];
+
+  if (sameCategoryBlogs.length >= limit) {
+    return sameCategoryBlogs.slice(0, limit);
+  }
+
+  const excludeIds = sameCategoryBlogs.map((blog) =>
+    filter.not("document.id", blog.id),
+  );
+
+  const fallbackBlogs = await getRelatedBlogsQuery({
+    pageSize: limit - sameCategoryBlogs.length,
+    filters: [
+      ...excludeCurrentFilters,
+      ...excludeIds,
+      ...(categoryId ? [filter.not("my.blog.category", categoryId)] : []),
+    ],
+  });
+
+  return [...sameCategoryBlogs, ...fallbackBlogs].slice(0, limit);
 };
