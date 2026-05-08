@@ -8,11 +8,10 @@ const FooterLinksTwo = () => {
         Quick Links
       </h5>
       <ul className="flex flex-col gap-1.5">
-        <SingleLink link={{ url: "/" }} text={"About Us"} />
-        <SingleLink link={{ url: "/" }} text={"Collections"} />
-        <SingleLink link={{ url: "/" }} text={"Blog"} />
-        <SingleLink link={{ url: "/" }} text={"FAQs"} />
-        <SingleLink link={{ url: "/" }} text={"Contact Us"} />
+        <SingleLink link={{ url: "/about-us" }} text={"About Us"} />
+        <SingleLink link={{ url: "/blogs" }} text={"Blogs"} />
+        <SingleLink link={{ url: "/newsletter" }} text={"Newsletter"} />
+        <SingleLink link={{ url: "/contact-us" }} text={"Contact Us"} />
       </ul>
     </div>
   );
