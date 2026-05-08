@@ -47,6 +47,13 @@
           "placeholder": ""
         }
       },
+      "read_time": {
+        "type": "Number",
+        "config": {
+          "label": "Read time",
+          "placeholder": ""
+        }
+      },
       "title": {
         "type": "Text",
         "config": {

@@ -221,6 +221,17 @@ interface BlogDocumentData {
   post_date: prismic.DateField;
 
   /**
+   * Read time field in *Blog*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.read_time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  read_time: prismic.NumberField;
+
+  /**
    * Title field in *Blog*
    *
    * - **Field Type**: Text

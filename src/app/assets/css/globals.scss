@@ -42,7 +42,7 @@ body {
 // TITLE
 .text-title-3x-large {
   @extend .title-font;
-  @apply text-[44px] leading-[52px] md:text-[70px] md:leading-20;
+  @apply text-[44px] leading-[52px] md:text-[70px] md:leading-20 font-medium;
   em {
     @extend .title-font-2;
     @apply text-[48px] leading-[52px] md:text-[80px] md:leading-[80px];
@@ -51,7 +51,7 @@ body {
 
 .text-title-2x-large {
   @extend .title-font;
-  @apply text-[40px] leading-[48px] md:text-[52px] md:leading-[62px];
+  @apply text-[40px] leading-[48px] md:text-[52px] md:leading-[62px] font-medium;
   em {
     @extend .title-font-2;
     @apply text-[40px] leading-[44px] md:text-[52px] md:leading-[64px];
@@ -60,12 +60,12 @@ body {
 
 .text-title-x-large {
   @extend .title-font;
-  @apply text-[32px] leading-[40px] md:text-[48px] md:leading-[62px];
+  @apply text-[32px] leading-[40px] md:text-[48px] md:leading-[62px] font-medium;
 }
 
 .text-title-large {
   @extend .title-font;
-  @apply text-[24px] leading-[30px] md:text-[36px] md:leading-10;
+  @apply text-[24px] leading-[30px] md:text-[36px] md:leading-10 font-medium;
 }
 
 .text-title-medium {

@@ -23,7 +23,7 @@ const BlogCard = ({ blog }) => {
 
         <div className="p-6 rounded-xl absolute bg-primary-white bottom-4 left-[50%] translate-x-[-50%] w-[90%]">
           {blog.category?.label && (
-            <div className="w-fit rounded-[2.67px] bg-primary-dark p-[5.3px] text-body-small-s text-text-light mb-7.5">
+            <div className="w-fit rounded-[2.67px] bg-primary-dark p-[5.3px] text-body-small-s text-text-light mb-7.5 font-medium">
               {blog.category.label}
             </div>
           )}

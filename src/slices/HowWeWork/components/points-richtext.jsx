@@ -13,7 +13,7 @@ const PointsRichtext = ({
         {points?.map(({ point }, idx) => {
           return (
             <StyledSinglePointRichText
-              key={point}
+              key={point + idx}
               point={point}
               idx={idx}
               variant={variant}
