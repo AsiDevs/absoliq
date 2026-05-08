@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 
 const Main = dynamic(() => import("./variants/main"));
+const VariantTwo = dynamic(() => import("./variants/variant-two"));
 
 const Team = ({ slice }) => {
   return (
@@ -9,6 +10,7 @@ const Team = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       {slice?.variation === "default" && <Main slice={slice} />}
+      {slice?.variation === "variantTwo" && <VariantTwo slice={slice} />}
     </section>
   );
 };

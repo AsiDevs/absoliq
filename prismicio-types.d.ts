@@ -4033,6 +4033,36 @@ export interface TeamSliceDefaultPrimaryTeamItem {
 }
 
 /**
+ * Item in *Team → Variant Two → Primary → Team*
+ */
+export interface TeamSliceVariantTwoPrimaryTeamItem {
+  /**
+   * Image field in *Team → Variant Two → Primary → Team*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.team[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Team → Variant Two → Primary → Tiles*
+ */
+export interface TeamSliceVariantTwoPrimaryTilesItem {
+  /**
+   * Tile field in *Team → Variant Two → Primary → Tiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.tiles[].tile
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tile: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Team → Default → Primary*
  */
 export interface TeamSliceDefaultPrimary {
@@ -4098,6 +4128,26 @@ export interface TeamSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
+   * Team prefix field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  team_prefix: prismic.RichTextField;
+
+  /**
+   * Team suffix field in *Team → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.default.primary.team_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  team_suffix: prismic.RichTextField;
+
+  /**
    * Team field in *Team → Default → Primary*
    *
    * - **Field Type**: Group
@@ -4132,9 +4182,128 @@ export type TeamSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Team → Variant Two → Primary*
+ */
+export interface TeamSliceVariantTwoPrimary {
+  /**
+   * With divider field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: team.variantTwo.primary.with_border
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  with_border: prismic.BooleanField;
+
+  /**
+   * Top Padding field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Caption field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  caption: prismic.RichTextField;
+
+  /**
+   * Title field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Team field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.team[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  team: prismic.GroupField<Simplify<TeamSliceVariantTwoPrimaryTeamItem>>;
+
+  /**
+   * Tiles field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.tiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tiles: prismic.GroupField<Simplify<TeamSliceVariantTwoPrimaryTilesItem>>;
+
+  /**
+   * Link field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Variant field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.variant
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  variant: prismic.SelectField<"Primary" | "Secondary" | "Link">;
+}
+
+/**
+ * Variant Two variation for Team Slice
+ *
+ * - **API ID**: `variantTwo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TeamSliceVariantTwo = prismic.SharedSliceVariation<
+  "variantTwo",
+  Simplify<TeamSliceVariantTwoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Team*
  */
-type TeamSliceVariation = TeamSliceDefault;
+type TeamSliceVariation = TeamSliceDefault | TeamSliceVariantTwo;
 
 /**
  * Team Shared Slice
@@ -4284,8 +4453,12 @@ declare module "@prismicio/client" {
       TeamSlice,
       TeamSliceDefaultPrimaryTeamItem,
       TeamSliceDefaultPrimary,
+      TeamSliceVariantTwoPrimaryTeamItem,
+      TeamSliceVariantTwoPrimaryTilesItem,
+      TeamSliceVariantTwoPrimary,
       TeamSliceVariation,
       TeamSliceDefault,
+      TeamSliceVariantTwo,
     };
   }
 }

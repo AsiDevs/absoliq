@@ -65,8 +65,143 @@
 						}
 					}
 				]
+			},
+			"team_prefix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In deserunt commodo consectetur dolore minim et labore deserunt voluptate esse cillum nulla in. Velit nostrud deserunt esse consectetur Lorem ut deserunt aute pariatur ad id. Nulla dolore consectetur nulla commodo Lorem ea anim."
+						}
+					}
+				]
+			},
+			"team_suffix": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat anim exercitation nulla aute sint nulla ullamco minim irure. Aliqua fugiat anim est tempor voluptate minim sint ipsum. Adipisicing mollit anim eu culpa consectetur aliqua occaecat et anim excepteur sit laboris."
+						}
+					}
+				]
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variantTwo",
+		"primary": {
+			"with_border": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"top_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Half",
+				"type": "Select"
+			},
+			"bottom_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Full",
+				"type": "Select"
+			},
+			"caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint ea id ad pariatur nulla est pariatur pariatur. Labore et occaecat elit tempor veniam. Proident cupidatat magna fugiat proident commodo eiusmod eiusmod."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Exact"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum amet labore tempor qui do sint aliqua aliquip commodo excepteur do nostrud. Aute amet id consectetur elit veniam quis. Dolor est qui adipisicing."
+						}
+					}
+				]
+			},
+			"team": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+										"width": 3958,
+										"height": 3958
+									},
+									"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+									"width": 3958,
+									"height": 3958,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "hello",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			},
+			"tiles": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tile",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rather",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
