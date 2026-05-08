@@ -1,6 +1,7 @@
 import { Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import "./assets/css/globals.scss";
+import RouteLoadingGate from "./components/route-loading-gate";
 
 const InstrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -64,8 +65,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" as="video" href="/videos/loading.mp4" type="video/mp4" />
+      </head>
       <body className={`${HelveticaNeue.variable} ${InstrumentSerif.variable}`}>
-        {children}
+        <RouteLoadingGate>{children}</RouteLoadingGate>
       </body>
     </html>
   );
