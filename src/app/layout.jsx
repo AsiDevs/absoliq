@@ -1,5 +1,6 @@
 import { Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import "./assets/css/globals.scss";
 import RouteLoadingGate from "./components/route-loading-gate";
 
@@ -69,7 +70,9 @@ export default function RootLayout({ children }) {
         <link rel="preload" as="video" href="/videos/loading.mp4" type="video/mp4" />
       </head>
       <body className={`${HelveticaNeue.variable} ${InstrumentSerif.variable}`}>
-        <RouteLoadingGate>{children}</RouteLoadingGate>
+        <Suspense>
+          <RouteLoadingGate>{children}</RouteLoadingGate>
+        </Suspense>
       </body>
     </html>
   );
