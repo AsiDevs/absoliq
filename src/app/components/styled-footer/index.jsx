@@ -29,27 +29,29 @@ const StyledFooter = ({ settings }) => {
             <ContactDetails settings={settings} />
           </div>
         </div>
-        {/* Footer bottom */}
-        <div className="pt-3 border-t border-t-text-description">
-          <div>
-            <p className="text-body-small-s">
-              &copy; {new Date().getFullYear()} {settings.data.copyright_text}
-            </p>
-            <CopyrightLinks />
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-3 border-t border-t-text-description gap-3">
+          {/* Footer bottom */}
+          <div className="">
+            <div>
+              <p className="text-body-small-s">
+                &copy; {new Date().getFullYear()} {settings.data.copyright_text}
+              </p>
+              <CopyrightLinks />
+            </div>
           </div>
-        </div>
-        {/* Design & development */}
-        <div className="mt-3">
-          <p className="text-body-small-s">
-            Designed & Developed by{" "}
-            <a href="https://vinod.lk" className="underline" target="_blank">
-              vinod.lk
-            </a>{" "}
-            &{" "}
-            <a href="https://asi.lk" className="underline" target="_blank">
-              asi.lk
-            </a>
-          </p>
+          {/* Design & development */}
+          <div className="">
+            <p className="text-body-small-s">
+              Designed & Developed by{" "}
+              <a href="https://vinod.lk" className="underline" target="_blank">
+                vinod.lk
+              </a>{" "}
+              &{" "}
+              <a href="https://asi.lk" className="underline" target="_blank">
+                asi.lk
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
