@@ -21,6 +21,11 @@ export default function RouteLoadingGate({ children }) {
 
     setIsRevealed(false);
     document.body.style.overflow = "hidden";
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
     video.currentTime = 0;
 
     const p = video.play();

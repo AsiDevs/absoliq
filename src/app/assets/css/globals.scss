@@ -13,6 +13,9 @@ html {
 body {
   color: var(--color-body-color);
   font-family: var(--font-helvetica-neue);
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard */
 }
 
 .route-loading-overlay {

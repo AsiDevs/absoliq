@@ -18,10 +18,12 @@ const VariantFour = ({ slice }) => {
             suffix={slice?.primary?.points_suffix}
             slice={slice}
           />
-          <StyledPrismicRichTextSingle
-            field={slice?.primary?.wwf_description}
-            className="text-body-medium mt-8 md:mt-12"
-          />
+          <AnimateIn delay={slice?.primary?.points_two?.length * 0.1}>
+            <StyledPrismicRichTextSingle
+              field={slice?.primary?.wwf_description}
+              className="text-body-medium mt-8 md:mt-12"
+            />
+          </AnimateIn>
         </AnimateIn>
       </div>
     </StyledContainerVariant>

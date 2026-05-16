@@ -18,19 +18,23 @@ const VariantThree = ({ slice }) => {
           })}
         >
           <AnimateIn className={"flex flex-col gap-y-8 md:gap-y-12"}>
-            <StyledPrismicRichTextSingle
-              field={slice?.primary?.wwf_description}
-              className="text-body-medium text-[#000000B2]"
-            />
+            <AnimateIn>
+              <StyledPrismicRichTextSingle
+                field={slice?.primary?.wwf_description}
+                className="text-body-medium text-[#000000B2]"
+              />
+            </AnimateIn>
             <Points
               points={slice?.primary?.points_two}
               prefix={slice?.primary?.points_prefix}
               slice={slice}
             />
-            <StyledPrismicRichTextSingle
-              field={slice?.primary?.points_two_suffix}
-              className="text-body-medium text-text-secondary"
-            />
+            <AnimateIn delay={slice?.primary?.points_two?.length * 0.1}>
+              <StyledPrismicRichTextSingle
+                field={slice?.primary?.points_two_suffix}
+                className="text-body-medium text-text-secondary"
+              />
+            </AnimateIn>
           </AnimateIn>
         </div>
       </div>

@@ -18,10 +18,12 @@ const VariantTwo = ({ slice }) => {
           })}
         >
           <AnimateIn className={"flex flex-col gap-y-8 md:gap-y-12"}>
-            <StyledPrismicRichTextSingle
-              field={slice?.primary?.wwf_description}
-              className="text-body-medium text-[#000000B2]"
-            />
+            <AnimateIn>
+              <StyledPrismicRichTextSingle
+                field={slice?.primary?.wwf_description}
+                className="text-body-medium text-[#000000B2]"
+              />
+            </AnimateIn>
             <Points
               points={slice?.primary?.points}
               prefix={slice?.primary?.points_prefix}
