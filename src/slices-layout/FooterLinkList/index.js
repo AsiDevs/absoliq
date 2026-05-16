@@ -1,4 +1,9 @@
+"use client";
+
+import clsx from "clsx";
 import { PrismicNextLink } from "@prismicio/next";
+import { usePathname } from "next/navigation";
+import { isActivePath } from "@/lib/navigation";
 
 /**
  * @typedef {import("@prismicio/client").Content.FooterLinkListSlice} FooterLinkListSlice
@@ -6,6 +11,7 @@ import { PrismicNextLink } from "@prismicio/next";
  * @param {FooterLinkListProps}
  */
 const FooterLinkList = ({ slice }) => {
+  const pathname = usePathname();
   if (!slice) return null;
 
   return (
@@ -16,7 +22,13 @@ const FooterLinkList = ({ slice }) => {
       <ul className=" flex flex-col gap-[12px]">
         {slice.primary.links.map((item, idx) => (
           <li key={idx}>
-            <PrismicNextLink field={item} className="text-body-base" />
+            <PrismicNextLink
+              field={item}
+              className={clsx(
+                "inline-flex text-body-base transition-timing",
+                isActivePath(pathname, item.url) ? "font-medium" : "font-normal",
+              )}
+            />
           </li>
         ))}
       </ul>
