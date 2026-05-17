@@ -6,8 +6,6 @@ export const handleFormSubmit = async (
   values,
   resetForm,
   recipient,
-  cc,
-  bcc,
   setSuccess,
   setSubmitMessage,
   recaptchaToken,
@@ -29,8 +27,6 @@ export const handleFormSubmit = async (
       emailRequestFrom: values.email,
       subject: `We got your message`,
       content: userEmailContent,
-      cc,
-      bcc,
     },
     {
       recipient: adminEmails,
@@ -38,8 +34,6 @@ export const handleFormSubmit = async (
       emailRequestFrom: values.email,
       subject: `${values.name} | New Contact Submission`,
       content: adminEmailContent,
-      cc,
-      bcc,
     },
   ];
 
@@ -51,9 +45,13 @@ export const handleFormSubmit = async (
 
   if (response.data.success) {
     setSuccess(true);
-    setSubmitMessage("Your form has been submitted successfully!");
+    setSubmitMessage("Your inquiry has been submitted successfully!");
     resetForm();
   } else {
+    setSuccess(false);
+    setSubmitMessage(
+      "We couldn't send your enquiry right now. Please try again in a moment.",
+    );
     throw new Error("Failed to send emails");
   }
 

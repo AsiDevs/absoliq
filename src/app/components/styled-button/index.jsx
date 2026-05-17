@@ -8,17 +8,30 @@ const StyledButton = ({
   type = "link",
   onClick,
   label,
+  disabled = false,
 }) => {
   if ((type === "button" || type === "submit") && variant === "primary")
-    return <PrimaryButton onClick={onClick} type={type} label={label} />;
+    return (
+      <PrimaryButton
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        label={label}
+      />
+    );
   if (variant === "link") return <Link link={link} />;
   if (variant === "secondary") return <Secondary link={link} />;
   return <Primary link={link} />;
 };
 
-const PrimaryButton = ({ label, onClick, type }) => {
+const PrimaryButton = ({ label, onClick, type, disabled }) => {
   return (
-    <button className="btn btn-primary" onClick={onClick} type={type}>
+    <button
+      className="btn btn-primary"
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
+    >
       <span>{label}</span>
       <span className="icon">
         <IoArrowForwardSharp />

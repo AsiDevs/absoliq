@@ -21,10 +21,12 @@ export const getUserEmailTemplate = (values, logo) => {
                         <p style="margin: 20px 0 0;">
                           Best regards,
                           <br />
-                          <strong>The Enjoy Sri Lanka Team</strong>
+                          <strong>The Absoliq Team</strong>
                         </p>
                       </td>
                     </tr>
+                  </table>
+                  ${footer(logo)}
                 </div>
               </div>
             </body>

@@ -18,6 +18,10 @@ export const handleSubscription = async (
     setSubmitMessage("You have successfully subscribed to our newsletter!");
     resetForm();
   } else {
+    setSuccess(false);
+    setSubmitMessage(
+      "There has been an error with the subscription. Please try again.",
+    );
     throw new Error("Failed to send emails");
   }
 

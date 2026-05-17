@@ -9,7 +9,7 @@ import StyledButton from "@/app/components/styled-button";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 import { handleFormSubmit } from "../utils/submitHandler";
 
-const ContactForm = ({ slice }) => {
+const ContactForm = ({ slice, settings }) => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -40,25 +40,15 @@ const ContactForm = ({ slice }) => {
             handleFormSubmit(
               values,
               resetForm,
-              recipient,
-              cc,
-              bcc,
+              settings?.contact_form_submission_email || "info@absoliq.com",
               setSuccess,
               setSubmitMessage,
               recaptchaToken,
               settings?.data.header_logo,
-            )
-              .catch((e) => {
-                console.log("E: ", e);
-                setSuccess(false);
-                setSubmitMessage(
-                  "We couldn't send your enquiry right now. Please try again in a moment.",
-                );
-              })
-              .finally(() => setSubmitting(false));
+            );
           }}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, isSubmitting }) => (
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-y-4.5">
                 <div className="md:grid md:grid-cols-2 gap-4.5">
@@ -120,14 +110,24 @@ const ContactForm = ({ slice }) => {
                 </div>
               </div>
               <StyledPrismicRichTextSingle
-                className="text-text-light text-[12px] mt-7 mb-12 disclaimer"
+                className="text-text-light text-[12px] mt-7 disclaimer"
                 field={slice?.primary?.disclaimer_text}
               />
-              <StyledButton
-                variant="primary"
-                type={"submit"}
-                label={"Nudge an Expert"}
-              />
+              {submitMessage && (
+                <p
+                  className={`text-body-small-s mt-4 text-left ${success ? "text-success-primary" : "text-error-primary"}`}
+                >
+                  {submitMessage}
+                </p>
+              )}
+              <div className="mt-12">
+                <StyledButton
+                  variant="primary"
+                  type={"submit"}
+                  label={isSubmitting ? "Nudging..." : "Nudge an Expert"}
+                  disabled={isSubmitting}
+                />
+              </div>
               <StyledPrismicRichTextSingle
                 className="text-body-small text-text-light mt-4"
                 field={slice?.primary?.end_note}

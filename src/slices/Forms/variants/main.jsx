@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-
 import React from "react";
 import StyledContainer from "@/app/components/styled-container";
 import AnimateIn from "@/app/components/framer/animate-in";
@@ -8,7 +7,7 @@ import { PrismicNextImage } from "@prismicio/next";
 const ContactForm = dynamic(() => import("../components/contact-form"));
 const Newsletter = dynamic(() => import("../components/newsletter"));
 
-const Main = ({ slice }) => {
+const Main = ({ slice, settings }) => {
   return (
     <StyledContainer slice={slice} className="2xl:px-0!" maxWLarge>
       <div className="flex flex-col xl:flex-row xl:items-stretch gap-7">
@@ -16,7 +15,7 @@ const Main = ({ slice }) => {
           {slice?.primary?.type === "Newsletter" ? (
             <Newsletter slice={slice} />
           ) : (
-            <ContactForm slice={slice} />
+            <ContactForm slice={slice} settings={settings} />
           )}
         </AnimateIn>
         <AnimateIn className="w-full xl:relative xl:flex-1 xl:min-h-0 xl:overflow-hidden">

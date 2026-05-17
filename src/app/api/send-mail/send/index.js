@@ -16,14 +16,13 @@ const sendEmail = async (emailData, url) => {
   if (!recipient) throw new Error("Recipient email is missing");
 
   const config = {
-    from: `Website <web@${domain}>`,
+    from: `Absoliq <web@absoliq.com>`,
     to: recipient,
     subject,
     html: content,
   };
+
   if (replyTo) config["h:Reply-To"] = replyTo;
-  if (cc) config.cc = cc;
-  if (bcc) config.bcc = bcc;
 
   if (attachment?.url) {
     const res = await axios.get(attachment.url, {

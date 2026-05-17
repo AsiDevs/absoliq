@@ -5,12 +5,11 @@ const header = (logo) => {
   return `
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
             <tr>
-              <td align="left" style="padding: 32px;">
+              <td align="left" style="padding: 32px; padding-left: 0px;">
                 <img
                   src="${imageSrc}"
                   alt="${imageAlt}"
-                  height="60"
-                  style="display: block; border: 0; outline: none; text-decoration: none;"
+                  style="display: block; border: 0; outline: none; text-decoration: none; width: 150px"
                 />
               </td>
             </tr>
@@ -19,7 +18,7 @@ const header = (logo) => {
 };
 
 const footer = (logo) => {
-  const imageSrc = logo?.url ? `${logo.url}&w=256` : "";
+  const imageSrc = logo?.url ? `${logo.url}` : "";
   const imageAlt = logo?.alt || "Logo";
   return `
           <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding: 32px;" role="presentation">
@@ -60,11 +59,11 @@ const footer = (logo) => {
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
                   <tr>
                     <td align="left" style="font-size: 12px; color: #667085;">
-                      © 2025 The Inspired Risk Services. All rights reserved.
+                      © ${new Date().getFullYear()} The Inspired Risk Services. All rights reserved.
                     </td>
                     <td align="right" style="font-size: 12px;">
                       <a
-                        href="https://inspiredriskservices.netlify.app/privacy-policy/"
+                        href="https://absoliq.com/terms-and-conditions/"
                         style="color: #667085; text-decoration: none; margin-left: 16px;"
                         target="_blank"
                         rel="noopener"
@@ -72,7 +71,7 @@ const footer = (logo) => {
                         Terms
                       </a>
                       <a
-                        href="https://inspiredriskservices.netlify.app/privacy-policy/"
+                        href="https://absoliq.com/privacy-policy/"
                         style="color: #667085; text-decoration: none; margin-left: 16px;"
                         target="_blank"
                         rel="noopener"
