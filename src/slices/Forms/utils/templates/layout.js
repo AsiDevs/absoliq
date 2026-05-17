@@ -63,7 +63,7 @@ const footer = (logo) => {
                     </td>
                     <td align="right" style="font-size: 12px;">
                       <a
-                        href="https://absoliq.com/terms-and-conditions/"
+                        href="https://absoliq.com/terms-of-service/"
                         style="color: #667085; text-decoration: none; margin-left: 16px;"
                         target="_blank"
                         rel="noopener"

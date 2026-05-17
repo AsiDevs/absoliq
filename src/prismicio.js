@@ -1,6 +1,7 @@
 import { createClient as baseCreateClient } from "@prismicio/client";
 import { enableAutoPreviews } from "@prismicio/next";
 import sm from "../slicemachine.config.json";
+import routes from "./prismicio-routes.json" assert { type: "json" };
 
 /**
  * The project's Prismic repository name.
@@ -15,12 +16,6 @@ export const repositoryName =
  *
  * @type {import("@prismicio/client").Route[]}
  */
-// TODO: Update the routes array to match your project's route structure.
-const routes = [
-  // Examples:
-  // { type: "homepage", path: "/" },
-  // { type: "page", path: "/:uid" },
-];
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to

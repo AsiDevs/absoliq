@@ -2,7 +2,9 @@
 /* @plugin '@tailwindcss/aspect-ratio'; */
 
 @theme {
-  --font-*: initial;
+  --font-sans: initial;
+  --font-serif: initial;
+  --font-mono: initial;
   --font-helvetica:
     var(--font-helvetica-neue), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,

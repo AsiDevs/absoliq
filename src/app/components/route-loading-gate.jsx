@@ -59,7 +59,9 @@ export default function RouteLoadingGate({ children }) {
           onError={reveal}
         />
       </div>
-      <div className={`route-loading-content${isRevealed ? " is-revealed" : ""}`}>
+      <div
+        className={`route-loading-content${isRevealed ? " is-revealed" : ""}`}
+      >
         {children}
       </div>
     </>

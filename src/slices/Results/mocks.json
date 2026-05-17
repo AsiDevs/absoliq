@@ -106,7 +106,6 @@
 							[
 								"logo_inverse",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
@@ -125,12 +124,19 @@
 										"background": "transparent"
 									},
 									"alt": "roof",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
 						]
 					}
 				]
+			},
+			"section_id": {
+				"__TYPE__": "FieldContent",
+				"value": "full",
+				"type": "Text"
 			}
 		},
 		"items": []

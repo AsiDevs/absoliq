@@ -42,6 +42,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            },
             "blogs": {
               "type": "SharedSlice"
             },

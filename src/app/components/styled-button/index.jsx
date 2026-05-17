@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
+import { usePathname, useSearchParams } from "next/navigation";
 import { IoArrowForwardSharp } from "react-icons/io5";
 
 const StyledButton = ({
@@ -40,33 +43,78 @@ const PrimaryButton = ({ label, onClick, type, disabled }) => {
   );
 };
 
+const useSamePageAnchorHref = (link) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  if (!link?.url || typeof window === "undefined") return null;
+  if (link.url.startsWith("#")) return link.url;
+
+  try {
+    const resolvedUrl = new URL(link.url, window.location.origin);
+    const currentSearch = searchParams?.toString();
+    const normalizedCurrentSearch = currentSearch ? `?${currentSearch}` : "";
+
+    if (
+      resolvedUrl.origin === window.location.origin &&
+      resolvedUrl.pathname === pathname &&
+      resolvedUrl.search === normalizedCurrentSearch &&
+      resolvedUrl.hash
+    ) {
+      return resolvedUrl.hash;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+};
+
+const ButtonLink = ({ className, link, children }) => {
+  const samePageAnchorHref = useSamePageAnchorHref(link);
+
+  if (samePageAnchorHref) {
+    return (
+      <a className={className} href={samePageAnchorHref}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <PrismicNextLink className={className} field={link}>
+      {children}
+    </PrismicNextLink>
+  );
+};
+
 const Primary = ({ link }) => {
   return (
-    <PrismicNextLink className="btn btn-primary" field={link}>
+    <ButtonLink className="btn btn-primary" link={link}>
       <span>{link?.text}</span>
       <span className="icon">
         <IoArrowForwardSharp />
       </span>
-    </PrismicNextLink>
+    </ButtonLink>
   );
 };
 
 const Secondary = ({ link }) => {
   return (
-    <PrismicNextLink className={"btn btn-secondary"} field={link}>
+    <ButtonLink className={"btn btn-secondary"} link={link}>
       <span>{link?.text}</span>
       <span className="icon">
         <IoArrowForwardSharp />
       </span>
-    </PrismicNextLink>
+    </ButtonLink>
   );
 };
 
 const Link = ({ link }) => {
   return (
-    <PrismicNextLink className="btn btn-link" field={link}>
+    <ButtonLink className="btn btn-link" link={link}>
       {link?.text}
-    </PrismicNextLink>
+    </ButtonLink>
   );
 };
 

@@ -363,6 +363,7 @@ export type BlogCategoryDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | RichTextSlice
   | BlogsSlice
   | TeamSlice
   | CarouselsSlice
@@ -3875,6 +3876,16 @@ export interface ResultsSliceDefaultPrimaryButtonsItem {
  */
 export interface ResultsSliceDefaultPrimary {
   /**
+   * Section ID field in *Results → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: results.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_id: prismic.KeyTextField;
+
+  /**
    * With divider field in *Results → Default → Primary*
    *
    * - **Field Type**: Boolean
@@ -3995,6 +4006,81 @@ type ResultsSliceVariation = ResultsSliceDefault;
 export type ResultsSlice = prismic.SharedSlice<
   "results",
   ResultsSliceVariation
+>;
+
+/**
+ * Primary content in *RichText → Default → Primary*
+ */
+export interface RichTextSliceDefaultPrimary {
+  /**
+   * Top Padding field in *RichText → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *RichText → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Title field in *RichText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *RichText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RichTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RichText*
+ */
+type RichTextSliceVariation = RichTextSliceDefault;
+
+/**
+ * RichText Shared Slice
+ *
+ * - **API ID**: `rich_text`
+ * - **Description**: RichText
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSlice = prismic.SharedSlice<
+  "rich_text",
+  RichTextSliceVariation
 >;
 
 /**
@@ -4128,26 +4214,6 @@ export interface TeamSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Team prefix field in *Team → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: team.default.primary.team_prefix
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  team_prefix: prismic.RichTextField;
-
-  /**
-   * Team suffix field in *Team → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: team.default.primary.team_suffix
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  team_suffix: prismic.RichTextField;
-
-  /**
    * Team field in *Team → Default → Primary*
    *
    * - **Field Type**: Group
@@ -4245,6 +4311,26 @@ export interface TeamSliceVariantTwoPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
+
+  /**
+   * Team prefix field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.team_prefix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  team_prefix: prismic.RichTextField;
+
+  /**
+   * Team suffix field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.team_suffix
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  team_suffix: prismic.RichTextField;
 
   /**
    * Team field in *Team → Variant Two → Primary*
@@ -4450,6 +4536,10 @@ declare module "@prismicio/client" {
       ResultsSliceDefaultPrimary,
       ResultsSliceVariation,
       ResultsSliceDefault,
+      RichTextSlice,
+      RichTextSliceDefaultPrimary,
+      RichTextSliceVariation,
+      RichTextSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimaryTeamItem,
       TeamSliceDefaultPrimary,

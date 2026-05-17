@@ -1,0 +1,19 @@
+[
+  {
+    "type": "page",
+    "path": "/:uid"
+  },
+  {
+    "type": "page",
+    "uid": "home",
+    "path": "/"
+  },
+  {
+    "type": "settings",
+    "path": "/"
+  },
+  {
+    "type": "blog",
+    "path": "/blog/:uid"
+  }
+]

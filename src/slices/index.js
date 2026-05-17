@@ -20,4 +20,5 @@ export const components = {
   questions: dynamic(() => import("./Faq")),
   results: dynamic(() => import("./Results")),
   team: dynamic(() => import("./Team")),
+  rich_text: dynamic(() => import("./RichText")),
 };

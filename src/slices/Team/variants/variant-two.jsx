@@ -172,7 +172,7 @@ const PortraitCard = ({ member, idx, total, isRevealed }) => {
   return (
     <motion.div
       className={clsx(
-        "absolute bottom-0 left-1/2 overflow-hidden rounded-[24px] border-2 border-[#FAF9F6] bg-[#25252A]",
+        "absolute bottom-0 left-1/2 overflow-hidden rounded-[24px] border-2 border-[#FAF9F6] bg-[#25252A] transition-bouncy",
         "h-[250px] w-[166px]",
         {
           "[--stack-offset:0%]": isCenter,
@@ -201,7 +201,7 @@ const PortraitCard = ({ member, idx, total, isRevealed }) => {
       }}
       whileHover={
         shouldReduceMotion || !isRevealed || isCenter
-          ? undefined
+          ? { scale: 1.03 }
           : {
               x: hoverOffset,
               rotate: isLeft ? -13 : 13,
