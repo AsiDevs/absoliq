@@ -40,7 +40,7 @@ const ContactForm = ({ slice, settings }) => {
             handleFormSubmit(
               values,
               resetForm,
-              settings?.contact_form_submission_email || "info@absoliq.com",
+              settings?.contact_form_submission_email || "hello@absoliq.com",
               setSuccess,
               setSubmitMessage,
               recaptchaToken,
