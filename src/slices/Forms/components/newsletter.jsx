@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Formik } from "formik";
 import StyledSectionTitle from "@/app/components/styled-section-title";
 import StyledFormikInput from "@/app/components/styled-formik-input";
-import { contactFormValidationSchema } from "../utils/validationSchema";
+import { newsletterFormValidationSchema } from "../utils/validationSchema";
+import { handleSubscription } from "../utils/handle-subscription";
 import StyledButton from "@/app/components/styled-button";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
 
@@ -28,30 +29,18 @@ const Newsletter = ({ slice }) => {
             name: "",
             email: "",
           }}
-          validationSchema={contactFormValidationSchema}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            handleFormSubmit(
+          validationSchema={newsletterFormValidationSchema}
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            await handleSubscription(
               values,
               resetForm,
-              recipient,
-              cc,
-              bcc,
               setSuccess,
+              "",
               setSubmitMessage,
-              recaptchaToken,
-              settings?.data.header_logo,
-            )
-              .catch((e) => {
-                console.log("E: ", e);
-                setSuccess(false);
-                setSubmitMessage(
-                  "We couldn't send your enquiry right now. Please try again in a moment.",
-                );
-              })
-              .finally(() => setSubmitting(false));
+            );
           }}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, isSubmitting }) => (
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-y-4.5">
                 <StyledFormikInput
@@ -68,14 +57,25 @@ const Newsletter = ({ slice }) => {
                 />
               </div>
               <StyledPrismicRichTextSingle
-                className="text-text-light text-[12px] mt-7 mb-12 disclaimer"
+                className="text-text-light text-[12px] mt-7 disclaimer"
                 field={slice?.primary?.disclaimer_text}
               />
-              <StyledButton
-                variant="primary"
-                type={"submit"}
-                label={"Subscribe"}
-              />
+              {submitMessage && (
+                <p
+                  className={`text-body-small-s mt-4 text-left ${success ? "text-success-primary" : "text-error-primary"}`}
+                >
+                  {submitMessage}
+                </p>
+              )}
+              <div className="mt-12">
+                <StyledButton
+                  variant="primary"
+                  type={"submit"}
+                  link={false}
+                  label={isSubmitting ? "Subscribing..." : "Subscribe"}
+                  disabled={isSubmitting}
+                />
+              </div>
               <StyledPrismicRichTextSingle
                 className="text-body-small text-text-light mt-4"
                 field={slice?.primary?.end_note}

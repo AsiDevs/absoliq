@@ -7,6 +7,7 @@ import StyledFormikInput from "@/app/components/styled-formik-input";
 import { contactFormValidationSchema } from "../utils/validationSchema";
 import StyledButton from "@/app/components/styled-button";
 import StyledPrismicRichTextSingle from "@/app/components/styled-prismic-richtext-single";
+import { handleFormSubmit } from "../utils/submitHandler";
 
 const ContactForm = ({ slice }) => {
   const [submitMessage, setSubmitMessage] = useState("");

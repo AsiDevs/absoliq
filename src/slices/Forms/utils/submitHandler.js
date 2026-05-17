@@ -58,5 +58,5 @@ export const handleFormSubmit = async (
   }
 
   // Reset the message after a timeout
-  setTimeout(() => setSubmitMessage(""), 5000);
+  setTimeout(() => setSubmitMessage(""), 10000);
 };
