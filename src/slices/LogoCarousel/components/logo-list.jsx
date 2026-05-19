@@ -63,7 +63,7 @@ export function LogoList({ images }) {
           modules={[Autoplay]}
           breakpoints={{
             768: { slidesPerView: 4, spaceBetween: 46 },
-            1280: { slidesPerView: 4.5, spaceBetween: 96 },
+            1280: { slidesPerView: 4.5, spaceBetween: 60 },
           }}
           className="logo-carousel-swiper"
         >

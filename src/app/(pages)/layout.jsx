@@ -1,6 +1,5 @@
 import StyledHeader from "../components/styled-header";
 import StyledFooter from "../components/styled-footer";
-import React from "react";
 import { createClient } from "@/prismicio";
 
 export default async function RootLayout({ children }) {

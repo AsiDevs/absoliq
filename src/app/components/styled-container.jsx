@@ -4,6 +4,7 @@ import Divider from "./divider";
 const DEFAULT_SECTION_IDS = {
   team: "about-us",
   expertise: "solutions",
+  results: "results",
   forms: "book-your-roast",
 };
 

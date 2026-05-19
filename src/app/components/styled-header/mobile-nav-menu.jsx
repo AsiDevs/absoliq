@@ -8,6 +8,14 @@ import { isActivePath, NAV_LINKS } from "@/lib/navigation";
 import HeaderCtaButton from "./header-cta-button";
 import MobileMenuToggle from "./mobile-menu-toggle";
 
+const handleHashNavigation = (href, currentPathname) => {
+  if (!href.includes("#")) return;
+  const targetPath = href.split("#")[0] || "/";
+  if (currentPathname !== targetPath) {
+    sessionStorage.setItem("skip-next-route-loading", href);
+  }
+};
+
 const MobileNavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -85,7 +93,10 @@ const MobileNavMenu = () => {
                       ? "bg-primary-light-2 font-medium"
                       : "bg-primary-white",
                   )}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    handleHashNavigation(link.href, pathname);
+                    setIsOpen(false);
+                  }}
                 >
                   {link.label}
                 </Link>

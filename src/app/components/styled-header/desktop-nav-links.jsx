@@ -5,6 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { isActivePath, NAV_LINKS } from "@/lib/navigation";
 
+const handleHashNavigation = (href, currentPathname) => {
+  if (!href.includes("#")) return;
+  const targetPath = href.split("#")[0] || "/";
+  if (currentPathname !== targetPath) {
+    sessionStorage.setItem("skip-next-route-loading", href);
+  }
+};
+
 const DesktopNavLinks = () => {
   const pathname = usePathname();
   const navRef = useRef(null);
@@ -34,6 +42,7 @@ const DesktopNavLinks = () => {
           href={link.href}
           data-nav-href={link.href}
           className="rounded-lg px-4 py-3 text-body-small text-[#1A1A1A] transition-timing hover:bg-primary-light-2"
+          onClick={() => handleHashNavigation(link.href, pathname)}
         >
           {link.label}
         </Link>

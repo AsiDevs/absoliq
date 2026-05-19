@@ -12,7 +12,7 @@ const HeaderCtaButton = ({ className, onClick }) => {
       )}
       onClick={onClick}
     >
-      <span>Talk to an Expert</span>
+      <span>Nudge an Expert</span>
       <span className="icon">
         <IoArrowForwardSharp />
       </span>

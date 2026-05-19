@@ -3,23 +3,29 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function RouteLoadingGate({ children }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+function RouteTransition({ children, shouldSkipLoading }) {
   const videoRef = useRef(null);
-  const [isRevealed, setIsRevealed] = useState(false);
-
-  useEffect(() => {
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
+  const [isRevealed, setIsRevealed] = useState(shouldSkipLoading);
 
   useEffect(() => {
     const video = videoRef.current;
+
+    if (shouldSkipLoading) {
+      sessionStorage.removeItem("skip-next-route-loading");
+      document.body.style.overflow = "";
+      requestAnimationFrame(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const el = document.querySelector(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+      return;
+    }
+
     if (!video) return;
 
-    setIsRevealed(false);
+    sessionStorage.removeItem("skip-next-route-loading");
     document.body.style.overflow = "hidden";
     window.scrollTo({
       top: 0,
@@ -35,7 +41,7 @@ export default function RouteLoadingGate({ children }) {
         document.body.style.overflow = "";
       });
     }
-  }, [pathname, searchParams]);
+  }, [shouldSkipLoading]);
 
   const reveal = () => {
     setIsRevealed(true);
@@ -65,5 +71,31 @@ export default function RouteLoadingGate({ children }) {
         {children}
       </div>
     </>
+  );
+}
+
+export default function RouteLoadingGate({ children }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const routeKey = `${pathname}?${searchParams.toString()}`;
+  const storedHref =
+    typeof window !== "undefined"
+      ? sessionStorage.getItem("skip-next-route-loading")
+      : null;
+  const shouldSkipLoading =
+    !!storedHref &&
+    storedHref.includes("#") &&
+    pathname === (storedHref.split("#")[0] || "/");
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  return (
+    <RouteTransition key={routeKey} shouldSkipLoading={shouldSkipLoading}>
+      {children}
+    </RouteTransition>
   );
 }

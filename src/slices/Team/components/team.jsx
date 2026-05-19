@@ -38,7 +38,7 @@ const SingleMember = ({ member, isFirst, idx }) => {
         field={member?.image}
         className="min-h-60 sm:min-h-75 max-h-75 object-cover rounded-[22px] mb-5 border-2 border-[#FAF9F6]"
       />
-      <div className="text-left">
+      <div className="text-left md:max-w-[68%] xl:max-w-none">
         <h3 className="text-title-base mb-1.5 text-text-heading">
           {member?.name}
         </h3>

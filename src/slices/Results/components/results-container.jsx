@@ -51,28 +51,31 @@ const SingleResult = ({ result, idx }) => {
     >
       <PrismicNextLink
         href={result?.link}
-        className="p-6 rounded-[12px] min-h-[320px] relative block bg-primary-white result-link group"
+        className="p-6 rounded-[12px] min-h-[320px] relative block bg-primary-white result-link"
       >
         <div className="pb-10 md:pb-19">
           <div className="title-container flex items-center justify-between py-[3.5px] mb-2">
-            <h3 className="text-[24px] text-text-heading group-hover:text-text-light result-transition-timing">
+            <h3 className="text-[24px] text-text-heading result-title result-transition-timing">
               {result?.title}
             </h3>
-            <button className="w-7 h-7 overflow-hidden block relative rounded-sm bg-border-primary group-hover:bg-text-placeholder">
+            <span
+              aria-hidden="true"
+              className="result-action w-7 h-7 overflow-hidden block relative rounded-sm bg-border-primary"
+            >
               <span className="before-hover">
                 <MdKeyboardArrowRight size={16} color="#0D0D0D" />
               </span>
               <span className="after-hover">
                 <MdKeyboardArrowRight size={16} color="#fff" />
               </span>
-            </button>
+            </span>
           </div>
           <div className="tag-container flex items-center justify-start flex-wrap gap-2">
             <Tag tag={result?.tag_one} />
             <Tag tag={result?.tag_two} />
           </div>
         </div>
-        <div className="stat-container max-w-45 mr-auto flex flex-col gap-y-5">
+        <div className="stat-container max-w-42 mr-auto flex flex-col gap-y-5">
           <Stat
             stat={result?.stat_one}
             stat_description={result?.stat_one_description}
@@ -84,11 +87,11 @@ const SingleResult = ({ result, idx }) => {
         </div>
         <PrismicImage
           field={result?.logo}
-          className="absolute z-[8] w-full h-auto max-w-[35%] md:max-w-[38.5%]  right-0 bottom-0 result-transition-timing group-hover:opacity-0"
+          className="result-logo result-logo-default absolute z-[8] w-full h-auto max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing"
         />
         <PrismicImage
           field={result?.logo_inverse}
-          className="absolute z-[8] w-full max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing opacity-0 group-hover:opacity-100"
+          className="result-logo result-logo-inverse absolute z-[8] w-full max-w-[35%] md:max-w-[38.5%] right-0 bottom-0 result-transition-timing opacity-0"
         />
       </PrismicNextLink>
     </AnimateUp>
@@ -98,7 +101,7 @@ const SingleResult = ({ result, idx }) => {
 const Tag = ({ tag }) => {
   if (!tag) return null;
   return (
-    <div className="flex items-center justify-center bg-border-primary group-hover:bg-text-placeholder py-1 pt-1.25 px-2 rounded-[90px] text-[13.5px] leading-5 text-text-heading group-hover:text-text-light result-transition-timing">
+    <div className="result-tag flex items-center justify-center bg-border-primary py-1 pt-1.25 px-2 rounded-[90px] text-[13.5px] leading-5 text-text-heading result-transition-timing">
       {tag}
     </div>
   );
@@ -108,10 +111,10 @@ const Stat = ({ stat, stat_description }) => {
   if (!stat & !stat_description) return null;
   return (
     <div>
-      <p className="text-title-medium text-text-heading group-hover:text-text-light result-transition-timing">
+      <p className="result-stat-value text-title-medium text-text-heading result-transition-timing">
         {stat}
       </p>
-      <p className="text-body-small-s text-text-heading group-hover:text-text-light result-transition-timing">
+      <p className="result-stat-description text-body-small-s text-text-heading result-transition-timing">
         {stat_description}
       </p>
     </div>

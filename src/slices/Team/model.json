@@ -115,6 +115,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": ""
+          }
+        },
         "with_border": {
           "type": "Boolean",
           "config": {
