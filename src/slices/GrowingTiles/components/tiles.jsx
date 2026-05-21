@@ -105,7 +105,7 @@ const Tile = ({ tile, isSingleItem, idx }) => {
       <h3 className="text-title-base mb-8 lg:mb-0 font-medium">
         {tile?.title}
       </h3>
-      <div className="transition-timing lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible pointer-events-none lg:max-w-[350px] gap-y-1.5 flex flex-wrap lg:w-[95%]">
+      <div className="transition-timing lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible pointer-events-none lg:max-w-[90%] gap-y-1.5 flex flex-wrap lg:w-[95%]">
         {description?.map((point) => {
           return (
             <StyledSinglePoint
