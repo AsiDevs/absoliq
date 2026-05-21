@@ -23,14 +23,14 @@ const StyledFooter = ({ settings }) => {
             <p className="mt-4.5 text-body-small-s">
               {settings?.data?.footer_description}
             </p>
-            <div className="mt-4.5 max-w-45">
+            {/* <div className="mt-4.5 max-w-45">
               <p className="text-body-small-s">
                 Level 1, 12 River Street, South Yarra, VIC 3141 Australia
               </p>
               <p className="text-body-small-s">
                 Phone: <a href={"tel:1300 858 250"}>1300 858 250</a>
               </p>
-            </div>
+            </div> */}
             <SocialLinks links={settings?.data?.social_profiles} />
           </div>
           <div className="flex flex-wrap md:flex-nowrap items-start md:justify-between gap-y-8 gap-x-6 md:gap-x-15 2xl:gap-x-3">
