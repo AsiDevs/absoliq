@@ -7,6 +7,8 @@ const StyledFormikInput = ({
   label = "",
   placeholder,
   isRequired = false,
+  className,
+  wrapperClass,
 }) => {
   const { values, errors, touched, setFieldValue, handleBlur } =
     useFormikContext();
@@ -14,7 +16,7 @@ const StyledFormikInput = ({
   const hasError = touched[name] && errors[name];
 
   return (
-    <div className={"mb-3"}>
+    <div className={`mb-3 ${wrapperClass}`}>
       <StyledInput
         type={type}
         placeholder={placeholder}
@@ -25,6 +27,7 @@ const StyledFormikInput = ({
         onBlur={() => handleBlur(name)}
         value={values?.[name] || ""}
         isRequired={isRequired}
+        className={className}
       />
     </div>
   );

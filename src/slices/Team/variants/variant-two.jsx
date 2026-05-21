@@ -33,14 +33,14 @@ const TABLET_TILE_POSITIONS = [
 ];
 
 const MOBILE_TILE_POSITIONS = [
-  "left-[-3%] top-[23%]",
+  "left-[-3%] sm:left-0 top-[23%] sm:top-[28%]",
   "left-[18%] top-[-2%]",
   "right-[18%] top-[-2%]",
-  "right-[-3%] top-[23%]",
-  "right-[-3%] bottom-[18%]",
+  "right-[-3%] sm:right-0 top-[23%] sm:top-[28%]",
+  "right-[-3%] sm:right-0 bottom-[18%] sm:bottom-[23%]",
   "right-[18%] bottom-[0%]",
   "left-[18%] bottom-[0%]",
-  "left-[-3%] bottom-[18%]",
+  "left-[-3%] sm:left-0 bottom-[18%] sm:bottom-[23%]",
 ];
 
 const VariantTwo = ({ slice }) => {
@@ -173,12 +173,12 @@ const PortraitCard = ({ member, idx, total, isRevealed }) => {
     <motion.div
       className={clsx(
         "absolute bottom-0 left-1/2 overflow-hidden rounded-[24px] border-2 border-[#FAF9F6] bg-[#25252A] transition-bouncy",
-        "h-[250px] w-[166px]",
+        "h-55 md:h-[250px] w-35 md:w-[166px]",
         {
           "[--stack-offset:0%]": isCenter,
-          "[--stack-offset:-10%] md:[--stack-offset:-52%] xl:[--stack-offset:-74%]":
+          "[--stack-offset:-55%] md:[--stack-offset:-52%] xl:[--stack-offset:-74%]":
             isLeft,
-          "[--stack-offset:10%] md:[--stack-offset:52%] xl:[--stack-offset:74%]":
+          "[--stack-offset:55%] md:[--stack-offset:52%] xl:[--stack-offset:74%]":
             isRight,
           "z-[1]": isLeft,
           "z-[3]": isCenter,

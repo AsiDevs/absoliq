@@ -4,7 +4,7 @@ import { PrismicNextLink } from "@prismicio/next";
 const ContactDetails = ({ settings }) => {
   const { data } = settings;
   return (
-    <div className="md:max-w-[334px] md:max-w-[296px]">
+    <div className="md:max-w-[334px]">
       <h5 className="text-body-small mb-[5.1px] underline underline-offset-2">
         Contact Us
       </h5>

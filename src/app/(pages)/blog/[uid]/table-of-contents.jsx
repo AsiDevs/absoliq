@@ -49,7 +49,7 @@ export default function TableOfContents({ items = [] }) {
 
   return (
     <ol className="bg-primary-white p-4.5 rounded-xl flex flex-col gap-y-3">
-      {items.map(({ id, label }) => {
+      {items.filter(({ id, label }) => id && label).map(({ id, label }) => {
         const isActive = activeId === id;
 
         return (

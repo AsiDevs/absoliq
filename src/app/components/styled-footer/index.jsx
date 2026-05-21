@@ -1,8 +1,9 @@
 import { PrismicNextImage } from "@prismicio/next";
-import ContactDetails from "./contact-details";
+import SocialLinks from "./social-links";
 import CopyrightLinks from "./copyright-links";
 import FooterLinksOne from "./footer-links-one";
 import FooterLinksTwo from "./footer-links-two";
+import FooterNewsletter from "./footer-newsletter";
 
 const StyledFooter = ({ settings }) => {
   return (
@@ -22,26 +23,43 @@ const StyledFooter = ({ settings }) => {
             <p className="mt-4.5 text-body-small-s">
               {settings?.data?.footer_description}
             </p>
+            <div className="mt-4.5 max-w-45">
+              <p className="text-body-small-s">
+                Level 1, 12 River Street, South Yarra, VIC 3141 Australia
+              </p>
+              <p className="text-body-small-s">
+                Phone: <a href={"tel:1300 858 250"}>1300 858 250</a>
+              </p>
+            </div>
+            <SocialLinks links={settings?.data?.social_profiles} />
           </div>
-          <div className="flex flex-wrap md:flex-nowrap items-start justify-between gap-y-8 gap-x-6 md:gap-x-15 2xl:gap-x-19">
+          <div className="flex flex-wrap md:flex-nowrap items-start md:justify-between gap-y-8 gap-x-6 md:gap-x-15 2xl:gap-x-3">
             <FooterLinksOne />
             <FooterLinksTwo />
-            <ContactDetails settings={settings} />
+            <FooterNewsletter />
+            {/* <ContactDetails settings={settings} /> */}
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-3 border-t border-t-text-description gap-3">
           {/* Footer bottom */}
-          <div className="">
-            <div>
-              <p className="text-body-small-s">
+          <div className="xl:flex gap-x-3">
+            <div className="flex flex-wrap gap-y-0.5 gap-x-3">
+              <p className="text-body-caption">
                 &copy; {new Date().getFullYear()} {settings.data.copyright_text}
               </p>
+              <p className="text-body-caption">
+                Protected by all the possible laws.
+              </p>
               <CopyrightLinks />
+            </div>
+            <div className="text-body-caption">
+              Happy{" "}
+              {new Date().toLocaleDateString("en-US", { weekday: "long" })}
             </div>
           </div>
           {/* Design & development */}
           <div className="">
-            <p className="text-body-small-s">
+            <p className="text-body-caption">
               Designed & Developed by{" "}
               <a href="https://vinod.lk" className="underline" target="_blank">
                 vinod.lk

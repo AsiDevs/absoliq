@@ -28,6 +28,7 @@ const TestimonialSlider = ({ cards = [], navigationId }) => {
       spaceBetween={16}
       slidesPerView="auto"
       watchOverflow={true}
+      loop={true}
       navigation={{
         prevEl: `.${prevClassName}`,
         nextEl: `.${nextClassName}`,

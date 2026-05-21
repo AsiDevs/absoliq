@@ -1,17 +1,19 @@
 import React from "react";
 import { PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
 
-const CopyrightLinks = ({ links }) => {
-  if (!links || !links?.length) return null;
-
+const CopyrightLinks = ({}) => {
   return (
-    <ul className={"ms-2 flex gap-x-4 md:gap-y-0  md:gap-x-[30px]"}>
-      {links.map((link, index) => (
-        <li key={index}>
-          <PrismicNextLink field={link} />
-        </li>
-      ))}
-    </ul>
+    <div className={"flex gap-x-3 items-center"}>
+      <Link className="text-body-caption" href={"/privacy-policy"}>
+        Privacy Policy
+      </Link>
+      <div className="w-[1px] h-3 bg-text-heading" />
+      <Link className="text-body-caption" href={"/terms-of-service"}>
+        Terms of Service
+      </Link>
+      <div className="hidden xl:block w-[1px] h-3 bg-text-heading" />
+    </div>
   );
 };
 

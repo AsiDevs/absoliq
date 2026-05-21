@@ -72,8 +72,14 @@ export function LogoList({ images }) {
               key={(image?.id || idx) + idx}
               className="py-1 md:py-1.5 xl:py-2 px-1.5 md:px-2 xl:px-3 grayscale hover:grayscale-0 transition-timing"
             >
-              <AnimateIn options={{ delay: idx * 0.1 }}>
-                <PrismicNextImage field={image} />
+              <AnimateIn
+                options={{ delay: idx * 0.1 }}
+                className={"flex justify-center"}
+              >
+                <PrismicNextImage
+                  field={image}
+                  className="h-8 md:h-14 w-auto"
+                />
               </AnimateIn>
             </SwiperSlide>
           ))}

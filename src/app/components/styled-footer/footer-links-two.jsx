@@ -10,15 +10,14 @@ const FooterLinksTwo = () => {
   const pathname = usePathname();
 
   return (
-    <div className="min-w-40 md:min-w-55 md:max-w-55">
-      <h5 className="text-body-small mb-[5.1px] underline underline-offset-2">
-        Quick Links
-      </h5>
+    <div className="min-w-40 md:min-w-20 xl:min-w-45 xl:max-w-45">
+      <h5 className="text-title-base-blog font-bold mb-3 md:mb-6">Solution</h5>
       <ul className="flex flex-col gap-1.5">
-        <SingleLink link={{ url: "/about-us" }} pathname={pathname} text={"About Us"} />
-        <SingleLink link={{ url: "/blogs" }} pathname={pathname} text={"Blogs"} />
-        <SingleLink link={{ url: "/newsletter" }} pathname={pathname} text={"Newsletter"} />
-        <SingleLink link={{ url: "/contact-us" }} pathname={pathname} text={"Contact Us"} />
+        <SingleLink
+          link={{ url: "/solutions" }}
+          pathname={pathname}
+          text={"The ABS Growth Model"}
+        />
       </ul>
     </div>
   );

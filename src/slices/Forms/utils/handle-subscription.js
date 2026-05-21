@@ -7,24 +7,32 @@ export const handleSubscription = async (
   recaptchaToken = "",
   setSubmitMessage,
 ) => {
-  const response = await axios.post("/api/create-subscription", {
-    email: values?.email,
-    name: values?.name,
-    recaptchaToken,
-  });
+  const showMessage = (msg) => {
+    setSubmitMessage(msg);
+    setTimeout(() => setSubmitMessage(""), 10000);
+  };
 
-  if (response.data.success) {
-    setSuccess(true);
-    setSubmitMessage("You have successfully subscribed to our newsletter!");
-    resetForm();
-  } else {
+  try {
+    const response = await axios.post("/api/create-subscription", {
+      email: values?.email,
+      name: values?.name,
+      recaptchaToken,
+    });
+
+    if (response.data.success) {
+      setSuccess(true);
+      showMessage("You have successfully subscribed to our newsletter!");
+      resetForm();
+    } else {
+      setSuccess(false);
+      showMessage(
+        "There has been an error with the subscription. Please try again.",
+      );
+    }
+  } catch {
     setSuccess(false);
-    setSubmitMessage(
+    showMessage(
       "There has been an error with the subscription. Please try again.",
     );
-    throw new Error("Failed to send emails");
   }
-
-  // Reset the message after a timeout
-  setTimeout(() => setSubmitMessage(""), 10000);
 };

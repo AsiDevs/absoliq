@@ -1,9 +1,4 @@
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaTiktok,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 
 const SocialLinks = ({ links }) => {
@@ -12,7 +7,7 @@ const SocialLinks = ({ links }) => {
   if (!formattedLinks || !formattedLinks?.length) return null;
 
   return (
-    <div className={"flex justify-start items-center gap-5"}>
+    <div className={"flex justify-start items-center gap-3 mt-4.5"}>
       {formattedLinks.map(
         ({ link, icon }, index) =>
           link && (
@@ -21,11 +16,9 @@ const SocialLinks = ({ links }) => {
               target={"_blank"}
               rel={"noreferrer"}
               key={index}
-              className={
-                "p-[10px] rounded-[6px] text-[#fff] border-[2px] rounded-[50%]"
-              }
+              className={""}
             >
-              <div className={"p-1 block"}>{icon}</div>
+              <div className={"p-1 block text-[#000000B2]"}>{icon}</div>
             </a>
           ),
       )}
@@ -35,7 +28,7 @@ const SocialLinks = ({ links }) => {
 
 const getSocialProfiles = (links) => {
   const socialLinks = [];
-  const size = 14;
+  const size = 18;
 
   for (let i = 0; i < links.length; i++) {
     const { variant, url } = links[i];
@@ -68,7 +61,7 @@ const getSocialProfiles = (links) => {
       case "LinkedIn":
         socialLinks.push({
           link: url,
-          icon: <FaLinkedinIn size={size} />,
+          icon: <FaLinkedin size={size} />,
         });
         break;
       default:

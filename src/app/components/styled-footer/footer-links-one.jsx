@@ -10,20 +10,28 @@ const FooterLinksOne = () => {
   const pathname = usePathname();
 
   return (
-    <div className="min-w-40 md:min-w-55 md:max-w-55">
-      <h5 className="text-body-small mb-[5.1px] underline underline-offset-2">
-        Customer Service
-      </h5>
+    <div className="min-w-40 md:min-w-45 md:max-w-45">
+      <h5 className="text-title-base-blog font-bold mb-3 md:mb-6">Company</h5>
       <ul className="flex flex-col gap-1.5">
         <SingleLink
-          link={{ url: "/terms-of-service" }}
+          link={{ url: "/about-us" }}
           pathname={pathname}
-          text={"Terms of Service"}
+          text={"About Us"}
         />
         <SingleLink
-          link={{ url: "/privacy-policy" }}
+          link={{ url: "/contact-us" }}
           pathname={pathname}
-          text={"Privacy Policy"}
+          text={"Contact Us"}
+        />
+        <SingleLink
+          link={{ url: "/blogs" }}
+          pathname={pathname}
+          text={"Blogs"}
+        />
+        <SingleLink
+          link={{ url: "/#team" }}
+          pathname={pathname}
+          text={"Team"}
         />
       </ul>
     </div>

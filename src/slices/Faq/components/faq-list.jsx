@@ -76,7 +76,7 @@ function Accordion({ title, content, currentItem, setCurrentItem, idx }) {
           expanded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div ref={contentRef} className="mt-6">
+        <div ref={contentRef} className="pt-6">
           <StyledPrismicRichTextSingle
             className="text-body-small"
             field={content}

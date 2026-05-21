@@ -24,7 +24,7 @@ const TestimonyCarousel = ({ slice }) => {
       <Thumbnails slice={slice} setThumbsSwiper={setThumbsSwiper} />
       <div className="relative overflow-hidden">
         <FadeOverlay />
-        <Carousel slice={slice} thumbsSwiper={thumbsSwiper} />
+        {thumbsSwiper && <Carousel slice={slice} thumbsSwiper={thumbsSwiper} />}
         <CarouselNav />
       </div>
     </>
@@ -39,7 +39,6 @@ const Thumbnails = ({ slice, setThumbsSwiper }) => {
       onSwiper={setThumbsSwiper}
       spaceBetween={7}
       slidesPerView={"auto"}
-      loop={true}
       freeMode={true}
       watchSlidesProgress={true}
       modules={[FreeMode, Navigation, Thumbs]}
@@ -73,7 +72,7 @@ const Carousel = ({ slice, thumbsSwiper }) => {
       slidesPerView={1}
       watchSlidesProgress={true}
       centeredSlides={true}
-      thumbs={{ swiper: thumbsSwiper }}
+      thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
       loop={true}
       navigation={{ nextEl: ".arrow-right", prevEl: ".arrow-left" }}
       modules={[FreeMode, Navigation, Thumbs, A11y]}
@@ -83,7 +82,7 @@ const Carousel = ({ slice, thumbsSwiper }) => {
           spaceBetween: 40,
         },
         1200: {
-          slidesPerView: 3.5,
+          slidesPerView: 3,
         },
       }}
       className="testimony-carousel"

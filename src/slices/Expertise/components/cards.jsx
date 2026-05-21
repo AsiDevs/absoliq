@@ -201,10 +201,10 @@ const HoverCard = ({ card, isFirst, isLast, isActive }) => {
 };
 
 const CardImage = ({ image, tiltAngle = 0 }) => (
-  <div className="overflow-hidden">
+  <div className="overflow-hidden h-[202px] flex flex-col justify-center items-start">
     <PrismicNextImage
       field={image}
-      className="w-full h-[202px]"
+      className="w-full"
       style={{
         transform: `rotate(${tiltAngle}deg)`,
         transition: "transform 200ms ease-out", // must match TRANSITION_DURATION

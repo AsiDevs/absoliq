@@ -14,6 +14,7 @@ const StyledInput = ({
   icon = false,
   rows = "4",
   isRequired,
+  className = "",
 }) => {
   const servicesData = [
     { label: "PPC" },
@@ -24,7 +25,7 @@ const StyledInput = ({
 
   const sharedInputClasses = `w-full text-text-light rounded-[6px] bg-[#212121] px-[18px] text-[#211F24] text-[14px]
     transition-all outline-none appearance-none ease-in-out delay-600 duration-500 
-    ${error ? "border-error-active focus:border-error-active" : "focus:border-0 focus:outline-none"}`;
+    ${error ? "border-error-active focus:border-error-active" : "focus:border-0 focus:outline-none"} ${className}`;
 
   const labelContent = (
     <label
