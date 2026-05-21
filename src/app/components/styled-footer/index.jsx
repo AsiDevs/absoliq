@@ -40,7 +40,7 @@ const StyledFooter = ({ settings }) => {
             {/* <ContactDetails settings={settings} /> */}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center pt-3 border-t border-t-text-description gap-3">
+        <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center pt-3 border-t border-t-text-description gap-3">
           {/* Footer bottom */}
           <div className="xl:flex gap-x-3">
             <div className="flex flex-wrap gap-y-0.5 gap-x-3">
