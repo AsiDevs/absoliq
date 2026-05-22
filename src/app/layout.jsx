@@ -1,6 +1,7 @@
 import { Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import { Suspense } from "react";
+import Script from "next/script";
 import "./assets/css/globals.scss";
 import RouteLoadingGate from "./components/route-loading-gate";
 
@@ -68,8 +69,21 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preload" as="video" href="/videos/loading.mp4" type="video/mp4" />
+        <Script id="gtm-head" strategy="beforeInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PC5N3WST');`}</Script>
       </head>
       <body className={`${HelveticaNeue.variable} ${InstrumentSerif.variable}`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PC5N3WST"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Suspense>
           <RouteLoadingGate>{children}</RouteLoadingGate>
         </Suspense>
