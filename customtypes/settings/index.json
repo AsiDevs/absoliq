@@ -31,13 +31,6 @@
           "thumbnails": []
         }
       },
-      "gtm_code": {
-        "type": "Text",
-        "config": {
-          "label": "GTM Code",
-          "placeholder": ""
-        }
-      },
       "copyright_text": {
         "type": "Text",
         "config": {
@@ -50,6 +43,22 @@
         "config": {
           "label": "Footer Description",
           "placeholder": ""
+        }
+      },
+      "footer_newsletter_title": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Newsletter Title",
+          "placeholder": ""
+        }
+      },
+      "footer_newsletter_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer Newsletter Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink"
         }
       }
     },

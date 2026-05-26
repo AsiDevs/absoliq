@@ -362,6 +362,162 @@ export type BlogCategoryDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Navigation → Links*
+ */
+export interface NavigationDocumentDataLinksItem {
+  /**
+   * Link field in *Navigation → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+type NavigationDocumentDataMainMenuSlice = never;
+
+/**
+ * Item in *Navigation → Links*
+ */
+export interface NavigationDocumentDataLinksOneItem {
+  /**
+   * Link field in *Navigation → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links_one[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Navigation → Links*
+ */
+export interface NavigationDocumentDataLinksTwoItem {
+  /**
+   * Link field in *Navigation → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links_two[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+type NavigationDocumentDataFooterLinksSlice = never;
+
+/**
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+  /**
+   * Links field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.main_menu[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  main_menu: prismic.SliceZone<NavigationDocumentDataMainMenuSlice>; /**
+   * Links Title field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.link_one_title
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  link_one_title: prismic.KeyTextField;
+
+  /**
+   * Links field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links_one[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links_one: prismic.GroupField<Simplify<NavigationDocumentDataLinksOneItem>>;
+
+  /**
+   * Links Title field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.link_two_title
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  link_two_title: prismic.KeyTextField;
+
+  /**
+   * Links field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.links_two[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links_two: prismic.GroupField<Simplify<NavigationDocumentDataLinksTwoItem>>;
+
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.footer_links[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  footer_links: prismic.SliceZone<NavigationDocumentDataFooterLinksSlice>; /**
+   * Copyright Links field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.copyright_links
+   * - **Tab**: Copyright Links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  copyright_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | RichTextSlice
   | BlogsSlice
@@ -569,17 +725,6 @@ interface SettingsDocumentData {
   footer_logo: prismic.ImageField<never>;
 
   /**
-   * GTM Code field in *Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.gtm_code
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  gtm_code: prismic.KeyTextField;
-
-  /**
    * Copyright Text field in *Settings*
    *
    * - **Field Type**: Text
@@ -599,7 +744,29 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  footer_description: prismic.KeyTextField; /**
+  footer_description: prismic.KeyTextField;
+
+  /**
+   * Footer Newsletter Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_newsletter_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  footer_newsletter_title: prismic.KeyTextField;
+
+  /**
+   * Footer Newsletter Description field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_newsletter_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  footer_newsletter_description: prismic.RichTextField; /**
    * Social Profiles field in *Settings*
    *
    * - **Field Type**: Link
@@ -684,6 +851,7 @@ export type AllDocumentTypes =
   | AuthorDocument
   | BlogDocument
   | BlogCategoryDocument
+  | NavigationDocument
   | PageDocument
   | SettingsDocument;
 
@@ -4252,6 +4420,16 @@ export type TeamSliceDefault = prismic.SharedSliceVariation<
  */
 export interface TeamSliceVariantTwoPrimary {
   /**
+   * Section ID field in *Team → Variant Two → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team.variantTwo.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_id: prismic.KeyTextField;
+
+  /**
    * With divider field in *Team → Variant Two → Primary*
    *
    * - **Field Type**: Boolean
@@ -4430,6 +4608,13 @@ declare module "@prismicio/client" {
       BlogDocumentDataSlicesSlice,
       BlogCategoryDocument,
       BlogCategoryDocumentData,
+      NavigationDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataLinksItem,
+      NavigationDocumentDataMainMenuSlice,
+      NavigationDocumentDataLinksOneItem,
+      NavigationDocumentDataLinksTwoItem,
+      NavigationDocumentDataFooterLinksSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

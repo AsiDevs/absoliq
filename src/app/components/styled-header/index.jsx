@@ -3,7 +3,8 @@ import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
 import StyledHeaderNav from "./header-nav";
 
-const StyledHeader = ({ settings }) => {
+const StyledHeader = ({ settings, navigation }) => {
+  const navLinks = navigation?.data?.links || [];
   return (
     <header className="section-bg py-10 md:py-11.25 xl:py-11.5">
       <nav className="flex justify-between items-center fixed w-[91.5%] md:w-[90%] xl:w-full left-[50%] -translate-x-[50%] rounded-xl z-[140] top-3 md:top-4 bg-primary-white max-w-[1130px] xl:mx-auto px-4 py-1 nav-shadow">
@@ -13,7 +14,7 @@ const StyledHeader = ({ settings }) => {
             field={settings?.data?.header_logo}
           />
         </Link>
-        <StyledHeaderNav />
+        <StyledHeaderNav navLinks={navLinks} />
       </nav>
     </header>
   );

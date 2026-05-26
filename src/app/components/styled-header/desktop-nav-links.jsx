@@ -3,7 +3,18 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { isActivePath, NAV_LINKS } from "@/lib/navigation";
+import { isActivePath } from "@/lib/navigation";
+import { asLink } from "@prismicio/client";
+
+const getNavHref = (link) => {
+  const href = asLink(link) ?? "";
+  try {
+    const { pathname, search, hash } = new URL(href);
+    return pathname + search + hash;
+  } catch {
+    return href;
+  }
+};
 
 const handleHashNavigation = (href, currentPathname) => {
   if (!href.includes("#")) return;
@@ -13,7 +24,7 @@ const handleHashNavigation = (href, currentPathname) => {
   }
 };
 
-const DesktopNavLinks = () => {
+const DesktopNavLinks = ({ navLinks = [] }) => {
   const pathname = usePathname();
   const navRef = useRef(null);
 
@@ -36,15 +47,15 @@ const DesktopNavLinks = () => {
       ref={navRef}
       className="absolute left-1/2 flex -translate-x-1/2 items-center justify-center gap-2"
     >
-      {NAV_LINKS.map((link) => (
+      {navLinks.map(({ link }, idx) => (
         <Link
-          key={link.href}
-          href={link.href}
-          data-nav-href={link.href}
+          key={idx}
+          href={getNavHref(link)}
+          data-nav-href={getNavHref(link)}
           className="rounded-lg px-4 py-3 text-body-small text-[#1A1A1A] transition-timing hover:bg-primary-light-2"
-          onClick={() => handleHashNavigation(link.href, pathname)}
+          onClick={() => handleHashNavigation(getNavHref(link), pathname)}
         >
-          {link.label}
+          {link.text}
         </Link>
       ))}
     </div>

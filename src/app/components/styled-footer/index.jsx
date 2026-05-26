@@ -5,7 +5,7 @@ import FooterLinksOne from "./footer-links-one";
 import FooterLinksTwo from "./footer-links-two";
 import FooterNewsletter from "./footer-newsletter";
 
-const StyledFooter = ({ settings }) => {
+const StyledFooter = ({ settings, navigation }) => {
   return (
     <footer
       id="contact-us"
@@ -34,9 +34,9 @@ const StyledFooter = ({ settings }) => {
             <SocialLinks links={settings?.data?.social_profiles} />
           </div>
           <div className="flex flex-wrap md:flex-nowrap items-start md:justify-between gap-y-8 gap-x-6 md:gap-x-15 2xl:gap-x-3">
-            <FooterLinksOne />
-            <FooterLinksTwo />
-            <FooterNewsletter />
+            <FooterLinksOne navigation={navigation} />
+            <FooterLinksTwo navigation={navigation} />
+            <FooterNewsletter settings={settings} />
             {/* <ContactDetails settings={settings} /> */}
           </div>
         </div>
@@ -50,11 +50,14 @@ const StyledFooter = ({ settings }) => {
               <p className="text-body-caption">
                 Protected by all the possible laws.
               </p>
-              <CopyrightLinks />
+              <CopyrightLinks navigation={navigation} />
             </div>
             <div className="text-body-caption">
               Happy{" "}
-              {new Date().toLocaleDateString("en-US", { weekday: "long" })}
+              {new Date().toLocaleDateString("en-US", {
+                weekday: "long",
+                timeZone: "Asia/Colombo",
+              })}
             </div>
           </div>
           {/* Design & development */}

@@ -7,19 +7,18 @@ import StyledFormikInput from "../styled-formik-input";
 import StyledPrismicRichTextSingle from "../styled-prismic-richtext-single";
 import * as Yup from "yup";
 
-const FooterNewsletter = () => {
+const FooterNewsletter = ({ settings }) => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [success, setSuccess] = useState(false);
   return (
     <div className="max-w-[500px] md:max-w-[320px] md:min-w-[320px] xl:min-w-[345px] xl:max-w-[345px]">
       <h5 className="text-title-base-blog font-bold mb-3 md:mb-6">
-        Want to get smart?
+        {settings?.data?.footer_newsletter_title}
       </h5>
-      <p className="text-body-small-s mb-3 md:mb-6">
-        Get millions worth scaling strategies straight to your inbox every week
-        for free. Just put your email, will only send an email when we found
-        something that is at least worth 1million.
-      </p>
+      <StyledPrismicRichTextSingle
+        className="text-body-small-s mb-3 md:mb-6"
+        field={settings?.data?.footer_newsletter_description}
+      />
       <Formik
         className="relative z-10"
         initialValues={{

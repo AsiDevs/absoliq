@@ -5,12 +5,13 @@ import { createClient } from "@/prismicio";
 export default async function RootLayout({ children }) {
   const client = createClient();
   const settings = await client.getSingle("settings");
+  const navigation = await client.getSingle("navigation");
 
   return (
     <>
-      <StyledHeader settings={settings} />
+      <StyledHeader settings={settings} navigation={navigation} />
       {children}
-      <StyledFooter settings={settings} />
+      <StyledFooter settings={settings} navigation={navigation} />
     </>
   );
 }

@@ -26,7 +26,9 @@ const FooterLinkList = ({ slice }) => {
               field={item}
               className={clsx(
                 "inline-flex text-body-base transition-timing",
-                isActivePath(pathname, item.url) ? "font-medium" : "font-normal",
+                isActivePath(pathname, item.url)
+                  ? "font-medium"
+                  : "font-normal",
               )}
             />
           </li>

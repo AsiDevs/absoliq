@@ -4,9 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { isActivePath, NAV_LINKS } from "@/lib/navigation";
+import { isActivePath } from "@/lib/navigation";
+import { asLink } from "@prismicio/client";
 import HeaderCtaButton from "./header-cta-button";
 import MobileMenuToggle from "./mobile-menu-toggle";
+
+const getNavHref = (link) => {
+  const href = asLink(link) ?? "";
+  try {
+    const { pathname, search, hash } = new URL(href);
+    return pathname + search + hash;
+  } catch {
+    return href;
+  }
+};
 
 const handleHashNavigation = (href, currentPathname) => {
   if (!href.includes("#")) return;
@@ -16,7 +27,7 @@ const handleHashNavigation = (href, currentPathname) => {
   }
 };
 
-const MobileNavMenu = () => {
+const MobileNavMenu = ({ navLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const toggleRef = useRef(null);
@@ -83,22 +94,22 @@ const MobileNavMenu = () => {
         >
           <div className="rounded-2xl bg-primary-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.16)]">
             <nav id="mobile-nav" className="mt-4 flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
+              {(navLinks ?? []).map(({ link }, idx) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={idx}
+                  href={getNavHref(link)}
                   className={clsx(
                     "rounded-lg px-4 py-4 text-title-base text-text-heading transition-timing hover:bg-primary-light-2",
-                    isActivePath(pathname, link.href)
+                    isActivePath(pathname, getNavHref(link))
                       ? "bg-primary-light-2 font-medium"
                       : "bg-primary-white",
                   )}
                   onClick={() => {
-                    handleHashNavigation(link.href, pathname);
+                    handleHashNavigation(getNavHref(link), pathname);
                     setIsOpen(false);
                   }}
                 >
-                  {link.label}
+                  {link.text}
                 </Link>
               ))}
             </nav>

@@ -1,0 +1,114 @@
+{
+  "id": "navigation",
+  "label": "Navigation",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "main_menu": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "Footer": {
+      "link_one_title": {
+        "type": "Text",
+        "config": {
+          "label": "Links Title",
+          "placeholder": ""
+        }
+      },
+      "links_one": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "link_two_title": {
+        "type": "Text",
+        "config": {
+          "label": "Links Title",
+          "placeholder": ""
+        }
+      },
+      "links_two": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "footer_links": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "Copyright Links": {
+      "copyright_links": {
+        "type": "Link",
+        "config": {
+          "label": "Copyright Links",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
+        }
+      }
+    }
+  }
+}
