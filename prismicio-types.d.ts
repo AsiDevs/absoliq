@@ -519,6 +519,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | RoastSlice
   | RichTextSlice
   | BlogsSlice
   | TeamSlice
@@ -4252,6 +4253,58 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Roast → Default → Primary*
+ */
+export interface RoastSliceDefaultPrimary {
+  /**
+   * Top Padding field in *Roast → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roast.default.primary.top_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  top_padding: prismic.SelectField<"Full" | "Half" | "None">;
+
+  /**
+   * Bottom Padding field in *Roast → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roast.default.primary.bottom_padding
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  bottom_padding: prismic.SelectField<"Full" | "Half" | "None">;
+}
+
+/**
+ * Default variation for Roast Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RoastSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RoastSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Roast*
+ */
+type RoastSliceVariation = RoastSliceDefault;
+
+/**
+ * Roast Shared Slice
+ *
+ * - **API ID**: `roast`
+ * - **Description**: Roast
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RoastSlice = prismic.SharedSlice<"roast", RoastSliceVariation>;
+
+/**
  * Item in *Team → Default → Primary → Team*
  */
 export interface TeamSliceDefaultPrimaryTeamItem {
@@ -4725,6 +4778,10 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      RoastSlice,
+      RoastSliceDefaultPrimary,
+      RoastSliceVariation,
+      RoastSliceDefault,
       TeamSlice,
       TeamSliceDefaultPrimaryTeamItem,
       TeamSliceDefaultPrimary,

@@ -1,0 +1,304 @@
+"use client";
+
+import { useState } from "react";
+import { Formik } from "formik";
+import RoastProgress from "../components/roast-progress";
+import StartStep from "../components/steps/start-step";
+import FirstNameStep from "../components/steps/first-name-step";
+import EmailStep from "../components/steps/email-step";
+import SellStep from "../components/steps/sell-step";
+import MarketingChannelsStep from "../components/steps/marketing-channels-step";
+import CountryStep from "../components/steps/country-step";
+import BudgetStep from "../components/steps/budget-step";
+import WebsiteStep from "../components/steps/website-step";
+import BusinessDescriptionStep from "../components/steps/business-description-step";
+import CurrentRevenueStep from "../components/steps/current-revenue-step";
+import TargetRevenueStep from "../components/steps/target-revenue-step";
+import BiggestObstacleStep from "../components/steps/biggest-obstacle-step";
+import ApologyStep from "../components/steps/apology-step";
+import RoastPromiseStep from "../components/steps/roast-promise-step";
+import BookingDetailsStep from "../components/steps/booking-details-step";
+
+const TOTAL_PROGRESS_STEPS = 11;
+
+const initialValues = {
+  firstName: "",
+  email: "",
+  sellingType: "",
+  marketingChannels: [],
+  country: "Sri Lanka",
+  budget: "",
+  website: "",
+  businessDescription: "",
+  currentMonthlyRevenue: 0,
+  targetMonthlyRevenue: 0,
+  biggestObstacle: "",
+  roastPromise: "",
+  lastName: "",
+  mobile: "",
+  companyName: "",
+};
+
+const stepFields = [
+  ["firstName"],
+  ["email"],
+  ["sellingType"],
+  ["marketingChannels"],
+  ["country"],
+  ["budget"],
+  ["website"],
+  ["businessDescription"],
+  ["currentMonthlyRevenue"],
+  ["targetMonthlyRevenue"],
+  ["biggestObstacle"],
+];
+
+const getNickname = (firstName) => {
+  const nickname = firstName?.trim();
+  return nickname || "Nickname";
+};
+
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.firstName?.trim()) {
+    errors.firstName = "Enter your first name.";
+  }
+
+  if (!values.email?.trim()) {
+    errors.email = "Enter your email.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+    errors.email = "Enter a valid email.";
+  }
+
+  if (!values.sellingType) {
+    errors.sellingType = "Choose what you sell.";
+  }
+
+  if (!values.marketingChannels?.length) {
+    errors.marketingChannels = "Choose at least one channel.";
+  }
+
+  if (!values.country) {
+    errors.country = "Choose your country.";
+  }
+
+  if (!values.budget) {
+    errors.budget = "Choose a monthly marketing budget.";
+  }
+
+  if (!values.website?.trim()) {
+    errors.website = "Enter your website or say you do not have one.";
+  }
+
+  if (!values.businessDescription?.trim()) {
+    errors.businessDescription = "Describe your business.";
+  }
+
+  if (!values.biggestObstacle?.trim()) {
+    errors.biggestObstacle = "Tell us your biggest obstacle.";
+  }
+
+  if (!values.roastPromise) {
+    errors.roastPromise = "Choose whether you can show up.";
+  }
+
+  if (!values.lastName?.trim()) {
+    errors.lastName = "Enter your last name.";
+  }
+
+  if (!values.mobile?.trim()) {
+    errors.mobile = "Enter your mobile number.";
+  }
+
+  if (!values.companyName?.trim()) {
+    errors.companyName = "Enter your company name.";
+  }
+
+  return errors;
+};
+
+const getTouchedForFields = (fields) =>
+  fields.reduce((touched, field) => ({ ...touched, [field]: true }), {});
+
+const Main = () => {
+  const [hasStarted, setHasStarted] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [terminalStep, setTerminalStep] = useState(null);
+
+  return (
+    <div className="relative z-10 mx-auto min-h-[820px] w-full overflow-hidden text-white">
+      <Formik
+        initialValues={initialValues}
+        validate={validate}
+        validateOnBlur
+        validateOnChange={false}
+        onSubmit={() => {}}
+      >
+        {(formik) => {
+          const nickname = getNickname(formik.values.firstName);
+          const steps = [
+            <FirstNameStep key="first-name" onContinue={handleContinue} />,
+            <EmailStep
+              key="email"
+              nickname={nickname}
+              onContinue={handleContinue}
+            />,
+            <SellStep
+              key="sell"
+              nickname={nickname}
+              onContinue={handleContinue}
+            />,
+            <MarketingChannelsStep
+              key="marketing-channels"
+              onContinue={handleContinue}
+            />,
+            <CountryStep key="country" onContinue={handleContinue} />,
+            <BudgetStep key="budget" onContinue={handleContinue} />,
+            <WebsiteStep
+              key="website"
+              nickname={nickname}
+              onContinue={handleContinue}
+            />,
+            <BusinessDescriptionStep
+              key="business-description"
+              nickname={nickname}
+              onContinue={handleContinue}
+            />,
+            <CurrentRevenueStep
+              key="current-revenue"
+              onContinue={handleContinue}
+            />,
+            <TargetRevenueStep
+              key="target-revenue"
+              onContinue={handleContinue}
+            />,
+            (
+              <BiggestObstacleStep
+                key="biggest-obstacle"
+                nickname={nickname}
+                onContinue={handleContinue}
+              />
+            ),
+          ];
+
+          async function handleContinue(valueOverrides = {}) {
+            const terminalFields = {
+              promise: ["roastPromise"],
+              booking: [
+                "firstName",
+                "lastName",
+                "mobile",
+                "companyName",
+                "website",
+              ],
+            };
+            const fields =
+              terminalFields[terminalStep] || stepFields[currentStep] || [];
+            const errors = Object.keys(valueOverrides).length
+              ? validate({ ...formik.values, ...valueOverrides })
+              : await formik.validateForm();
+            const hasStepError = fields.some((field) => errors[field]);
+
+            if (hasStepError) {
+              formik.setTouched(
+                {
+                  ...formik.touched,
+                  ...getTouchedForFields(fields),
+                },
+                false,
+              );
+              return;
+            }
+
+            if (terminalStep === "promise") {
+              setTerminalStep("booking");
+              return;
+            }
+
+            if (terminalStep === "booking") {
+              formik.submitForm();
+              return;
+            }
+
+            if (currentStep === steps.length - 1) {
+              if (Number(formik.values.currentMonthlyRevenue) === 0) {
+                setTerminalStep("apology");
+                return;
+              }
+
+              setTerminalStep("promise");
+              return;
+            }
+
+            setCurrentStep((step) => Math.min(step + 1, steps.length - 1));
+          }
+
+          const activeProgressIndex = hasStarted
+            ? Math.min(currentStep + 1, TOTAL_PROGRESS_STEPS - 1)
+            : 0;
+
+          return (
+            <form onSubmit={formik.handleSubmit}>
+              {!terminalStep && (
+                <div className="pt-12 md:pt-18">
+                  <RoastProgress
+                    activeIndex={activeProgressIndex}
+                    total={TOTAL_PROGRESS_STEPS}
+                  />
+                </div>
+              )}
+              {terminalStep === "apology" ? (
+                <ApologyStep />
+              ) : terminalStep === "promise" ? (
+                <RoastPromiseStep
+                  nickname={nickname}
+                  onContinue={handleContinue}
+                />
+              ) : terminalStep === "booking" ? (
+                <BookingDetailsStep onContinue={handleContinue} />
+              ) : !hasStarted ? (
+                <StartStep onContinue={() => setHasStarted(true)} />
+              ) : (
+                steps[currentStep]
+              )}
+              {hasStarted && terminalStep !== "apology" && (
+                <StepError
+                  errors={formik.errors}
+                  touched={formik.touched}
+                  fields={
+                    terminalStep === "promise"
+                      ? ["roastPromise"]
+                      : terminalStep === "booking"
+                        ? [
+                            "firstName",
+                            "lastName",
+                            "mobile",
+                            "companyName",
+                            "website",
+                          ]
+                        : stepFields[currentStep]
+                  }
+                />
+              )}
+            </form>
+          );
+        }}
+      </Formik>
+    </div>
+  );
+};
+
+const StepError = ({ errors, touched, fields = [] }) => {
+  const firstError = fields.find((field) => touched[field] && errors[field]);
+
+  if (!firstError) return null;
+
+  return (
+    <p className="mx-auto -mt-12 max-w-[590px] pb-12 text-center text-[14px] leading-6 text-error-primary">
+      {errors[firstError]}
+    </p>
+  );
+};
+
+export default Main;

@@ -9,8 +9,9 @@ const StyledFormikInput = ({
   isRequired = false,
   className,
   wrapperClass,
+  rows = "4",
 }) => {
-  const { values, errors, touched, setFieldValue, handleBlur } =
+  const { values, errors, touched, setFieldValue, setFieldTouched } =
     useFormikContext();
 
   const hasError = touched[name] && errors[name];
@@ -23,11 +24,12 @@ const StyledFormikInput = ({
         label={label}
         error={hasError}
         errorMessage={errors?.[name]}
-        onChange={(value) => setFieldValue([name], value)}
-        onBlur={() => handleBlur(name)}
+        onChange={(value) => setFieldValue(name, value)}
+        onBlur={() => setFieldTouched(name, true)}
         value={values?.[name] || ""}
         isRequired={isRequired}
         className={className}
+        rows={rows}
       />
     </div>
   );
