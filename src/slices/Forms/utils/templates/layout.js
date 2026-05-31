@@ -36,7 +36,7 @@ const footer = (logo) => {
                     </td>
                     <td align="right" style="vertical-align: middle;">
                       <a
-                        href="https://au.linkedin.com/in/nalini-reddy-53218427"
+                        href="https://www.linkedin.com/company/absoliq/"
                         style="text-decoration: none;"
                         target="_blank"
                         rel="noopener"
@@ -59,7 +59,7 @@ const footer = (logo) => {
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
                   <tr>
                     <td align="left" style="font-size: 12px; color: #667085;">
-                      © ${new Date().getFullYear()} The Inspired Risk Services. All rights reserved.
+                      © ${new Date().getFullYear()} Absoliq. All rights reserved.
                     </td>
                     <td align="right" style="font-size: 12px;">
                       <a
