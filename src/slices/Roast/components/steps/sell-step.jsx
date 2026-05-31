@@ -1,4 +1,3 @@
-import { PackageOpen, Wrench } from "lucide-react";
 import { useFormikContext } from "formik";
 import OptionCard from "../option-card";
 import StepShell from "../step-shell";

@@ -8,6 +8,7 @@ const StepActions = ({
   type = "button",
   className,
   siteBtn = false,
+  disabled = false,
 }) => {
   if (siteBtn)
     return (
@@ -16,6 +17,7 @@ const StepActions = ({
         type={type}
         label={label}
         onClick={onContinue}
+        disabled={disabled}
       />
     );
   return (
@@ -29,6 +31,7 @@ const StepActions = ({
         variant="primary"
         type={type}
         onClick={onContinue}
+        disabled={disabled}
         className="w-full btn btn-primary font-normal!"
       >
         <span className="block mt-1">{label}</span>

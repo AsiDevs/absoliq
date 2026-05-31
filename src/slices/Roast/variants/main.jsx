@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { Formik } from "formik";
+import { getAdminEmailTemplate } from "@/slices/Forms/utils/templates/getAdminEmailTemplate";
+import { getUserEmailTemplate } from "@/slices/Forms/utils/templates/getUserEmailTemplate";
 import RoastProgress from "../components/roast-progress";
 import StartStep from "../components/steps/start-step";
 import FirstNameStep from "../components/steps/first-name-step";
@@ -121,10 +124,54 @@ const validate = (values) => {
 const getTouchedForFields = (fields) =>
   fields.reduce((touched, field) => ({ ...touched, [field]: true }), {});
 
-const Main = () => {
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
+
+const formatCurrency = (value) => currencyFormatter.format(Number(value || 0));
+
+const buildRoastAdminPayload = (values) => ({
+  name: `${values.firstName} ${values.lastName}`.trim(),
+  firstName: values.firstName,
+  lastName: values.lastName,
+  email: values.email,
+  mobile: values.mobile,
+  companyName: values.companyName,
+  website: values.website,
+  country: values.country,
+  sellingType: values.sellingType,
+  marketingChannels: values.marketingChannels,
+  marketingBudget: values.budget,
+  businessDescription: values.businessDescription,
+  currentMonthlyRevenue: formatCurrency(values.currentMonthlyRevenue),
+  targetMonthlyRevenue: formatCurrency(values.targetMonthlyRevenue),
+  biggestObstacle: values.biggestObstacle,
+  roastPromise: values.roastPromise,
+});
+
+const createHubSpotContact = (values, qualificationTag) =>
+  axios.post("/api/hubspot/contact", {
+    values,
+    qualificationTag,
+  });
+
+const Main = ({ settings }) => {
   const [hasStarted, setHasStarted] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [terminalStep, setTerminalStep] = useState(null);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const adminEmails = (
+    settings?.data?.contact_form_submission_email ||
+    settings?.contact_form_submission_email ||
+    "hello@absoliq.com"
+  )
+    .split(",")
+    .slice(0, 2)
+    .join(",");
 
   return (
     <div className="relative z-10 mx-auto w-full overflow-hidden text-white">
@@ -133,7 +180,51 @@ const Main = () => {
         validate={validate}
         validateOnBlur
         validateOnChange={false}
-        onSubmit={() => {}}
+        onSubmit={async (values, { resetForm, setSubmitting }) => {
+          setSubmitMessage("");
+
+          try {
+            const adminPayload = buildRoastAdminPayload(values);
+            const logo = settings?.data?.header_logo;
+            const [response] = await Promise.all([
+              axios.post("/api/send-mail", {
+                emails: [
+                  {
+                    recipient: values.email,
+                    replyTo: adminEmails,
+                    emailRequestFrom: values.email,
+                    subject: "We got your strategy session details",
+                    content: getUserEmailTemplate(adminPayload, logo),
+                  },
+                  {
+                    recipient: adminEmails,
+                    replyTo: values.email,
+                    emailRequestFrom: values.email,
+                    subject: `${adminPayload.name || values.email} | New Roast Submission`,
+                    content: getAdminEmailTemplate(adminPayload, logo),
+                  },
+                ],
+                recaptchaToken: "",
+              }),
+              createHubSpotContact(values, "Qualified"),
+            ]);
+
+            if (!response.data.success) {
+              throw new Error("Failed to send roast submission");
+            }
+
+            setSuccess(true);
+            setSubmitMessage("Your strategy session details have been sent.");
+            resetForm();
+          } catch {
+            setSuccess(false);
+            setSubmitMessage(
+              "We could not send your details right now. Please try again in a moment.",
+            );
+          } finally {
+            setSubmitting(false);
+          }
+        }}
       >
         {(formik) => {
           const nickname = getNickname(formik.values.firstName);
@@ -177,10 +268,13 @@ const Main = () => {
               key="biggest-obstacle"
               nickname={nickname}
               onContinue={handleContinue}
+              isSubmitting={formik.isSubmitting}
             />,
           ];
 
           async function handleContinue(valueOverrides = {}) {
+            if (formik.isSubmitting) return;
+
             const terminalFields = {
               promise: ["roastPromise"],
               booking: [
@@ -221,7 +315,17 @@ const Main = () => {
 
             if (currentStep === steps.length - 1) {
               if (Number(formik.values.currentMonthlyRevenue) === 0) {
-                setTerminalStep("apology");
+                formik.setSubmitting(true);
+
+                try {
+                  await createHubSpotContact(formik.values, "Disqualified");
+                  setTerminalStep("apology");
+                } catch {
+                  setTerminalStep("apology");
+                } finally {
+                  formik.setSubmitting(false);
+                }
+
                 return;
               }
 
@@ -254,7 +358,12 @@ const Main = () => {
                   onContinue={handleContinue}
                 />
               ) : terminalStep === "booking" ? (
-                <BookingDetailsStep onContinue={handleContinue} />
+                <BookingDetailsStep
+                  onContinue={handleContinue}
+                  isSubmitting={formik.isSubmitting}
+                  submitMessage={submitMessage}
+                  success={success}
+                />
               ) : !hasStarted ? (
                 <StartStep onContinue={() => setHasStarted(true)} />
               ) : (

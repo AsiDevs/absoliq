@@ -2,7 +2,12 @@ import FormField from "../form-field";
 import StepActions from "../step-actions";
 import StepShell from "../step-shell";
 
-const BookingDetailsStep = ({ onContinue }) => {
+const BookingDetailsStep = ({
+  onContinue,
+  isSubmitting,
+  submitMessage,
+  success,
+}) => {
   return (
     <StepShell
       title="BOOM! 👊 It looks like we can DRAMATICALLY help you grow your business using some of our proven funnels and marketing strategies, simply enter your details below!"
@@ -36,7 +41,20 @@ const BookingDetailsStep = ({ onContinue }) => {
           wrapperClass="mb-0 w-full"
         />
       </div>
-      <StepActions onContinue={onContinue} label="Book My Strategy Session" />
+      <StepActions
+        onContinue={onContinue}
+        label={isSubmitting ? "Booking..." : "Book My Strategy Session"}
+        disabled={isSubmitting}
+      />
+      {submitMessage && (
+        <p
+          className={`mx-auto mt-4 max-w-[520px] text-center text-body-small-s ${
+            success ? "text-success-primary" : "text-error-primary"
+          }`}
+        >
+          {submitMessage}
+        </p>
+      )}
     </StepShell>
   );
 };

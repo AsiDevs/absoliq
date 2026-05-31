@@ -2,7 +2,7 @@ import FormField from "../form-field";
 import StepActions from "../step-actions";
 import StepShell from "../step-shell";
 
-const BiggestObstacleStep = ({ nickname, onContinue }) => {
+const BiggestObstacleStep = ({ nickname, onContinue, isSubmitting }) => {
   return (
     <StepShell
       title={`${nickname}, be honest. What is the #1 biggest obstacle which keeps you from sleeping well at night in the business sense of course?`}
@@ -15,7 +15,11 @@ const BiggestObstacleStep = ({ nickname, onContinue }) => {
         rows="8"
         wrapperClass="mx-auto mb-0 w-full max-w-[590px]"
       />
-      <StepActions onContinue={onContinue} />
+      <StepActions
+        onContinue={onContinue}
+        label={isSubmitting ? "Checking..." : "Continue"}
+        disabled={isSubmitting}
+      />
     </StepShell>
   );
 };
