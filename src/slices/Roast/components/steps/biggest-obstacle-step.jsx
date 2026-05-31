@@ -7,7 +7,6 @@ const BiggestObstacleStep = ({ nickname, onContinue }) => {
     <StepShell
       title={`${nickname}, be honest. What is the #1 biggest obstacle which keeps you from sleeping well at night in the business sense of course?`}
       description="Just be brutally honest. Just vent to us, we'll listen to you."
-      titleClassName="max-w-[1040px]"
     >
       <FormField
         name="biggestObstacle"

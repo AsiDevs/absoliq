@@ -7,17 +7,22 @@ const PillOption = ({ label, selected, onClick }) => {
       type="button"
       onClick={onClick}
       className={clsx(
-        "flex h-[72px] w-full items-center gap-6 rounded-full bg-white px-7 text-left text-[24px] leading-8 text-[#211F24] transition-all md:h-[84px] md:text-[32px]",
-        selected && "outline outline-[3px] outline-primary-dark",
+        "group flex h-10 w-full items-center gap-6 rounded-full bg-white px-7 text-left text-body-large text-[#000] transition-all md:h-15 md:text-[32px] cursor-pointer outline outline-l outline-white hover:outline-primary-dark",
+        selected && "outline-primary-dark",
       )}
     >
       <span
         className={clsx(
-          "flex h-11 w-11 flex-none items-center justify-center rounded-full",
-          selected ? "bg-primary-dark text-white" : "bg-[#d9d9d9] text-[#d9d9d9]",
+          "flex h-8 w-8 flex-none items-center justify-center rounded-full",
+          selected
+            ? "bg-primary-dark text-white"
+            : "bg-[#d9d9d9] text-[#d9d9d9] group-hover:bg-primary-dark group-hover:text-white",
         )}
       >
-        {selected && <Check className="h-7 w-7" strokeWidth={3} />}
+        <Check
+          className={clsx("h-7 w-7", !selected && "hidden group-hover:block")}
+          strokeWidth={3}
+        />
       </span>
       {label}
     </button>

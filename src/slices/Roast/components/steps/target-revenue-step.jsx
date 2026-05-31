@@ -7,7 +7,6 @@ const TargetRevenueStep = ({ onContinue }) => {
     <StepShell
       title="What is your TARGET monthly revenue? Be honest, but also be realistic."
       description="We're asking so we could craft a tailor made growth plan which can help you achieve this."
-      titleClassName="max-w-[960px]"
     >
       <RevenueSlider name="targetMonthlyRevenue" />
       <StepActions onContinue={onContinue} />

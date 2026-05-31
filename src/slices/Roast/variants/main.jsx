@@ -127,7 +127,7 @@ const Main = () => {
   const [terminalStep, setTerminalStep] = useState(null);
 
   return (
-    <div className="relative z-10 mx-auto min-h-[820px] w-full overflow-hidden text-white">
+    <div className="relative z-10 mx-auto w-full overflow-hidden text-white">
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -173,13 +173,11 @@ const Main = () => {
               key="target-revenue"
               onContinue={handleContinue}
             />,
-            (
-              <BiggestObstacleStep
-                key="biggest-obstacle"
-                nickname={nickname}
-                onContinue={handleContinue}
-              />
-            ),
+            <BiggestObstacleStep
+              key="biggest-obstacle"
+              nickname={nickname}
+              onContinue={handleContinue}
+            />,
           ];
 
           async function handleContinue(valueOverrides = {}) {

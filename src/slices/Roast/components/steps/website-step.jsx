@@ -7,7 +7,6 @@ const WebsiteStep = ({ nickname, onContinue }) => {
     <StepShell
       title={`${nickname}, what's your website url?`}
       description='If you do not have one, type "do not have one"'
-      titleClassName="max-w-[940px]"
     >
       <FormField name="website" placeholder="Website" type="text" />
       <StepActions onContinue={onContinue} />

@@ -7,19 +7,26 @@ const SellStep = ({ nickname, onContinue }) => {
   const { values, setFieldValue } = useFormikContext();
 
   const options = [
-    { label: "Product", value: "Product", icon: PackageOpen },
-    { label: "Services", value: "Services", icon: Wrench },
+    { label: "Product", value: "Product", image: "/images/package.svg" },
+    { label: "Services", value: "Services", image: "/images/tools.svg" },
   ];
 
   return (
     <StepShell
-      eyebrow={`Thanks, ${nickname}. Before we jump into the juicy stuff and see if Absoliq is the growth partner your business has been missing...we've got a few quick questions for you.`}
+      eyebrow={
+        <>
+          {`Thanks, ${nickname} 👊.`}
+          <br />
+          {`Before we jump into the juicy stuff and see if Absoliq is the growth partner your business has been missing...we've got a few quick questions for you.`}
+        </>
+      }
       title="First, what do you sell?"
     >
-      <div className="flex flex-wrap items-center justify-center gap-8">
+      <div className="flex flex-wrap items-center justify-center gap-6">
         {options.map((option) => (
           <OptionCard
             key={option.value}
+            image={option.image}
             icon={option.icon}
             label={option.label}
             selected={values.sellingType === option.value}

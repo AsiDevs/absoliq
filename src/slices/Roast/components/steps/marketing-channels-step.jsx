@@ -37,7 +37,9 @@ const MarketingChannelsStep = ({ onContinue }) => {
       return;
     }
 
-    const withoutNone = selectedChannels.filter((channel) => channel !== "None");
+    const withoutNone = selectedChannels.filter(
+      (channel) => channel !== "None",
+    );
     const nextChannels = withoutNone.includes(value)
       ? withoutNone.filter((channel) => channel !== value)
       : [...withoutNone, value];
@@ -49,7 +51,7 @@ const MarketingChannelsStep = ({ onContinue }) => {
     <StepShell
       title="Great! What are your go to marketing channels in priority order?"
       description="(Select more than one if applicable)"
-      titleClassName="max-w-[1040px]"
+      bodyMaxW={false}
     >
       <div className="mx-auto grid max-w-[1080px] grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-y-16">
         {channels.map((channel) => (
@@ -62,7 +64,7 @@ const MarketingChannelsStep = ({ onContinue }) => {
           />
         ))}
       </div>
-      <StepActions onContinue={onContinue} />
+      <StepActions onContinue={onContinue} className={"max-w-[414px]!"} />
     </StepShell>
   );
 };

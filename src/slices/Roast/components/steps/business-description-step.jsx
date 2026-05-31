@@ -6,7 +6,6 @@ const BusinessDescriptionStep = ({ nickname, onContinue }) => {
   return (
     <StepShell
       title={`${nickname}, in 5 sentences or more, briefly describe your business, what you sell, to whom and at what price point?`}
-      titleClassName="max-w-[1040px]"
     >
       <FormField
         name="businessDescription"

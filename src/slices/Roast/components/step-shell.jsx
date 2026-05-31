@@ -7,23 +7,24 @@ const StepShell = ({
   description,
   className = "",
   titleClassName = "",
+  bodyMaxW = true,
 }) => {
   return (
     <div
       className={clsx(
-        "mx-auto flex min-h-[620px] w-full max-w-[1280px] flex-col items-center justify-center py-14 text-center md:py-20",
+        "mx-auto flex w-full max-w-[1064px] flex-col items-center justify-center mt-10 md:mt-15 text-center",
         className,
       )}
     >
       {eyebrow && (
-        <p className="text-body-large mb-4 max-w-[900px] font-bold text-[#777]">
+        <p className="text-body-large mb-5 max-w-[880px] text-text-placeholder">
           {eyebrow}
         </p>
       )}
       {title && (
         <h2
           className={clsx(
-            "text-title-x-large mx-auto max-w-[1180px] font-bold text-[#0f0f0f]",
+            "text-title-x-large mx-auto max-w-[972px] font-medium text-text-heading",
             titleClassName,
           )}
         >
@@ -35,7 +36,14 @@ const StepShell = ({
           {description}
         </p>
       )}
-      <div className="mt-10 w-full">{children}</div>
+      <div
+        className={clsx({
+          "mt-5 w-full mx-auto": true,
+          "max-w-[414px]": bodyMaxW,
+        })}
+      >
+        {children}
+      </div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ const CountryStep = ({ onContinue }) => {
           name="country"
           value={values.country}
           onChange={(event) => setFieldValue("country", event.target.value)}
-          className="h-[76px] w-full appearance-none rounded-[4px] border border-primary-dark bg-white px-[28px] pr-[62px] text-[18px] text-[#211F24] outline-none"
+          className="h-[54px] w-full appearance-none rounded-[4px] border border-primary-dark bg-white px-[28px] pr-[62px] text-[18px] text-[#211F24] outline-none"
         >
           {countries.map((country) => (
             <option key={country} value={country}>

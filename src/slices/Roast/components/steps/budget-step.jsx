@@ -11,9 +11,9 @@ const BudgetStep = ({ onContinue }) => {
     <StepShell
       title="How much is your approximate monthly marketing budget?"
       description="We're not here to sell you things you don't need. This simply helps us understand whether we can genuinely help your business grow and what strategy will give you the best return within your budget."
-      titleClassName="max-w-[920px]"
+      bodyMaxW={false}
     >
-      <div className="mx-auto grid max-w-[860px] gap-5 md:grid-cols-2">
+      <div className="mx-auto grid max-w-[630px] gap-5 md:grid-cols-2 pb-1">
         {budgetOptions.map((option) => (
           <PillOption
             key={option}
