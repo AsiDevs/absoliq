@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Formik } from "formik";
 import { getAdminEmailTemplate } from "@/slices/Forms/utils/templates/getAdminEmailTemplate";
@@ -163,6 +163,11 @@ const Main = ({ settings }) => {
   const [terminalStep, setTerminalStep] = useState(null);
   const [submitMessage, setSubmitMessage] = useState("");
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [hasStarted, currentStep, terminalStep]);
 
   const adminEmails = (
     settings?.data?.contact_form_submission_email ||

@@ -49,7 +49,7 @@ const MarketingChannelsStep = ({ onContinue }) => {
 
   return (
     <StepShell
-      title="Great! What are your go to marketing channels in priority order?"
+      title="Great! What are your go to marketing channels?"
       description="(Select more than one if applicable)"
       bodyMaxW={false}
     >
