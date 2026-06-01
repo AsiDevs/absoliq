@@ -7,8 +7,8 @@ export const contactFormValidationSchema = Yup.object().shape({
   website: Yup.string().required("Required"),
   adSpend: Yup.string().required("Required"),
   message: Yup.string().required("Required"),
-  date: "",
-  time: "",
+  // date: "",
+  // time: "",
 });
 
 export const newsletterFormValidationSchema = Yup.object().shape({

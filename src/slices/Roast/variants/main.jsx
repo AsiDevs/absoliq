@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Formik } from "formik";
 import { getAdminEmailTemplate } from "@/slices/Forms/utils/templates/getAdminEmailTemplate";
-import { getUserEmailTemplate } from "@/slices/Forms/utils/templates/getUserEmailTemplate";
+import { getRoastUserEmailTemplate } from "@/slices/Forms/utils/templates/getRoastUserEmailTemplate";
 import RoastProgress from "../components/roast-progress";
 import StartStep from "../components/steps/start-step";
 import FirstNameStep from "../components/steps/first-name-step";
@@ -45,10 +45,10 @@ const initialValues = {
 const stepFields = [
   ["firstName"],
   ["email"],
-  ["sellingType"],
+  [],
   ["marketingChannels"],
   ["country"],
-  ["budget"],
+  [],
   ["website"],
   ["businessDescription"],
   ["currentMonthlyRevenue"],
@@ -74,20 +74,12 @@ const validate = (values) => {
     errors.email = "Enter a valid email.";
   }
 
-  if (!values.sellingType) {
-    errors.sellingType = "Choose what you sell.";
-  }
-
   if (!values.marketingChannels?.length) {
     errors.marketingChannels = "Choose at least one channel.";
   }
 
   if (!values.country) {
     errors.country = "Choose your country.";
-  }
-
-  if (!values.budget) {
-    errors.budget = "Choose a monthly marketing budget.";
   }
 
   if (!values.website?.trim()) {
@@ -102,16 +94,18 @@ const validate = (values) => {
     errors.biggestObstacle = "Tell us your biggest obstacle.";
   }
 
-  if (!values.roastPromise) {
-    errors.roastPromise = "Choose whether you can show up.";
-  }
-
   if (!values.lastName?.trim()) {
     errors.lastName = "Enter your last name.";
   }
 
   if (!values.mobile?.trim()) {
     errors.mobile = "Enter your mobile number.";
+  } else if (/[a-zA-Z]/.test(values.mobile)) {
+    errors.mobile = "Mobile number cannot contain letters.";
+  } else if (values.mobile.trim().length < 8) {
+    errors.mobile = "Mobile number must be at least 8 digits.";
+  } else if (values.mobile.trim().length > 12) {
+    errors.mobile = "Mobile number must be no more than 12 digits.";
   }
 
   if (!values.companyName?.trim()) {
@@ -198,8 +192,8 @@ const Main = ({ settings }) => {
                     recipient: values.email,
                     replyTo: adminEmails,
                     emailRequestFrom: values.email,
-                    subject: "We got your strategy session details",
-                    content: getUserEmailTemplate(adminPayload, logo),
+                    subject: "You wanted to be roasted?",
+                    content: getRoastUserEmailTemplate(adminPayload, logo),
                   },
                   {
                     recipient: adminEmails,

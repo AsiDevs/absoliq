@@ -67,7 +67,7 @@ const TitleContainer = ({ tiles, titleH = 20 }) => {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col gap-4.5 overflow-hidden  transition-bouncy "
+      className="flex flex-col gap-4.5 overflow-hidden"
       style={{ height }}
     >
       {rows.map((row, rowIndex) => (

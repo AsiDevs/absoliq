@@ -16,7 +16,7 @@ const sendEmail = async (emailData, url) => {
   if (!recipient) throw new Error("Recipient email is missing");
 
   const config = {
-    from: `Absoliq <web@absoliq.com>`,
+    from: `Absoliq <dinath@absoliq.com>`,
     to: recipient,
     bcc: "asitha.dev94@gmail.com",
     subject,
@@ -45,20 +45,19 @@ const sendEmail = async (emailData, url) => {
 };
 
 const send = async ({ emails, recaptchaToken }, url) => {
-  // if (!recaptchaToken)
-  //   return { success: false, message: "Recaptcha token missing" };
-
-  try {
-    await axios.post(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        secret: process.env.CLOUDFLARE_SECRET_KEY,
-        response: recaptchaToken,
-      },
-    );
-  } catch (error) {
-    console.log(error);
-    return { success: false, message: "recaptchaToken verification error" };
+  if (recaptchaToken) {
+    try {
+      await axios.post(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          secret: process.env.CLOUDFLARE_SECRET_KEY,
+          response: recaptchaToken,
+        },
+      );
+    } catch (error) {
+      console.log(error);
+      return { success: false, message: "recaptchaToken verification error" };
+    }
   }
 
   try {

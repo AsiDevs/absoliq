@@ -1,3 +1,8 @@
+.tile {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 .tile .icon-primary {
   transition: var(--transition);
   padding: 9px;

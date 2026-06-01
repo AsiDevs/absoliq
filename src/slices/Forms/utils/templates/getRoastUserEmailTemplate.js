@@ -1,11 +1,11 @@
 import { header, footer } from "./layout";
 
-export const getUserEmailTemplate = (values, logo) => {
+export const getRoastUserEmailTemplate = (values, logo) => {
   return `
           <html>
             <head>
               <meta charset="UTF-8" />
-              <title>Absoliq felt a Nudge</title>
+              <title>You wanted to be roasted?</title>
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
             <body>
@@ -15,13 +15,15 @@ export const getUserEmailTemplate = (values, logo) => {
                   <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
                     <tr>
                       <td style="font-size: 16px; line-height: 26px; color: #333333; padding: 32px; background-color: white; border-radius: 14px; border: 1px solid #EAE8F2;">
-                        <p style="margin: 0 0 12px;">Hi <strong>${values?.name || "there"}</strong>,</p>
-                        <p style="margin: 0 0 12px;">We felt a nudge.</p>
-                        <p style="margin: 0 0 12px;">We had a look at what you shared. Keep an eye on your inbox and we'll send you a link to pick a time that works for you.</p>
-                        <p style="margin: 0 0 12px;">Trust us it's not a sales call. It's a straight conversation about what's actually going on in your marketing system.</p>
-                        <p style="margin: 0 0 12px;">We would like if you come ready to talk about the difficult, the ugly, the good and the positive things of your business so we can break it down more clearly for you. That's where the value is.</p>
+                        <p style="margin: 0 0 12px;">Hi <strong>${values?.firstName || "there"}</strong>,</p>
+                        <p style="margin: 0 0 12px;">Your Roast is confirmed and that's a smart move!</p>
+                        <p style="margin: 0 0 12px;">This is a 30–45 minute diagnostic session. No pitch. No sales deck. Just an honest look at what's working in your marketing system, what isn't, and why.</p>
+                        <p style="margin: 0 0 12px;">We'll come prepared.</p>
+                        <p style="margin: 0 0 12px;">All we ask is that you do too. Be ready to talk numbers, channels, and what "inconsistent results" actually looks like in your business.</p>
+                        <p style="margin: 0 0 12px;">You'll leave with clarity and that's the whole point of our Roast!</p>
+                        <p style="margin: 0 0 12px;">Keep an eye on your inbox and we'll send you a link to lock in your time slot.</p>
                         <p style="margin: 20px 0 0;">
-                          Talk soon.<br />
+                          Catch you real soon,<br />
                           <strong>Dinath Gamage.</strong><br />
                           Head of Strategy at Absoliq
                         </p>

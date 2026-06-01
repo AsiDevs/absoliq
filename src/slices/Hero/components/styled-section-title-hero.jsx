@@ -69,7 +69,7 @@ const StyledSectionTitleHero = ({
         <div className="w-full overflow-hidden">
           <AnimateUp>
             <StyledPrismicRichTextSingle
-              className="text-body-small"
+              className="text-body-small md:text-[18px]!"
               field={description}
             />
           </AnimateUp>

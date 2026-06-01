@@ -32,20 +32,27 @@ const ContactForm = ({ slice, settings }) => {
             website: "",
             adSpend: "",
             message: "",
-            date: "",
-            time: "",
+            // date: "",
+            // time: "",
           }}
           validationSchema={contactFormValidationSchema}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            handleFormSubmit(
-              values,
-              resetForm,
-              settings?.contact_form_submission_email || "hello@absoliq.com",
-              setSuccess,
-              setSubmitMessage,
-              recaptchaToken,
-              settings?.data.header_logo,
-            );
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            try {
+              await handleFormSubmit(
+                values,
+                resetForm,
+                settings?.contact_form_submission_email || "hello@absoliq.com",
+                setSuccess,
+                setSubmitMessage,
+                recaptchaToken,
+                settings?.data?.header_logo,
+              );
+            } catch {
+              setSuccess(false);
+              setSubmitMessage("We couldn't send your enquiry right now. Please try again in a moment.");
+            } finally {
+              setSubmitting(false);
+            }
           }}
         >
           {({ handleSubmit, isSubmitting }) => (
@@ -92,7 +99,7 @@ const ContactForm = ({ slice, settings }) => {
                   placeholder={"Anything you’d like to discuss?"}
                   type="textarea"
                 />
-                <div className="md:grid md:grid-cols-2 gap-4.5">
+                {/* <div className="md:grid md:grid-cols-2 gap-4.5">
                   <StyledFormikInput
                     label={"Preferred meeting date"}
                     name={"date"}
@@ -107,7 +114,7 @@ const ContactForm = ({ slice, settings }) => {
                     placeholder={"XX:XX"}
                     type="time"
                   />
-                </div>
+                </div> */}
               </div>
               <StyledPrismicRichTextSingle
                 className="text-text-light text-[12px] mt-7 disclaimer"

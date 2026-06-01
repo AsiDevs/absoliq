@@ -23,6 +23,10 @@ export const handleSubscription = async (
       setSuccess(true);
       showMessage("You have successfully subscribed to our newsletter!");
       resetForm();
+      axios.post("/api/hubspot/contact", {
+        values: { email: values.email, firstName: values.name },
+        qualificationTag: "",
+      }).catch(() => {});
     } else {
       setSuccess(false);
       showMessage(

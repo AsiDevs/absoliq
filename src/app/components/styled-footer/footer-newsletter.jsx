@@ -41,7 +41,7 @@ const FooterNewsletter = ({ settings }) => {
         }}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <form onSubmit={handleSubmit} className="flex">
+          <form onSubmit={handleSubmit}>
             <div className="flex w-full">
               <StyledFormikInput
                 name={"email"}

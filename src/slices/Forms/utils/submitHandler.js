@@ -25,7 +25,7 @@ export const handleFormSubmit = async (
       recipient: values.email,
       replyTo: adminEmails,
       emailRequestFrom: values.email,
-      subject: `We got your message`,
+      subject: `Absoliq felt a Nudge`,
       content: userEmailContent,
     },
     {
@@ -47,6 +47,11 @@ export const handleFormSubmit = async (
     setSuccess(true);
     setSubmitMessage("Your inquiry has been submitted successfully!");
     resetForm();
+    axios.post("/api/create-subscription", {
+      email: values.email,
+      name: values.name,
+      recaptchaToken,
+    }).catch(() => {});
   } else {
     setSuccess(false);
     setSubmitMessage(

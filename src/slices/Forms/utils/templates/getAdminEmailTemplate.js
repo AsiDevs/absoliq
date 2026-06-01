@@ -67,11 +67,6 @@ export const getAdminEmailTemplate = (values, logo) => {
                           ${submittedDetails}
                         </ul>
                         <p>Please follow up with this lead as soon as possible.</p>
-                        <p style="margin-top: 20px 0 0;">
-                          Best regards,
-                          <br />
-                          <strong>The Enjoy Sri Lanka Team</strong>
-                        </p>
                       </td>
                     </tr>
                   </table>
