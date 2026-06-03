@@ -31,7 +31,7 @@ const StyledSectionTitleHero = ({
     >
       {caption && (
         <div className="w-full ">
-          <AnimateUp
+          <div
             className={clsx({
               "flex gap-2 items-center xl:mb-2.5": true,
               "justify-center": !leftAligned,
@@ -52,27 +52,23 @@ const StyledSectionTitleHero = ({
               className="text-title-base-blog font-bold"
               field={caption}
             />
-          </AnimateUp>
+          </div>
         </div>
       )}
       {title && (
         <div className="w-full overflow-hidden">
-          <AnimateUp>
-            <StyledPrismicRichTextSingle
-              className="text-title-3x-large"
-              field={title}
-            />
-          </AnimateUp>
+          <StyledPrismicRichTextSingle
+            className="text-title-3x-large"
+            field={title}
+          />
         </div>
       )}
       {description && (
         <div className="w-full overflow-hidden">
-          <AnimateUp>
-            <StyledPrismicRichTextSingle
-              className="text-body-small md:text-[18px]!"
-              field={description}
-            />
-          </AnimateUp>
+          <StyledPrismicRichTextSingle
+            className="text-body-small md:text-[18px]!"
+            field={description}
+          />
         </div>
       )}
     </AnimateIn>
