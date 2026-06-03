@@ -166,7 +166,7 @@ const Main = ({ settings }) => {
   const adminEmails = (
     settings?.data?.contact_form_submission_email ||
     settings?.contact_form_submission_email ||
-    "hello@absoliq.com"
+    "hello@absoliq.com,dinath@absoliq.com"
   )
     .split(",")
     .slice(0, 2)

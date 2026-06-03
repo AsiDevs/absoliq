@@ -41,7 +41,8 @@ const ContactForm = ({ slice, settings }) => {
               await handleFormSubmit(
                 values,
                 resetForm,
-                settings?.contact_form_submission_email || "hello@absoliq.com",
+                settings?.contact_form_submission_email ||
+                  "hello@absoliq.com,dinath@absoliq.com",
                 setSuccess,
                 setSubmitMessage,
                 recaptchaToken,
@@ -49,7 +50,9 @@ const ContactForm = ({ slice, settings }) => {
               );
             } catch {
               setSuccess(false);
-              setSubmitMessage("We couldn't send your enquiry right now. Please try again in a moment.");
+              setSubmitMessage(
+                "We couldn't send your enquiry right now. Please try again in a moment.",
+              );
             } finally {
               setSubmitting(false);
             }
