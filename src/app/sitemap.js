@@ -12,14 +12,14 @@ export default async function sitemap() {
 
   const pageEntries = pages.map((doc) => ({
     url: doc.uid === "home" ? BASE_URL : `${BASE_URL}/${doc.uid}`,
-    lastModified: doc.last_publication_date,
+    lastModified: new Date(doc.last_publication_date).toISOString(),
     changeFrequency: "monthly",
     priority: doc.uid === "home" ? 1 : 0.8,
   }));
 
   const blogEntries = blogs.map((doc) => ({
     url: `${BASE_URL}/blog/${doc.uid}`,
-    lastModified: doc.last_publication_date,
+    lastModified: new Date(doc.last_publication_date).toISOString(),
     changeFrequency: "weekly",
     priority: 0.6,
   }));
