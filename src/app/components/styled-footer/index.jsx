@@ -4,6 +4,7 @@ import CopyrightLinks from "./copyright-links";
 import FooterLinksOne from "./footer-links-one";
 import FooterLinksTwo from "./footer-links-two";
 import FooterNewsletter from "./footer-newsletter";
+import DayDisplay from "./day-display";
 
 const StyledFooter = ({ settings, navigation }) => {
   return (
@@ -54,10 +55,7 @@ const StyledFooter = ({ settings, navigation }) => {
             </div>
             <div className="text-body-caption">
               Happy{" "}
-              {new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                timeZone: "Asia/Colombo",
-              })}
+              <DayDisplay />
             </div>
           </div>
           {/* Design & development */}
